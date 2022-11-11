@@ -22,9 +22,9 @@ using System.Windows.Navigation;
 namespace maipoGrande.Pages
 {
     /// <summary>
-    /// Lógica de interacción para Solicitudes_de_compra.xaml
+    /// Lógica de interacción para Solicitudes.xaml
     /// </summary>
-    public partial class Solicitudes_de_compra : Page
+    public partial class Solicitudes : Page
     {
         OracleConnection conn = null;
         int id_usuario;
@@ -38,7 +38,7 @@ namespace maipoGrande.Pages
         int ciudad;
         int rol;
 
-        public Solicitudes_de_compra(int id_usuario, string nombre, string apellido, string email, string password, int run, int usuario_activo, int superuser, int ciudad, int rol)
+        public Solicitudes(int id_usuario, string nombre, string apellido, string email, string password, int run, int usuario_activo, int superuser, int ciudad, int rol)
         {
             abrirConexion();
             InitializeComponent();

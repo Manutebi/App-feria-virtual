@@ -1,4 +1,4 @@
-﻿<Page x:Class="maipoGrande.Pages.Proceso_de_venta"
+﻿<Page x:Class="maipoGrande.Pages.Procesos"
        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
        xmlns:local="clr-namespace:maipoGrande.Pages"
        mc:Ignorable="d" 
        d:DesignHeight="450" d:DesignWidth="800"
-       Title="Proceso de ventas">
+       Title="Procesos">
 
     <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
 

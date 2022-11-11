@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>maipoGrande</RootNamespace>
     <AssemblyName>maipoGrande</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -79,14 +79,14 @@
     <Compile Include="Pages\Contratos.xaml.cs">
       <DependentUpon>Contratos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Proceso de venta.xaml.cs">
-      <DependentUpon>Proceso de venta.xaml</DependentUpon>
+    <Compile Include="Pages\Procesos.xaml.cs">
+      <DependentUpon>Procesos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Solicitudes de compra.xaml.cs">
-      <DependentUpon>Solicitudes de compra.xaml</DependentUpon>
+    <Compile Include="Pages\Solicitudes.xaml.cs">
+      <DependentUpon>Solicitudes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Usuarios.xaml.cs">
       <DependentUpon>Usuarios.xaml</DependentUpon>
@@ -121,7 +121,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Proceso de venta.xaml">
+    <Page Include="Pages\Procesos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,7 +129,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Solicitudes de compra.xaml">
+    <Page Include="Pages\Solicitudes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

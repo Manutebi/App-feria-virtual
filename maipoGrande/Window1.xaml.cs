@@ -92,6 +92,24 @@ namespace maipoGrande
         }
 
 
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnRestore_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+                WindowState = WindowState.Maximized;
+            else
+                WindowState = WindowState.Normal;
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
 
         private void click_usuarios(object sender, RoutedEventArgs e)
         {
@@ -104,7 +122,7 @@ namespace maipoGrande
         }
         private void click_procesos(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/Proceso_de_venta.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Pages/Procesos.xaml", UriKind.RelativeOrAbsolute));
         }
         private void click_productos(object sender, RoutedEventArgs e)
         {
@@ -112,7 +130,9 @@ namespace maipoGrande
         }
         private void click_solicitudes(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/Solicitudes_de_compra.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Pages/Solicitudes.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        
     }
 }

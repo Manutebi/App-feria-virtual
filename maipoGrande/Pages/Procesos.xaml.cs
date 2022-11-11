@@ -24,11 +24,11 @@ namespace maipoGrande.Pages
     /// <summary>
     /// Lógica de interacción para Proceso_de_venta.xaml
     /// </summary>
-    public partial class Proceso_de_venta : Page
+    public partial class Procesos : Page
     {
         OracleConnection conn = null;
 
-        public Proceso_de_venta()
+        public Procesos()
         {
             abrirConexion();
             InitializeComponent();
