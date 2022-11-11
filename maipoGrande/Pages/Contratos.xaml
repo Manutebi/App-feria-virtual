@@ -6,7 +6,7 @@
        xmlns:local="clr-namespace:maipoGrande.Pages"
        mc:Ignorable="d" 
        d:DesignHeight="450" d:DesignWidth="800"
-       Title="Contratos" Cursor="Hand">
+       Title="Contratos">
 
     <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
 
