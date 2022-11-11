@@ -17,6 +17,7 @@ using System.Configuration;
 using System.Data;
 using maipoGrandeDatos;
 using Microsoft.Win32;
+using System.Windows.Navigation;
 
 namespace maipoGrande.Pages
 {
@@ -29,6 +30,7 @@ namespace maipoGrande.Pages
 
         public Productos()
         {
+            abrirConexion();
             InitializeComponent();
         }
 
