@@ -130,7 +130,7 @@ namespace maipoGrande
         }
         private void click_solicitudes(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/Solicitudes.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new Pages.Solicitudes(id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol));
         }
 
         
