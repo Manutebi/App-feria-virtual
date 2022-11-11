@@ -1,0 +1,30 @@
+﻿<Page x:Class="maipoGrande.Pages.Solicitudes_de_compra"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:local="clr-namespace:maipoGrande.Pages"
+       mc:Ignorable="d" 
+       d:DesignHeight="450" d:DesignWidth="800"
+       Title="Solicitudes de compra">
+
+    <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+        <Grid>
+            <DataGrid x:Name="listadoSolicitudCompra" Margin="0,4,533,1" Loaded="ListadoSolicitudCompra_Loaded"/>
+            <Label x:Name="cantidadLabel" Content="Cantidad de frutas requeridas" HorizontalAlignment="Left" Margin="295,26,0,0" VerticalAlignment="Top" Width="168"/>
+            <TextBox x:Name="cantidadBox" HorizontalAlignment="Left" Height="22" Margin="501,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <Label x:Name="frutaLabel" Content="Fruta" HorizontalAlignment="Left" Margin="426,79,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbProducto" Margin="478,79,224,345" Loaded="CbProducto_Loaded"/>
+            <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="425,134,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbEstadoSolicitud" Margin="579,144,127,280" Loaded="CbEstadoSolicitud_Loaded"/>
+            <Label x:Name="idSolicitud" Content="ID" HorizontalAlignment="Left" Margin="333,214,0,0" VerticalAlignment="Top" Height="33" Width="35"/>
+            <ComboBox x:Name="cbIdSolicitudCompra" Margin="373,222,317,203" Loaded="CbIdSolicitudCompra_Loaded" SelectionChanged="CbIdSolicitudCompra_SelectionChanged" />
+            <Button x:Name="GuardarSolicitud" Content="Guardar" HorizontalAlignment="Left" Margin="588,400,0,0" VerticalAlignment="Top" Width="76" Click="GuardarSolicitud_Click" RenderTransformOrigin="0.492,0.427"/>
+            <Button x:Name="ActualizarSolicitud" Content="Actualizar" HorizontalAlignment="Left" Margin="350,400,0,0" VerticalAlignment="Top" Width="76" Click="ActualizarSolicitud_Click"/>
+            <Button x:Name="EliminarSolicitud" Content="Eliminar" HorizontalAlignment="Left" Margin="478,400,0,0" VerticalAlignment="Top" Width="75" Click="EliminarSolicitud_Click"/>
+        </Grid>
+
+
+
+    </Border>
+</Page>
