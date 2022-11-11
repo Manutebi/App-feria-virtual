@@ -1,0 +1,21 @@
+﻿<Window x:Class="maipoGrande.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:maipoGrande"
+        mc:Ignorable="d"
+        Title="Inicio de Sesión" Height="268" Width="455"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Icon="https://cdn.discordapp.com/attachments/636390598437502979/1034194671741714572/Logo2.png"
+>
+    <Grid>
+        <Label x:Name="userLabel" Content="Email" HorizontalAlignment="Left" Margin="44,105,0,0" VerticalAlignment="Top" Height="32" Width="58" FontSize="14"/>
+        <Label x:Name="contrasenaLabel" Content="Contraseña" HorizontalAlignment="Left" Margin="22,142,0,0" VerticalAlignment="Top" Height="32" Width="80" FontSize="14"/>
+        <TextBox x:Name="userBox" HorizontalAlignment="Left" Height="20" Margin="107,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
+        <PasswordBox x:Name="passBox" HorizontalAlignment="Left" Height="20" Margin="107,148,0,0"  VerticalAlignment="Top" Width="309"/>
+        <Button x:Name="loginBtn" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="166,192,0,0" VerticalAlignment="Top" Width="125" Height="23" Click="LoginBtn_Click"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="183,4,0,0" VerticalAlignment="Top" Width="100" Source="https://cdn.discordapp.com/attachments/636390598437502979/1034194670944780288/Logo.png"/>
+    </Grid>
+</Window>
