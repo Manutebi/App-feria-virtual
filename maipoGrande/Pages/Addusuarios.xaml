@@ -1,4 +1,4 @@
-﻿<Page x:Class="maipoGrande.Pages.Addusuarios"
+﻿<Window x:Class="maipoGrande.Pages.Addusuarios"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,7 +11,7 @@
     <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
-                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
             
             <Label x:Name="avisoLabel0" Content="Ingresar Run sin puntos ni guion" HorizontalAlignment="Left" Margin="541,65,0,0" VerticalAlignment="Top" Height="26" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
@@ -47,4 +47,4 @@
 
 
     </Border>
-</Page>
+</Window>
