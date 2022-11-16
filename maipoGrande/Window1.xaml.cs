@@ -111,6 +111,19 @@ namespace maipoGrande
         }
 
 
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+      
+
+
+
+
         private void click_usuarios(object sender, RoutedEventArgs e)
         {
             PagesNavigation.Navigate(new System.Uri("Pages/Usuarios.xaml", UriKind.RelativeOrAbsolute));
@@ -133,6 +146,14 @@ namespace maipoGrande
             PagesNavigation.Navigate(new Pages.Solicitudes(id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol));
         }
 
-        
+        private void rdHome_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void click_camion(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new System.Uri("Pages/Transportista.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }

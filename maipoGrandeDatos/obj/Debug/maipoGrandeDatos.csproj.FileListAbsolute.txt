@@ -16,3 +16,9 @@ C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.cspr
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.csproj.CoreCompileInputs.cache
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.dll
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.pdb
+C:\Users\Manu\Source\Repos\App-feria-virtual\maipoGrandeDatos\bin\Debug\maipoGrandeDatos.dll
+C:\Users\Manu\Source\Repos\App-feria-virtual\maipoGrandeDatos\bin\Debug\maipoGrandeDatos.pdb
+C:\Users\Manu\Source\Repos\App-feria-virtual\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.csproj.AssemblyReference.cache
+C:\Users\Manu\Source\Repos\App-feria-virtual\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.csproj.CoreCompileInputs.cache
+C:\Users\Manu\Source\Repos\App-feria-virtual\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.dll
+C:\Users\Manu\Source\Repos\App-feria-virtual\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.pdb

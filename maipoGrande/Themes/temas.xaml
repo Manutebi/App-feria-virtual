@@ -21,6 +21,6 @@
     <!-- Icons Colors -->
     <SolidColorBrush x:Key="ActionIconColor" Color="#434344"/>
 
-
+    
 
 </ResourceDictionary>

@@ -10,7 +10,7 @@
         Background="Transparent" AllowsTransparency="True"
         ResizeMode="NoResize" WindowState="Normal">
     
-    <Border CornerRadius="8" Background="{DynamicResource PrimaryBackgroundColor}">
+    <Border CornerRadius="8" MouseDown="Border_MouseDown" Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -29,7 +29,7 @@
                     <!-- Logo -->
                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top">
                         <Path Data="{DynamicResource logo}" Margin="16 0 0 0" Stretch="Fill" Fill="{DynamicResource PrimaryBlueColor}" Width="25" Height="25" HorizontalAlignment="Left"/>
-                        <Label Content="Orizon" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="14 0 0 0"/>
+                        <Label Content="Feria virtual" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="14 0 0 0"/>
                     </StackPanel>
 
                     <!-- Menu -->
@@ -56,21 +56,24 @@
 
                     <StackPanel Grid.Row="3">
                         <RadioButton x:Name="rdHome" IsChecked="True" Content="Home" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource home}" Click="click_usuarios" Cursor="Hand"/>
-                        <RadioButton x:Name="rdSounds" Content="Sounds" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource headphones}" Margin="0 5 0 5" Click="click_procesos" Cursor="Hand"/>
-                        <RadioButton x:Name="rdNotes" Content="Notes" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource notes}" Click="click_productos"/>
-                        <RadioButton x:Name="rdPayment" Content="Payment" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource payment}" Margin="0 5 0 5" Click="click_solicitudes" Cursor="Hand"/>
-                        <RadioButton x:Name="rdnotes" Content="Notes" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource notes}" Margin="0 5 0 5" Click="click_contratos"/>
+                        <RadioButton x:Name="rdUsuarios" Content="Usuarios" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Usuarios}" Margin="0 5 0 5" Click="click_usuarios" Cursor="Hand"/>
+                        <RadioButton x:Name="rdPdv" Content="Pdv" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Carrito}" Margin="0 5 0 5" Click="click_procesos" Cursor="Hand"/>
+                        <RadioButton x:Name="rdProductos" Content="Productos" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Producto}" Click="click_productos" Cursor="Hand"/>
+                        <RadioButton x:Name="rdVentas" Content="Ventas" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Solicitud}" Margin="0 5 0 5" Click="click_solicitudes" Cursor="Hand"/>
+                        <RadioButton x:Name="rdContratos" Content="Contratos" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Contrato}" Margin="0 5 0 5" Click="click_contratos"/>
+                        <RadioButton x:Name="rdTransportistas" Content="Transportistas" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Camion}" Margin="0 5 0 5" Click="click_camion" Cursor="Hand"/>
+                        <RadioButton x:Name="rdsexo" Content="Sexo" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Documento1}" Margin="0 5 0 5" Click="click_contratos"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Orientation="Horizontal" Width="200" Margin="0 0 0 20">
                         <Ellipse Width="40" Height="40" Margin="10 0 0 0">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="Assets/Avatars/avatar-2.jpg"/>
+                                <ImageBrush ImageSource="Assets/Avatars/avatar1.jpg"/>
                             </Ellipse.Fill>
                         </Ellipse>
                         <StackPanel Orientation="Vertical" Margin="8 0 0 0">
-                            <Label Content="Scarlett Gwen" Foreground="{DynamicResource TextPrimaryColor}" FontSize="14" FontWeight="SemiBold" HorizontalContentAlignment="Center" HorizontalAlignment="Left"/>
-                            <Label Content="scarlettgwen@gmail.com" Foreground="{DynamicResource PrimaryGrayColor}" FontSize="11" FontWeight="Regular" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
+                            <Label Content="Manu" Foreground="{DynamicResource TextPrimaryColor}" FontSize="14" FontWeight="SemiBold" HorizontalContentAlignment="Center" HorizontalAlignment="Left"/>
+                            <Label Content="manux518@gmail.com" Foreground="{DynamicResource PrimaryGrayColor}" FontSize="11" FontWeight="Regular" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
                         </StackPanel>
                     </StackPanel>
                 </Grid>

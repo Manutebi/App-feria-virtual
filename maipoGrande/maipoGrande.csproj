@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>maipoGrande</RootNamespace>
     <AssemblyName>maipoGrande</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -76,6 +76,9 @@
     <Compile Include="compradorExterno.xaml.cs">
       <DependentUpon>compradorExterno.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Addusuarios.xaml.cs">
+      <DependentUpon>Addusuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Contratos.xaml.cs">
       <DependentUpon>Contratos.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
     </Compile>
     <Compile Include="Pages\Solicitudes.xaml.cs">
       <DependentUpon>Solicitudes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Transportista.xaml.cs">
+      <DependentUpon>Transportista.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Usuarios.xaml.cs">
       <DependentUpon>Usuarios.xaml</DependentUpon>
@@ -117,6 +123,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Addusuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Contratos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,11 +143,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Transportista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Usuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\MainStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\styledatagrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,7 +210,9 @@
   <ItemGroup>
     <Resource Include="Images\p1.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Avatars\avatar1.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Avatars\avatar-2.jpg" />
   </ItemGroup>
