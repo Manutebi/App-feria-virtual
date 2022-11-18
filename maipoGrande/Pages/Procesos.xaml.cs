@@ -97,6 +97,14 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al leer Solicitud");
             }
         }
+        private void MostrarSolicitudNo_Checked(object sender, RoutedEventArgs e)
+        {
+            cargarProcesoDG();
+        }
+        private void MostrarSolicitudSi_Checked(object sender, RoutedEventArgs e)
+        {
+            cargarSolicitudDG();
+        }
 
 
     }

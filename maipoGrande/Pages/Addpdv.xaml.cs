@@ -207,14 +207,7 @@ namespace maipoGrande.Pages
 
         
 
-        private void MostrarSolicitudNo_Checked(object sender, RoutedEventArgs e)
-        {
-            cargarProcesoDG();
-        }
-        private void MostrarSolicitudSi_Checked(object sender, RoutedEventArgs e)
-        {
-            cargarSolicitudDG();
-        }
+        
 
         private void CbIDproceso_Loaded(object sender, RoutedEventArgs e)
         {

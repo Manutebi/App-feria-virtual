@@ -8,7 +8,7 @@
         Title="Addpdv" Height="450" Width="800"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
-        
+
     <Border CornerRadius="15" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
@@ -29,8 +29,6 @@
             <Button x:Name="Actualizar_proceso" Content="Actualizar" HorizontalAlignment="Left" Margin="432,344,0,0" VerticalAlignment="Top" Width="74" Click="Actualizar_proceso_Click"/>
             <Button x:Name="Eliminar_proceso" Content="Eliminar" HorizontalAlignment="Left" Margin="511,338,0,0" VerticalAlignment="Top" Width="75" Click="Eliminar_proceso_Click"/>
 
-            <RadioButton x:Name="MostrarSolicitudSi" GroupName="MostrarSolicitud" Content="Solicitud de compra" Margin="200,200,200,-3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="MostrarSolicitudSi_Checked"/>
-            <RadioButton x:Name="MostrarSolicitudNo" GroupName="MostrarSolicitud" Content="Procesos de venta" Margin="200,200,200,100" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="MostrarSolicitudNo_Checked"/>
 
 
         </Grid>
