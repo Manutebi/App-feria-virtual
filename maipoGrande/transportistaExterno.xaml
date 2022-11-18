@@ -8,11 +8,14 @@
         Title="Vista de Transportista" Height="450" Width="800"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
 >
-    <Grid>
+    <Border CornerRadius="100">
+        <Grid>
 
 
-        <Button x:Name="cerrarSesion" Content="Cerrar sesión" Margin="700,0,0,389" Click="CerrarSesion_Click"/>
+        <Button x:Name="cerrarSesion" Content="Cerrar sesión" Margin="670,10,10,408" Click="CerrarSesion_Click"/>
         <Label Content="Vista de Transportista" HorizontalAlignment="Left" Margin="260,95,0,0" VerticalAlignment="Top" Height="80" Width="224" FontSize="24"/>
-    </Grid>
+     </Grid>
+    </Border>
 </Window>

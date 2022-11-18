@@ -17,6 +17,7 @@ using System.Configuration;
 using System.Data;
 using maipoGrandeDatos;
 using Microsoft.Win32;
+using System.Collections.ObjectModel;
 
 namespace maipoGrande
 {
@@ -25,6 +26,12 @@ namespace maipoGrande
     /// </summary>
     public partial class Window1 : Window
     {
+        
+
+
+
+
+
         OracleConnection conn = null;
         int id_usuario;
         string nombre;

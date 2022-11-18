@@ -24,14 +24,17 @@ namespace maipoGrande.Pages
     /// <summary>
     /// Lógica de interacción para Usuarios.xaml
     /// </summary>
-    public partial class Usuarios : Window
+    public partial class Usuarios : Page
     {
         OracleConnection conn = null;
         public Usuarios()
         {
             abrirConexion();
             InitializeComponent();
+             
         }
+
+     
 
         private void abrirConexion()
         {
@@ -49,7 +52,7 @@ namespace maipoGrande.Pages
 
         }
 
-        private void cargarUsuarioDG()
+         private void cargarUsuarioDG()
         {
             try
             {
@@ -62,6 +65,7 @@ namespace maipoGrande.Pages
                 adaptador.Fill(lista);
 
                 listadoUser.ItemsSource = lista.DefaultView;
+
             }
             catch (Exception ex)
             {
@@ -70,23 +74,31 @@ namespace maipoGrande.Pages
         }
        
        
-        
-    
-       
+
 
         private void ListadoUser_Loaded(object sender, RoutedEventArgs e)
         {
             cargarUsuarioDG();
         }
 
-   
+
+        private void AgreUpdateEventHandler(object sender, Addusuarios.UpdateEventArgs args)
+        {
+            cargarUsuarioDG();
+        }
 
         private void add_usuarios(object sender, RoutedEventArgs e)
         {
-            Addusuarios objaddusuarios = new Addusuarios();
+            Addusuarios objaddusuarios = new Addusuarios(this);
+            objaddusuarios.UpdateEventHandler += AgreUpdateEventHandler;
             objaddusuarios.Show();
             
-        }
+        } 
 
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            cargarUsuarioDG();
+        }
     }
 }

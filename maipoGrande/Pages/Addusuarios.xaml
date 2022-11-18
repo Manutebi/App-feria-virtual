@@ -5,42 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:maipoGrande.Pages"
         mc:Ignorable="d"
-        Title="Addusuarios" Height="450" Width="800"
+        Title="Addusuarios" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None"
         >
-    
-    <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+
+    <Border CornerRadius="15" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
-            
-            <Label x:Name="avisoLabel0" Content="Ingresar Run sin puntos ni guion" HorizontalAlignment="Left" Margin="541,65,0,0" VerticalAlignment="Top" Height="26" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
-            <Label x:Name="RunLabel" Content="Run" HorizontalAlignment="Left" Margin="214,60,0,0" VerticalAlignment="Top" Width="92"/>
-            <TextBox x:Name="RunBox" HorizontalAlignment="Left" Height="24" Margin="248,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-            <Label x:Name="nombreLabel" Content="Nombres" HorizontalAlignment="Left" Margin="214,112,0,0" VerticalAlignment="Top" Width="92"/>
-            <TextBox x:Name="nombreBox" HorizontalAlignment="Left" Height="24" Margin="279,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-            <Label x:Name="apellidoLabel" Content="Apellidos" HorizontalAlignment="Left" Margin="558,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.079,0.577" Width="92"/>
-            <TextBox x:Name="apellidoBox" HorizontalAlignment="Left" Height="22" Margin="638,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
-            <Label x:Name="emailLabel" Content="Email" HorizontalAlignment="Left" Margin="214,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.079,0.577" Width="92"/>
-            <TextBox x:Name="emailBox" HorizontalAlignment="Left" Height="22" Margin="264,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-            <Label x:Name="passLabel" Content="Contraseña" HorizontalAlignment="Left" Margin="541,171,0,0" VerticalAlignment="Top" Width="92"/>
-            <TextBox x:Name="passBox" HorizontalAlignment="Left" Height="22" Margin="623,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
-            <Label x:Name="tipoLabel" Content="Tipo de usuario" HorizontalAlignment="Left" Margin="214,248,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbtipoUser" Margin="318,253,376,171" Loaded="CbtipoUser_Loaded"/>
-            <Label x:Name="PaisLabel" Content="Pais" HorizontalAlignment="Left" Margin="649,253,0,0" VerticalAlignment="Top" Width="55"/>
-            <ComboBox x:Name="cbPais" Margin="704,253,20,176" Loaded="CbPais_Loaded" SelectionChanged="CbPais_SelectionChanged"/>
-            <Label x:Name="EstadoLabel" Content="Region" HorizontalAlignment="Left" Margin="649,307,0,0" VerticalAlignment="Top" Width="55"/>
-            <ComboBox x:Name="cbEstado" Margin="704,307,30,117" SelectionChanged="CbEstado_SelectionChanged"/>
-            <Label x:Name="CiudadLabel" Content="Ciudad" HorizontalAlignment="Left" Margin="649,362,0,0" VerticalAlignment="Top" Width="55"/>
-            <ComboBox x:Name="cbCiudad" Margin="704,362,30,62"/>
-            <Label x:Name="idLabel" Content="ID" HorizontalAlignment="Left" Margin="355,343,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="0.5,0.5" Width="52">
+
+            <Label x:Name="avisoLabel0" Content="Ingresar Run sin puntos ni guion" HorizontalAlignment="Left" Margin="160,34,0,0" VerticalAlignment="Top" Height="26" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
+            <Label x:Name="RunLabel" Content="Run" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="92"/>
+            <TextBox x:Name="RunBox" HorizontalAlignment="Left" Height="24" Margin="160,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <Label x:Name="nombreLabel" Content="Nombres" HorizontalAlignment="Left" Margin="80,120,0,0" VerticalAlignment="Top" Width="92"/>
+            <TextBox x:Name="nombreBox" HorizontalAlignment="Left" Height="24" Margin="160,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <Label x:Name="apellidoLabel" Content="Apellidos" HorizontalAlignment="Left" Margin="80,170,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.079,0.577" Width="92"/>
+            <TextBox x:Name="apellidoBox" HorizontalAlignment="Left" Height="22" Margin="160,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <Label x:Name="emailLabel" Content="Email" HorizontalAlignment="Left" Margin="80,225,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.079,0.577" Width="92"/>
+            <TextBox x:Name="emailBox" HorizontalAlignment="Left" Height="22" Margin="160,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <Label x:Name="passLabel" Content="Contraseña" HorizontalAlignment="Left" Margin="80,277,0,0" VerticalAlignment="Top" Width="92"/>
+            <TextBox x:Name="passBox" HorizontalAlignment="Left" Height="22" Margin="160,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <Label x:Name="tipoLabel" Content="Tipo de usuario" HorizontalAlignment="Left" Margin="546,335,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbtipoUser" Margin="658,330,36,0" Loaded="CbtipoUser_Loaded" VerticalAlignment="Top"/>
+            <Label x:Name="PaisLabel" Content="Pais" HorizontalAlignment="Left" Margin="495,167,0,0" VerticalAlignment="Top" Width="55"/>
+            <ComboBox x:Name="cbPais" Margin="582,169,126,0" Loaded="CbPais_Loaded" SelectionChanged="CbPais_SelectionChanged" VerticalAlignment="Top"/>
+            <Label x:Name="EstadoLabel" Content="Region" HorizontalAlignment="Left" Margin="495,225,0,0" VerticalAlignment="Top" Width="55"/>
+            <ComboBox x:Name="cbEstado" Margin="582,224,126,0" SelectionChanged="CbEstado_SelectionChanged" VerticalAlignment="Top"/>
+            <Label x:Name="CiudadLabel" Content="Ciudad" HorizontalAlignment="Left" Margin="497,274,0,0" VerticalAlignment="Top" Width="55"/>
+            <ComboBox x:Name="cbCiudad" Margin="582,274,126,0" VerticalAlignment="Top"/>
+            <Label x:Name="idLabel" Content="ID" HorizontalAlignment="Left" Margin="459,72,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="0.5,0.5" Width="52">
             </Label>
-            <ComboBox x:Name="cbID" Margin="412,343,331,82" Loaded="CbID_Loaded" SelectionChanged="CbID_SelectionChanged" />
-            <Label x:Name="avisoLabel1" Content="*AVISO: ID habilitada para uso de modificación &#xD;&#xA;o eliminación de usuario. &#xD;&#xA;Seleccione para darle uso." HorizontalAlignment="Left" Margin="328,375,0,0" VerticalAlignment="Top" Height="52" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
-            <Button x:Name="Guardar" Content="Guardar" HorizontalAlignment="Left" Margin="199,342,0,0" VerticalAlignment="Top" Width="74" Click="Guardar_Click"/>
-            <Button x:Name="Actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="621,347,0,0" VerticalAlignment="Top" Width="78" Click="Actualizar_Click" Height="41" RenderTransformOrigin="0.5,0.5">
+            <ComboBox x:Name="cbID" Margin="495,77,248,0" Loaded="CbID_Loaded" SelectionChanged="CbID_SelectionChanged" VerticalAlignment="Top" />
+            <Label x:Name="avisoLabel1" Content="*AVISO: ID habilitada para uso de modificación &#xD;&#xA;o eliminación de usuario. &#xD;&#xA;Seleccione para darle uso." HorizontalAlignment="Left" Margin="459,19,0,0" VerticalAlignment="Top" Height="52" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
+            <Button x:Name="Guardar" Content="Guardar" HorizontalAlignment="Left" Margin="126,363,0,0" VerticalAlignment="Top" Width="91" Click="Guardar_Click"/>
+            <Button x:Name="Actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="407,363,0,0" VerticalAlignment="Top" Width="104" Click="Actualizar_Click" Height="32" RenderTransformOrigin="0.5,0.5">
             </Button>
-            <Button x:Name="Eliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="512,322,0,0" VerticalAlignment="Top" Width="75" Click="Eliminar_Click" Height="41"/>
+            <Button x:Name="Eliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="267,363,0,0" VerticalAlignment="Top" Width="95" Click="Eliminar_Click" Height="32"/>
         </Grid>
 
 

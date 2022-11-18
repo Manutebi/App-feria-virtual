@@ -12,16 +12,16 @@
 
 
         <Grid>
-            <DataGrid x:Name="listadoProductos" Margin="0,4,709,1" Loaded="ListadoProductos_Loaded"/>
+            <DataGrid x:Name="listadoProductos" Margin="0,4,464,1" Loaded="ListadoProductos_Loaded"/>
             <Label x:Name="NombreProductoLabel" Content="Producto" HorizontalAlignment="Left" Margin="416,52,0,0" VerticalAlignment="Top" Width="92"/>
             <TextBox x:Name="NombreProductoBox" HorizontalAlignment="Left" Height="24" Margin="513,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
             <Label x:Name="idCalidadLabel" Content="Calidad" HorizontalAlignment="Left" Margin="404,133,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbIdCalidad" Margin="454,133,530,426" Loaded="CbIdCalidad_Loaded" />
-            <Label x:Name="idProductoLabel" Content="ID" HorizontalAlignment="Left" Margin="383,376,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbIdProducto" Margin="420,376,565,183" Loaded="CbIdProducto_Loaded" SelectionChanged="CbIdProducto_SelectionChanged" />
-            <Button x:Name="GuardarProducto" Content="Guardar" HorizontalAlignment="Left" Margin="448,290,0,0" VerticalAlignment="Top" Width="75" Click="GuardarProducto_Click" />
-            <Button x:Name="ActualizarProducto" Content="Actualizar" HorizontalAlignment="Left" Margin="383,436,0,0" VerticalAlignment="Top" Width="75" Click="ActualizarProducto_Click"/>
-            <Button x:Name="EliminarProducto" Content="Eliminar" HorizontalAlignment="Left" Margin="484,436,0,0" VerticalAlignment="Top" Width="75" Click="EliminarProducto_Click"/>
+            <ComboBox x:Name="cbIdCalidad" Margin="513,133,87,0" Loaded="CbIdCalidad_Loaded" VerticalAlignment="Top" />
+            <Label x:Name="idProductoLabel" Content="ID" HorizontalAlignment="Left" Margin="416,235,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbIdProducto" Margin="513,235,134,0" Loaded="CbIdProducto_Loaded" SelectionChanged="CbIdProducto_SelectionChanged" VerticalAlignment="Top" />
+            <Button x:Name="GuardarProducto" Content="Guardar" HorizontalAlignment="Left" Margin="383,347,0,0" VerticalAlignment="Top" Width="111" Click="GuardarProducto_Click" />
+            <Button x:Name="ActualizarProducto" Content="Actualizar" HorizontalAlignment="Left" Margin="383,408,0,0" VerticalAlignment="Top" Width="96" Click="ActualizarProducto_Click"/>
+            <Button x:Name="EliminarProducto" Content="Eliminar" HorizontalAlignment="Left" Margin="490,402,0,0" VerticalAlignment="Top" Width="100" Click="EliminarProducto_Click"/>
         </Grid>
 
 

@@ -14,6 +14,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using maipoGrande.Pages;
+using maipoGrandeDatos;
+
 
 namespace maipoGrande.Pages
 {
@@ -24,10 +27,26 @@ namespace maipoGrande.Pages
     {
 
         OracleConnection conn = null;
-        public Addusuarios()
+        public Addusuarios(Usuarios usuarios)
         {
             abrirConexion();
             InitializeComponent();
+
+        }
+
+        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
+        public event UpdateDelegate UpdateEventHandler; 
+
+        public class UpdateEventArgs : EventArgs 
+        {
+            public string Data { get; set; }
+
+        }
+
+        protected void Agregar() 
+        {
+            UpdateEventArgs args = new UpdateEventArgs();
+            UpdateEventHandler.Invoke(this, args);
         }
 
         private void abrirConexion()
@@ -203,6 +222,7 @@ namespace maipoGrande.Pages
 
             try
             {
+                
                 OracleCommand comando = new OracleCommand("agregar_user", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("nom", OracleDbType.Varchar2).Value = nombreBox.Text;
@@ -218,6 +238,11 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Usuario Guardado en la base de datos.");
                 cbID.SelectedValue = 0;
                 cargarIDUser();
+                Agregar();
+
+
+
+
             }
             catch (Exception)
             {
@@ -312,6 +337,7 @@ namespace maipoGrande.Pages
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            
         }
     }
 
