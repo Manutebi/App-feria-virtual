@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -25,10 +26,30 @@ namespace maipoGrande.Pages
         public Addpdv()
         {
             InitializeComponent();
-            
+            abrirConexion();
+
+
         }
 
-       
+        private void abrirConexion()
+        {
+            string ConnectionString = ConfigurationManager.ConnectionStrings["oracleDB"].ConnectionString;
+            conn = new OracleConnection(ConnectionString);
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de conexion :O");
+                throw new Exception("Error de conexion");
+            }
+
+        }
+
+
+
+
         private void cargarIDProceso()
         {
             cbIDproceso.SelectedValue = 0;
