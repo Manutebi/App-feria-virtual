@@ -93,6 +93,9 @@
     <Compile Include="Pages\Addpdv.xaml.cs">
       <DependentUpon>Addpdv.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Addproductos.xaml.cs">
+      <DependentUpon>Addproductos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Addusuarios.xaml.cs">
       <DependentUpon>Addusuarios.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Addpdv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Addproductos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

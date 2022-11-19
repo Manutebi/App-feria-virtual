@@ -224,5 +224,11 @@ C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\bin\Debug\MaterialDesignThemes.Wpf.x
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Addpdv.baml
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Addusuarios.baml
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Transportista.baml
+<<<<<<< HEAD
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Updateusuarios.g.cs
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Updateusuarios.baml
+=======
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\Pages\Addpdv.baml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\Pages\Addproductos.g.cs
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\Pages\Addproductos.baml
+>>>>>>> f21d0392babd156a06f790f35e2ae6b2e16631b9
