@@ -71,6 +71,18 @@ namespace maipoGrande.Pages
 
         }
 
+        private void add_ventas(object sender, RoutedEventArgs e)
+        {
+            Addventas objaddventas = new Addventas(id_usuario, nombre,  apellido,  email,  password,  run,  usuario_activo,  superuser,  ciudad,  rol);
+            objaddventas.Show();
+        }
+
+        private void ListadoSolicitudCompra_Loaded(object sender, RoutedEventArgs e) 
+        { 
+        
+            cargarSolicitudDG2();
+        }
+
         private void cargarSolicitudDG2()
         {
             try
@@ -90,189 +102,12 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al leer Solicitud");
             }
         }
-        private void cargarIdProducto2()
-        {
-            cbProducto.SelectedValue = 0;
-            try
-            {
-                OracleCommand comando = new OracleCommand("listar_producto", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
 
-                cbProducto.SelectedValuePath = "ID_PROD";
-                cbProducto.DisplayMemberPath = "N_PROD";
-                cbProducto.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar la id de calidad en el combobox");
-            }
-        }
-        private void cargarUpdateSolicitud(string id_solicitud)
-        {
-            try
-            {
-                OracleCommand cmd = new OracleCommand("SELECT * FROM solicitud_compra WHERE id_solicitud = :id_solicitud", conn);
-                cmd.Parameters.Add(":id_solicitud", id_solicitud);
-                OracleDataAdapter da = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                cantidadBox.Text = dt.Rows[0]["CTDAD_NECESARIA"].ToString();
-                cbEstadoSolicitud.SelectedValue = dt.Rows[0]["ESTADO_SOLICITUD_ID_ESTADO"].ToString();
-                cbProducto.SelectedValue = dt.Rows[0]["PRODUCTO_ID_PROD"].ToString();
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-        private void cargarEstadoSolicitud()
-        {
-
-            cbEstadoSolicitud.SelectedValue = 0;
-            try
-            {
-                OracleCommand comando = new OracleCommand("listar_estado_solicitud", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                cbEstadoSolicitud.SelectedValuePath = "ID_ESTADO";
-                cbEstadoSolicitud.DisplayMemberPath = "D_ESTADO";
-                cbEstadoSolicitud.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar la id de estado en el combobox");
-            }
-        }
-        private void cargarIdsolicitud2()
-        {
-            cbIdSolicitudCompra.SelectedValue = 0;
-            try
-            {
-                OracleCommand comando = new OracleCommand("listar_solicitud_compra", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                cbIdSolicitudCompra.SelectedValuePath = "ID_SOLICITUD";
-                cbIdSolicitudCompra.DisplayMemberPath = "ID_SOLICITUD";
-                cbIdSolicitudCompra.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar id de solicitud en el combobox");
-            }
-        }
-
-        private void ListadoSolicitudCompra_Loaded(object sender, RoutedEventArgs e)
+        private void actualizar(object sender, RoutedEventArgs e)
         {
             cargarSolicitudDG2();
         }
-        private void CbProducto_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarIdProducto2();
-        }
-        private void CbEstadoSolicitud_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarEstadoSolicitud();
-        }
-        private void CbIdSolicitudCompra_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarIdsolicitud2();
-        }
 
-        private void CbIdSolicitudCompra_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbIdSolicitudCompra.SelectedValue.ToString() != null)
-            {
-                string id_solicitud = cbIdSolicitudCompra.SelectedValue.ToString();
-                cargarUpdateSolicitud(id_solicitud);
-            }
-        }
-
-        private void GuardarSolicitud_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OracleCommand comando = new OracleCommand("agregar_solicitud_compra", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("fecha_soli", OracleDbType.Date).Value = DateTime.Today;
-                comando.Parameters.Add("c_necesaria", OracleDbType.Int32).Value = Convert.ToInt32(cantidadBox.Text);
-                comando.Parameters.Add("estado", OracleDbType.Int32).Value = 1;
-                comando.Parameters.Add("producto", OracleDbType.Int32).Value = Convert.ToInt32(cbProducto.SelectedValue);
-                comando.Parameters.Add("usuario", OracleDbType.Int32).Value = id_usuario;
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Solicitud de compra guardado en la base de datos.");
-
-                cbProducto.SelectedValue = 0;
-                cbEstadoSolicitud.SelectedValue = 0;
-                cbIdSolicitudCompra.SelectedValue = 0;
-                cargarIdsolicitud2();
-                cargarSolicitudDG2();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo fallo en el guardado de Solicitud de compra, asegurate de rellenar todas las casillas.");
-            }
-        }
-        private void ActualizarSolicitud_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OracleCommand comando = new OracleCommand("actualizar_solicitud_compra", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIdSolicitudCompra.SelectedValue);
-                comando.Parameters.Add("c_necesaria", OracleDbType.Int32).Value = Convert.ToInt32(cantidadBox.Text);
-                comando.Parameters.Add("estado", OracleDbType.Int32).Value = Convert.ToInt32(cbEstadoSolicitud.SelectedValue);
-                comando.Parameters.Add("producto", OracleDbType.Int32).Value = Convert.ToInt32(cbProducto.SelectedValue);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Solicitud actualizada con exito.");
-
-                cbProducto.SelectedValue = 0;
-                cbEstadoSolicitud.SelectedValue = 0;
-                cbIdSolicitudCompra.SelectedValue = 0;
-                cargarIdsolicitud2();
-                cargarSolicitudDG2();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo fallo en la actualizacion, asegurate de rellenar todas las casillas");
-            }
-        }
-        private void EliminarSolicitud_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OracleCommand comando = new OracleCommand("eliminar_solicitud_compra", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIdSolicitudCompra.SelectedValue);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Solicitud eliminada con exito");
-
-                cbProducto.SelectedValue = 0;
-                cbEstadoSolicitud.SelectedValue = 0;
-                cbIdSolicitudCompra.SelectedValue = 0;
-                cargarIdsolicitud2();
-                cargarSolicitudDG2();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo ha salido mal al eliminar la solicitud.");
-            }
-        }
-
-
+        
     }
 }

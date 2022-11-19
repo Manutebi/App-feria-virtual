@@ -160,7 +160,7 @@ namespace maipoGrande
 
         private void click_camion(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/Transportista.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Pages/Subastas.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

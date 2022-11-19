@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace maipoGrande.Pages
 {
     /// <summary>
-    /// Lógica de interacción para Transportista.xaml
+    /// Lógica de interacción para Subastas.xaml
     /// </summary>
-    public partial class Transportista : Page
+    public partial class Subastas : Page
     {
-        public Transportista()
+        public Subastas()
         {
             InitializeComponent();
         }

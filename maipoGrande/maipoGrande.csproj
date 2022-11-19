@@ -90,6 +90,9 @@
     <Compile Include="compradorExterno.xaml.cs">
       <DependentUpon>compradorExterno.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Addcontratos.xaml.cs">
+      <DependentUpon>Addcontratos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Addpdv.xaml.cs">
       <DependentUpon>Addpdv.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,9 @@
     </Compile>
     <Compile Include="Pages\Addusuarios.xaml.cs">
       <DependentUpon>Addusuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Addventas.xaml.cs">
+      <DependentUpon>Addventas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Contratos.xaml.cs">
       <DependentUpon>Contratos.xaml</DependentUpon>
@@ -111,14 +117,11 @@
     <Compile Include="Pages\Solicitudes.xaml.cs">
       <DependentUpon>Solicitudes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Transportista.xaml.cs">
-      <DependentUpon>Transportista.xaml</DependentUpon>
+    <Compile Include="Pages\Subastas.xaml.cs">
+      <DependentUpon>Subastas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Usuarios.xaml.cs">
       <DependentUpon>Usuarios.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="transportistaExterno.xaml.cs">
-      <DependentUpon>transportistaExterno.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -143,6 +146,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Addcontratos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Addpdv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Addusuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Addventas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,7 +182,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Transportista.xaml">
+    <Page Include="Pages\Subastas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,10 +195,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\temas.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="transportistaExterno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
