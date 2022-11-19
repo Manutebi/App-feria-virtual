@@ -224,3 +224,5 @@ C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\bin\Debug\MaterialDesignThemes.Wpf.x
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Addpdv.baml
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Addusuarios.baml
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Transportista.baml
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Updateusuarios.g.cs
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Updateusuarios.baml
