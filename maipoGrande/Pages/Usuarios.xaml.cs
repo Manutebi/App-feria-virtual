@@ -86,19 +86,49 @@ namespace maipoGrande.Pages
         {
             cargarUsuarioDG();
         }
+        private void ActuUpdateEventHandler(object sender, Updateusuarios.UpdateEventArgs args)
+        {
+            cargarUsuarioDG();
+        }
 
         private void add_usuarios(object sender, RoutedEventArgs e)
         {
             Addusuarios objaddusuarios = new Addusuarios(this);
             objaddusuarios.UpdateEventHandler += AgreUpdateEventHandler;
             objaddusuarios.Show();
-            
         } 
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            
             cargarUsuarioDG();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+            //new Updateusuarios(Convert.ToInt32(id)).Show();
+            Updateusuarios objupdusuarios = new Updateusuarios(Convert.ToInt32(id));
+            objupdusuarios.UpdateEventHandler += ActuUpdateEventHandler;
+            objupdusuarios.Show();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+                try
+                {
+                    OracleCommand comando = new OracleCommand("eliminar_user", conn);
+                    comando.CommandType = System.Data.CommandType.StoredProcedure;
+                    comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Usuario eliminado con exito");
+
+                    cargarUsuarioDG();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
+                }
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,41 +11,29 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using maipoGrande.Pages;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
+using System.Configuration;
+using System.Data;
 using maipoGrandeDatos;
-
+using Microsoft.Win32;
+using System.Windows.Navigation;
 
 namespace maipoGrande.Pages
 {
     /// <summary>
-    /// Lógica de interacción para Addusuarios.xaml
+    /// Lógica de interacción para Updateusuarios.xaml
     /// </summary>
-    public partial class Addusuarios : Window
+    public partial class Updateusuarios : Window
     {
-
         OracleConnection conn = null;
-        public Addusuarios(Usuarios usuarios)
+        int id;
+        public Updateusuarios(int id)
         {
-            abrirConexion();
             InitializeComponent();
-
+            abrirConexion();
+            this.id = id;
         }
-
-        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
-        public event UpdateDelegate UpdateEventHandler; 
-
-        public class UpdateEventArgs : EventArgs 
-        {
-            public string Data { get; set; }
-
-        }
-
-        protected void Agregar() 
-        {
-            UpdateEventArgs args = new UpdateEventArgs();
-            UpdateEventHandler.Invoke(this, args);
-        }
-
         private void abrirConexion()
         {
             string ConnectionString = ConfigurationManager.ConnectionStrings["oracleDB"].ConnectionString;
@@ -64,8 +49,43 @@ namespace maipoGrande.Pages
             }
 
         }
+        private void cargarUpdateUser(int id)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand("SELECT * FROM usuario inner join ciudad on ciudad.ID_CIUDAD = usuario.CIUDAD_ID_CIUDAD inner join estados on estados.ID_ESTADO = ciudad.ESTADOS_ID_ESTADO inner join pais on pais.ID_PAIS = estados.PAIS_ID_PAIS WHERE id_usuario = :id_usuario", conn);
+                cmd.Parameters.Add(":id_usuario", id);
+                OracleDataAdapter da = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-        
+                RunBox.Text = dt.Rows[0]["RUN"].ToString();
+                nombreBox.Text = dt.Rows[0]["NOMBRE"].ToString();
+                apellidoBox.Text = dt.Rows[0]["APELLIDO"].ToString();
+                passBox.Text = dt.Rows[0]["PASSWORD"].ToString();
+                emailBox.Text = dt.Rows[0]["EMAIL"].ToString();
+                cbtipoUser.SelectedValue = dt.Rows[0]["ROL_ID_ROL"].ToString();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
+        public event UpdateDelegate UpdateEventHandler;
+
+        public class UpdateEventArgs : EventArgs
+        {
+            public string Data { get; set; }
+
+        }
+
+        protected void actualizar()
+        {
+            UpdateEventArgs args = new UpdateEventArgs();
+            UpdateEventHandler.Invoke(this, args);
+        }
+
+
         private void cargarTipoUser()
         {
             cbtipoUser.SelectedValue = 0;
@@ -178,29 +198,6 @@ namespace maipoGrande.Pages
             {
             }
         }
-        private void cargarUpdateUser(string id_usuario)
-        {
-            try
-            {
-                OracleCommand cmd = new OracleCommand("SELECT * FROM usuario inner join ciudad on ciudad.ID_CIUDAD = usuario.CIUDAD_ID_CIUDAD inner join estados on estados.ID_ESTADO = ciudad.ESTADOS_ID_ESTADO inner join pais on pais.ID_PAIS = estados.PAIS_ID_PAIS WHERE id_usuario = :id_usuario", conn);
-                cmd.Parameters.Add(":id_usuario", id_usuario);
-                OracleDataAdapter da = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                RunBox.Text = dt.Rows[0]["RUN"].ToString();
-                nombreBox.Text = dt.Rows[0]["NOMBRE"].ToString();
-                apellidoBox.Text = dt.Rows[0]["APELLIDO"].ToString();
-                passBox.Text = dt.Rows[0]["PASSWORD"].ToString();
-                emailBox.Text = dt.Rows[0]["EMAIL"].ToString();
-                cbtipoUser.SelectedValue = dt.Rows[0]["ROL_ID_ROL"].ToString();
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-
-       
 
         private void CbPais_Loaded(object sender, RoutedEventArgs e)
         {
@@ -215,15 +212,14 @@ namespace maipoGrande.Pages
             cargarIDUser();
         }
 
-        private void Guardar_Click(object sender, RoutedEventArgs e)
+        
+        private void Actualizar_Click(object sender, RoutedEventArgs e)
         {
-
-            //Console.WriteLine(cbtipoUser.SelectedValue);
-
             try
             {
-                OracleCommand comando = new OracleCommand("agregar_user", conn);
+                OracleCommand comando = new OracleCommand("actualizar_user", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.Parameters.Add("nom", OracleDbType.Varchar2).Value = nombreBox.Text;
                 comando.Parameters.Add("ape", OracleDbType.Varchar2).Value = apellidoBox.Text;
                 comando.Parameters.Add("ema", OracleDbType.Varchar2).Value = emailBox.Text;
@@ -234,21 +230,15 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("ciudad", OracleDbType.Int32).Value = Convert.ToInt32(cbCiudad.SelectedValue);
                 comando.Parameters.Add("rol", OracleDbType.Int32).Value = Convert.ToInt32(cbtipoUser.SelectedValue);
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Usuario Guardado en la base de datos.");
-                cbID.SelectedValue = 0;
+                MessageBox.Show("Usuario actualizado con exito.");
                 cargarIDUser();
-                Agregar();
-
-
-
-
+                actualizar();
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo fallo en la creacion del usuario, asegurate de rellenar todas las casillas.");
+                MessageBox.Show("Algo fallo en la actualizacion, asegurate de rellenar todas las casillas");
             }
         }
-        
 
         private void CbPais_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -272,7 +262,6 @@ namespace maipoGrande.Pages
             if (cbID.SelectedValue.ToString() != null)
             {
                 string id_usuario = cbID.SelectedValue.ToString();
-                cargarUpdateUser(id_usuario);
             }
         }
 
@@ -280,10 +269,10 @@ namespace maipoGrande.Pages
         {
             Close();
         }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            cargarUpdateUser(id);
+        }
     }
-
 }
-
-
-
-

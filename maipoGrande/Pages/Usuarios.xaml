@@ -106,14 +106,14 @@
                     <DataGridTemplateColumn Header="Opciones" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridEditButton}">
+                                <DockPanel>
+                                    <Button x:Name="EditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding ID_USUARIO}" Click="EditButton_Click" >
                                         <Icon:PackIconMaterial Kind="PencilCircle" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
-                                    <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                    <Button x:Name="DeleteButton" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" CommandParameter="{Binding ID_USUARIO}" Click="DeleteButton_Click">
                                         <Icon:PackIconMaterial Kind="DeleteCircle" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
-                                </StackPanel>
+                                </DockPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
