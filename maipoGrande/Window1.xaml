@@ -4,27 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:maipoGrande"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Name="home"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal"
-        TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="650" Width="1000"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
-        AllowsTransparency="True"
+        Background="Transparent" AllowsTransparency="True"
         ResizeMode="NoResize" WindowState="Normal">
-    
-    <Border CornerRadius="10" MouseDown="Border_MouseDown" Background="{DynamicResource PrimaryBackgroundColor}">
+
+
+    <Border CornerRadius="20" MouseDown="Border_MouseDown" Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!-- Start: GridColum Left-->
-            <Border CornerRadius="8 0 0 8" Background="{DynamicResource SecundaryBackgroundColor}">
+            <Border CornerRadius="20 0 0 20" Background="{DynamicResource SecundaryBackgroundColor}">
                 <Grid x:Name="gridMenu" Width="60">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
@@ -61,15 +56,15 @@
                         </ToggleButton.Triggers>
                     </ToggleButton>
 
-                    <StackPanel Grid.Row="3">
-                        <RadioButton x:Name="rdHome" IsChecked="True" Content="Home" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource home}" Click="click_usuarios" Cursor="Hand"/>
+                    <StackPanel Grid.Row="3" x:Name="menu">
+                        <RadioButton x:Name="rdHome" IsChecked="True" Content="Home" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource home}" Click="click_camion" Cursor="Hand"/>
                         <RadioButton x:Name="rdUsuarios" Content="Usuarios" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Usuarios}" Margin="0 5 0 5" Click="click_usuarios" Cursor="Hand"/>
                         <RadioButton x:Name="rdPdv" Content="Pdv" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Carrito}" Margin="0 5 0 5" Click="click_procesos" Cursor="Hand"/>
                         <RadioButton x:Name="rdProductos" Content="Productos" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Producto}" Click="click_productos" Cursor="Hand"/>
                         <RadioButton x:Name="rdVentas" Content="Ventas" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Solicitud}" Margin="0 5 0 5" Click="click_solicitudes" Cursor="Hand"/>
                         <RadioButton x:Name="rdContratos" Content="Contratos" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Contrato}" Margin="0 5 0 5" Click="click_contratos"/>
-                        <RadioButton x:Name="rdTransportistas" Content="Transportistas" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Camion}" Margin="0 5 0 5" Click="click_camion" Cursor="Hand"/>
-                        <RadioButton x:Name="rdsexo" Content="Sexo" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Documento1}" Margin="0 5 0 5" Click="click_contratos"/>
+                        <RadioButton x:Name="rdSubastas" Content="Subastas" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Camion}" Margin="0 5 0 5" Click="click_camion" Cursor="Hand"/>
+                        <RadioButton x:Name="rdotros" Content="Otros" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Documento1}" Margin="0 5 0 5" Click="click_camion" Cursor="Hand"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Orientation="Horizontal" Width="200" Margin="0 0 0 20">
@@ -96,13 +91,26 @@
 
                 <!-- Start: Button Close | Restore | Minimize -->
                 <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
-                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Height="25">
+                        <StackPanel>
+
+                            <StackPanel Margin="16 10 0 6" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock  VerticalAlignment="Center" Text="Dark Mode" />
+                                <ToggleButton Cursor="Hand" ToolTip="Enable Dark Mode" Margin="12 0 8 0" x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme"/>
+                            </StackPanel>
+
+                            <Button ToolTip="Having Troubles in Logging In?" Margin="0 8 0 0" Content="Help Me" />
+
+
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Cursor="Hand"/>
                     <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click" Cursor="Hand">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
                                 <Setter Property="Content" Value="{DynamicResource maximize}"/>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
+                                    <DataTrigger Binding="{Binding WindowState, ElementName=home}" Value="Maximized">
                                         <Setter Property="Content" Value="{DynamicResource restore}"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -115,6 +123,9 @@
 
                 <Border Grid.Row="1" Margin="10">
                     <Frame x:Name="PagesNavigation" NavigationUIVisibility="Hidden">
+                        <Frame.Background>
+                            <ImageBrush ImageSource="/frutas.jpg"/>
+                        </Frame.Background>
                         <!-- Page Content -->
                     </Frame>
                 </Border>

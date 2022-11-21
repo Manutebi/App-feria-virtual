@@ -96,6 +96,7 @@ namespace maipoGrande.Pages
             Addusuarios objaddusuarios = new Addusuarios(this);
             objaddusuarios.UpdateEventHandler += AgreUpdateEventHandler;
             objaddusuarios.Show();
+            
         } 
 
         public void Button_Click(object sender, RoutedEventArgs e)
@@ -130,5 +131,7 @@ namespace maipoGrande.Pages
                     MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
                 }
         }
+
+        
     }
 }

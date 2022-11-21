@@ -14,20 +14,20 @@
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
-            <Label x:Name="fechafinLabel" Content="Fecha Fin de proceso &#xD;&#xA;de venta" HorizontalAlignment="Left" Margin="403,28,0,0" VerticalAlignment="Top" Width="132"/>
-            <DatePicker x:Name="fechaFinBox" Margin="549,206,109,0" VerticalAlignment="Top"/>
-            <Label x:Name="IdEstadoPDVLabel" Content="Estado de la venta" HorizontalAlignment="Left" Margin="408,112,0,0" VerticalAlignment="Top" Width="132"/>
-            <ComboBox x:Name="cbIdEstadoPDV" Margin="540,112,396,450" Loaded="CbIdEstadoPDV_Loaded"/>
-            <Label x:Name="IdSolicitudLabel" Content="ID de la &#xD;&#xA;Solicitud de compra" HorizontalAlignment="Left" Margin="582,33,0,0" VerticalAlignment="Top" Width="132"/>
-            <ComboBox x:Name="cbIdSolicitud" Margin="564,87,37,0" Loaded="CbIdSolicitud_Loaded" VerticalAlignment="Top"/>
-            <RadioButton x:Name="VentaLocalSi" GroupName="VentaLocal" Content="Venta Local" Margin="582,124,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="68" Width="107"/>
-            <RadioButton x:Name="VentaLocalNo" GroupName="VentaLocal" Content="Venta Externa" Margin="684,132,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="52" Width="106"/>
-            <Label x:Name="id_procesoLabel" Content="ID" HorizontalAlignment="Left" Margin="420,219,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbIDproceso" Margin="400,168,285,0" Loaded="CbIDproceso_Loaded" SelectionChanged="CbIDproceso_SelectionChanged" Height="16" VerticalAlignment="Top"/>
-            <Label x:Name="avisoLabel2" Content="*AVISO: ID habilitada para uso de modificación &#xD;&#xA;o eliminación de procesos de venta. &#xD;&#xA;Seleccione para darle uso." HorizontalAlignment="Left" Margin="582,366,0,0" VerticalAlignment="Top" Height="52" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
-            <Button x:Name="Guardar_proceso" Content="Guardar" HorizontalAlignment="Left" Margin="448,290,0,0" VerticalAlignment="Top" Width="111" Click="Guardar_proceso_Click" Cursor="Hand"/>
-            <Button x:Name="Actualizar_proceso" Content="Actualizar" HorizontalAlignment="Left" Margin="432,344,0,0" VerticalAlignment="Top" Width="74" Click="Actualizar_proceso_Click"/>
-            <Button x:Name="Eliminar_proceso" Content="Eliminar" HorizontalAlignment="Left" Margin="511,338,0,0" VerticalAlignment="Top" Width="75" Click="Eliminar_proceso_Click"/>
+            <Label x:Name="fechafinLabel" Content="Fecha Fin de proceso &#xD;&#xA;de venta" HorizontalAlignment="Left" Margin="64,40,0,0" VerticalAlignment="Top" Width="132"/>
+            <DatePicker x:Name="fechaFinBox" Margin="217,48,441,0" VerticalAlignment="Top"/>
+            <Label x:Name="IdEstadoPDVLabel" Content="Estado de la venta" HorizontalAlignment="Left" Margin="64,132,0,0" VerticalAlignment="Top" Width="132"/>
+            <ComboBox x:Name="cbIdEstadoPDV" Margin="217,114,441,0" Loaded="CbIdEstadoPDV_Loaded" Height="42" VerticalAlignment="Top"/>
+            <Label x:Name="IdSolicitudLabel" Content="ID de la &#xD;&#xA;Solicitud de compra" HorizontalAlignment="Left" Margin="64,192,0,0" VerticalAlignment="Top" Width="132"/>
+            <ComboBox x:Name="cbIdSolicitud" Margin="217,214,441,0" Loaded="CbIdSolicitud_Loaded" VerticalAlignment="Top"/>
+            <RadioButton x:Name="VentaLocalSi" GroupName="VentaLocal" Content="Venta Local" Margin="469,198,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="68" Width="108"/>
+            <RadioButton x:Name="VentaLocalNo" GroupName="VentaLocal" Content="Venta Externa" Margin="582,207,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="52" Width="106"/>
+            <Label x:Name="id_procesoLabel" Content="ID" HorizontalAlignment="Left" Margin="456,127,0,0" VerticalAlignment="Top" Width="45" Height="27"/>
+            <ComboBox x:Name="cbIDproceso" Margin="506,140,152,0" Loaded="CbIDproceso_Loaded" SelectionChanged="CbIDproceso_SelectionChanged" Height="16" VerticalAlignment="Top"/>
+            <Label x:Name="avisoLabel2" Content="*AVISO: ID habilitada para uso de modificación &#xD;&#xA;o eliminación de procesos de venta. &#xD;&#xA;Seleccione para darle uso." HorizontalAlignment="Left" Margin="493,40,0,0" VerticalAlignment="Top" Height="52" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
+            <Button x:Name="Guardar_proceso" Content="Guardar" HorizontalAlignment="Left" Margin="257,344,0,0" VerticalAlignment="Top" Width="111" Click="Guardar_proceso_Click" Cursor="Hand"/>
+            <Button x:Name="Actualizar_proceso" Content="Actualizar" HorizontalAlignment="Left" Margin="393,344,0,0" VerticalAlignment="Top" Width="101" Click="Actualizar_proceso_Click"/>
+            <Button x:Name="Eliminar_proceso" Content="Eliminar" HorizontalAlignment="Left" Margin="519,344,0,0" VerticalAlignment="Top" Width="117" Click="Eliminar_proceso_Click"/>
 
 
 

@@ -17,6 +17,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using maipoGrandeDatos;
+using MaterialDesignThemes.Wpf;
 
 namespace maipoGrande
 {
@@ -96,6 +97,45 @@ namespace maipoGrande
             {
                 MessageBox.Show("Error en la conexion");
             }
+
+
         }
-    }
+
+        //Theme Code ========================>
+        public bool IsDarkTheme { get; set; }
+        private readonly PaletteHelper paletteHelper = new PaletteHelper();
+        //===================================>
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            DragMove();
+        }
+
+        private void toggleTheme(object sender, RoutedEventArgs e)
+        {
+            //Theme Code ========================>
+            ITheme theme = paletteHelper.GetTheme();
+            if (IsDarkTheme = theme.GetBaseTheme() == BaseTheme.Dark)
+            {
+                IsDarkTheme = false;
+                theme.SetBaseTheme(Theme.Light);
+            }
+            else
+            {
+                IsDarkTheme = true;
+                theme.SetBaseTheme(Theme.Dark);
+            }
+
+            paletteHelper.SetTheme(theme);
+            //===================================>
+        }
+
+        private void exitApp(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+
+    }   
 }

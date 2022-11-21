@@ -13,19 +13,19 @@
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
-            <Label x:Name="cantidadLabel" Content="Cantidad de frutas requeridas" HorizontalAlignment="Left" Margin="295,26,0,0" VerticalAlignment="Top" Width="168"/>
-            <TextBox x:Name="cantidadBox" HorizontalAlignment="Left" Height="22" Margin="501,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-            <Label x:Name="frutaLabel" Content="Fruta" HorizontalAlignment="Left" Margin="426,79,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbProducto" Margin="478,79,224,345" Loaded="CbProducto_Loaded"/>
-            <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="425,134,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbEstadoSolicitud" Margin="579,144,127,280" Loaded="CbEstadoSolicitud_Loaded"/>
-            <Label x:Name="idSolicitud" Content="ID" HorizontalAlignment="Left" Margin="333,214,0,0" VerticalAlignment="Top" Height="33" Width="35"/>
-            <ComboBox x:Name="cbIdSolicitudCompra" Margin="373,222,317,203" Loaded="CbIdSolicitudCompra_Loaded" SelectionChanged="CbIdSolicitudCompra_SelectionChanged" />
-            <Button x:Name="GuardarSolicitud" Content="Guardar" HorizontalAlignment="Left" Margin="588,400,0,0" VerticalAlignment="Top" Width="76" Click="GuardarSolicitud_Click" RenderTransformOrigin="0.492,0.427"/>
-            <Button x:Name="ActualizarSolicitud" Content="Actualizar" HorizontalAlignment="Left" Margin="350,400,0,0" VerticalAlignment="Top" Width="76" Click="ActualizarSolicitud_Click"/>
-            <Button x:Name="EliminarSolicitud" Content="Eliminar" HorizontalAlignment="Left" Margin="478,400,0,0" VerticalAlignment="Top" Width="75" Click="EliminarSolicitud_Click"/>
+            <Label x:Name="cantidadLabel" Content="Cantidad de frutas requeridas" HorizontalAlignment="Left" Margin="96,74,0,0" VerticalAlignment="Top" Width="168"/>
+            <TextBox x:Name="cantidadBox" HorizontalAlignment="Left" Height="22" Margin="313,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113"/>
+            <Label x:Name="frutaLabel" Content="Fruta" HorizontalAlignment="Left" Margin="96,140,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbProducto" Margin="313,157,374,0" Loaded="CbProducto_Loaded" VerticalAlignment="Top"/>
+            <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="96,221,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbEstadoSolicitud" Margin="313,225,374,0" Loaded="CbEstadoSolicitud_Loaded" VerticalAlignment="Top"/>
+            <Label x:Name="idSolicitud" Content="ID" HorizontalAlignment="Left" Margin="527,70,0,0" VerticalAlignment="Top" Height="34" Width="36"/>
+            <ComboBox x:Name="cbIdSolicitudCompra" Margin="588,81,102,0" Loaded="CbIdSolicitudCompra_Loaded" SelectionChanged="CbIdSolicitudCompra_SelectionChanged" VerticalAlignment="Top" />
+            <Button x:Name="GuardarSolicitud" Content="Guardar" HorizontalAlignment="Left" Margin="273,372,0,0" VerticalAlignment="Top" Width="97" Click="GuardarSolicitud_Click" RenderTransformOrigin="0.492,0.427"/>
+            <Button x:Name="ActualizarSolicitud" Content="Actualizar" HorizontalAlignment="Left" Margin="415,372,0,0" VerticalAlignment="Top" Width="100" Click="ActualizarSolicitud_Click"/>
+            <Button x:Name="EliminarSolicitud" Content="Eliminar" HorizontalAlignment="Left" Margin="549,372,0,0" VerticalAlignment="Top" Width="94" Click="EliminarSolicitud_Click"/>
 
-            
+
         </Grid>
 
 

@@ -18,6 +18,8 @@ using System.Data;
 using maipoGrandeDatos;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using maipoGrande.Pages;
+using MaterialDesignThemes.Wpf;
 
 namespace maipoGrande
 {
@@ -101,6 +103,9 @@ namespace maipoGrande
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow objmainwindow = new MainWindow();
+
+            objmainwindow.Show();
             Close();
         }
 
@@ -134,6 +139,7 @@ namespace maipoGrande
         private void click_usuarios(object sender, RoutedEventArgs e)
         {
             PagesNavigation.Navigate(new System.Uri("Pages/Usuarios.xaml", UriKind.RelativeOrAbsolute));
+            
         }
         private void click_contratos(object sender, RoutedEventArgs e)
         {
@@ -161,6 +167,42 @@ namespace maipoGrande
         private void click_camion(object sender, RoutedEventArgs e)
         {
             PagesNavigation.Navigate(new System.Uri("Pages/Subastas.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+
+        //Theme Code ========================>
+        public bool IsDarkTheme { get; set; }
+        private readonly PaletteHelper paletteHelper = new PaletteHelper();
+        //===================================>
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            DragMove();
+        }
+
+        private void toggleTheme(object sender, RoutedEventArgs e)
+        {
+            //Theme Code ========================>
+            ITheme theme = paletteHelper.GetTheme();
+            if (IsDarkTheme = theme.GetBaseTheme() == BaseTheme.Dark)
+            {
+                IsDarkTheme = false;
+                theme.SetBaseTheme(Theme.Light);
+            }
+            else
+            {
+                IsDarkTheme = true;
+                theme.SetBaseTheme(Theme.Dark);
+            }
+
+            paletteHelper.SetTheme(theme);
+            //===================================>
+        }
+
+        private void exitApp(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
