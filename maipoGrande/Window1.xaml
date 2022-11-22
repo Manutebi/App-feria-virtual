@@ -123,9 +123,6 @@
 
                 <Border Grid.Row="1" Margin="10">
                     <Frame x:Name="PagesNavigation" NavigationUIVisibility="Hidden">
-                        <Frame.Background>
-                            <ImageBrush ImageSource="/frutas.jpg"/>
-                        </Frame.Background>
                         <!-- Page Content -->
                     </Frame>
                 </Border>

@@ -175,11 +175,7 @@ namespace maipoGrande
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
         //===================================>
 
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-            DragMove();
-        }
+      
 
         private void toggleTheme(object sender, RoutedEventArgs e)
         {
