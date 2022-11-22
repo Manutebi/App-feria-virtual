@@ -75,13 +75,53 @@ namespace maipoGrande.Pages
         {
             cargarContrato();
         }
-       
+
+
+        private void AgreUpdateEventHandler(object sender, Addcontratos.UpdateEventArgs args)
+        {
+            cargarContrato();
+        }
+        private void ActuUpdateEventHandler(object sender, Updatecontratos.UpdateEventArgs args)
+        {
+            cargarContrato();
+        }
 
         private void add_contratos(object sender, RoutedEventArgs e)
         {
-            Addcontratos objaddcontratos = new Addcontratos();
+            Addcontratos objaddcontratos = new Addcontratos(this);
+            objaddcontratos.UpdateEventHandler += AgreUpdateEventHandler;
             objaddcontratos.Show();
 
+        }
+
+       
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+            //new Updateusuarios(Convert.ToInt32(id)).Show();
+            Updatecontratos objupdusuarios = new Updatecontratos(Convert.ToInt32(id));
+            objupdusuarios.UpdateEventHandler += ActuUpdateEventHandler;
+            objupdusuarios.Show();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+            try
+            {
+                OracleCommand comando = new OracleCommand("eliminar_contrato", conn);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Usuario eliminado con exito");
+
+                cargarContrato();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
+            }
         }
 
         private void actualizar(object sender, RoutedEventArgs e)

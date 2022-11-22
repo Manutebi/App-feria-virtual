@@ -120,8 +120,20 @@
     <Compile Include="Pages\Subastas.xaml.cs">
       <DependentUpon>Subastas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Updatecontratos.xaml.cs">
+      <DependentUpon>Updatecontratos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Updatepdv.xaml.cs">
+      <DependentUpon>Updatepdv.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Updateproductos.xaml.cs">
+      <DependentUpon>Updateproductos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Updateusuarios.xaml.cs">
       <DependentUpon>Updateusuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Updateventas.xaml.cs">
+      <DependentUpon>Updateventas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Usuarios.xaml.cs">
       <DependentUpon>Usuarios.xaml</DependentUpon>
@@ -189,7 +201,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Updatecontratos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Updatepdv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Updateproductos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Updateusuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Updateventas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

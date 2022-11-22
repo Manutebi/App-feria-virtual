@@ -104,11 +104,11 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridEditButton}">
-                                        <Icon:PackIconMaterial Kind="PencilCircle" Style="{StaticResource gridButtonIcon}"/>
+                                    <Button x:Name="EditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding ID_SOLICUTUDES}" Click="EditButton_Click" >
+                                        <Icon:PackIconMaterial Kind="PencilBoxOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
-                                    <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
-                                        <Icon:PackIconMaterial Kind="DeleteCircle" Style="{StaticResource gridButtonIcon}"/>
+                                    <Button x:Name="DeleteButton" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" CommandParameter="{Binding ID_SOLICITUDES}" Click="DeleteButton_Click">
+                                        <Icon:PackIconMaterial Kind="DeleteAlertOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                 </StackPanel>
                             </DataTemplate>

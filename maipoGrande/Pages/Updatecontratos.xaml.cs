@@ -18,30 +18,17 @@ using System.Windows.Shapes;
 namespace maipoGrande.Pages
 {
     /// <summary>
-    /// Lógica de interacción para Addcontratos.xaml
+    /// Lógica de interacción para Updatecontratos.xaml
     /// </summary>
-    public partial class Addcontratos : Window
+    public partial class Updatecontratos : Window
     {
         OracleConnection conn = null;
-        public Addcontratos(Contratos contratos)
+        int id;
+        public Updatecontratos(int id)
         {
             InitializeComponent();
             abrirConexion();
-        }
-
-        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
-        public event UpdateDelegate UpdateEventHandler;
-
-        public class UpdateEventArgs : EventArgs
-        {
-            public string Data { get; set; }
-
-        }
-
-        protected void Agregar()
-        {
-            UpdateEventArgs args = new UpdateEventArgs();
-            UpdateEventHandler.Invoke(this, args);
+            this.id = id;
         }
 
         private void abrirConexion()
@@ -155,7 +142,7 @@ namespace maipoGrande.Pages
 
                 cbIdContrato.SelectedValue = 0;
                 cargarIDUser2();
-                
+
                 cargarIDContrato();
             }
             catch (Exception)
@@ -171,7 +158,7 @@ namespace maipoGrande.Pages
                 DateTime f2 = Convert.ToDateTime(string.Format("{0:yyyy-mm-dd}", fecha_TerDate));
                 OracleCommand comando = new OracleCommand("actualizar_contrato", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIdContrato.Text);
+                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.Parameters.Add("fecha_ini", OracleDbType.Date).Value = f1;
                 comando.Parameters.Add("fecha_ter", OracleDbType.Date).Value = f2;
                 if (contratoActivoSi.IsChecked == true) { comando.Parameters.Add("contrato", OracleDbType.Int32).Value = 1; }
@@ -181,7 +168,7 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Contrato actualizado con exito.");
                 cbIdContrato.SelectedValue = 0;
                 cargarIDUser2();
-                
+
                 cargarIDContrato();
             }
             catch (Exception)
@@ -201,7 +188,7 @@ namespace maipoGrande.Pages
 
                 cbIdContrato.SelectedValue = 0;
                 cargarIDUser2();
-                
+
                 cargarIDContrato();
             }
             catch (Exception)
@@ -223,5 +210,24 @@ namespace maipoGrande.Pages
         {
             Close();
         }
+
+        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
+        public event UpdateDelegate UpdateEventHandler;
+
+        public class UpdateEventArgs : EventArgs
+        {
+            public string Data { get; set; }
+
+        }
+
+        protected void actualizar()
+        {
+            UpdateEventArgs args = new UpdateEventArgs();
+            UpdateEventHandler.Invoke(this, args);
+        }
+
     }
+
+
 }
+

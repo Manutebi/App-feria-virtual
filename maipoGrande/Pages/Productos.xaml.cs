@@ -75,16 +75,58 @@ namespace maipoGrande.Pages
             cargarProductoDG();
         }
 
-        private void add_productos(object sender, RoutedEventArgs e)
-        {
-            Addproductos objproductos = new Addproductos();
-            objproductos.Show();
-
-        }
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             cargarProductoDG();
+        }
+
+        private void AgreUpdateEventHandler(object sender, Addproductos.UpdateEventArgs args)
+        {
+            cargarProductoDG();
+        }
+        private void ActuUpdateEventHandler(object sender, Updateproductos.UpdateEventArgs args)
+        {
+            cargarProductoDG();
+        }
+
+        private void add_productos(object sender, RoutedEventArgs e)
+        {
+            Addproductos objaddproductos = new Addproductos(this);
+            objaddproductos.UpdateEventHandler += AgreUpdateEventHandler;
+            objaddproductos.Show();
+
+        }
+
+     
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+            //new Updateusuarios(Convert.ToInt32(id)).Show();
+            Updateproductos objupdproductos = new Updateproductos(Convert.ToInt32(id));
+            objupdproductos.UpdateEventHandler += ActuUpdateEventHandler;
+            objupdproductos.Show();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+            try
+            {
+                OracleCommand comando = new OracleCommand("eliminar_productos", conn);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Usuario eliminado con exito");
+
+                cargarProductoDG();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
+            }
         }
     }
 }

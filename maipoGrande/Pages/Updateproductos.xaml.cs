@@ -17,32 +17,16 @@ using System.Windows.Shapes;
 
 namespace maipoGrande.Pages
 {
-    /// <summary>
-    /// Lógica de interacción para Addproductos.xaml
-    /// </summary>
-    public partial class Addproductos : Window
+    public partial class Updateproductos : Window
     {
         OracleConnection conn = null;
-        public Addproductos()
+        int id;
+        public Updateproductos(int id)
         {
             InitializeComponent();
             abrirConexion();
+            this.id = id;
 
-        }
-
-        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
-        public event UpdateDelegate UpdateEventHandler;
-
-        public class UpdateEventArgs : EventArgs
-        {
-            public string Data { get; set; }
-
-        }
-
-        protected void Agregar()
-        {
-            UpdateEventArgs args = new UpdateEventArgs();
-            UpdateEventHandler.Invoke(this, args);
         }
 
         private void abrirConexion()
@@ -75,7 +59,7 @@ namespace maipoGrande.Pages
 
                 cbIdProducto.SelectedValue = 0;
                 cargarIdProducto();
-                
+
             }
             catch (Exception)
             {
@@ -101,7 +85,7 @@ namespace maipoGrande.Pages
                 cbIdCalidad.SelectedValue = 0;
                 cbIdProducto.SelectedValue = 0;
                 cargarIdProducto();
-                
+
             }
             catch (Exception)
             {
@@ -120,7 +104,7 @@ namespace maipoGrande.Pages
 
                 cbIdProducto.SelectedValue = 0;
                 cargarIdProducto();
-                
+
             }
             catch (Exception)
             {
@@ -181,12 +165,12 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al cargar la id de calidad en el combobox");
             }
         }
-        private void cargarUpdateProducto(string id_producto)
+        private void cargarUpdateProducto(int id)
         {
             try
             {
                 OracleCommand cmd = new OracleCommand("SELECT * FROM producto WHERE id_prod = :id_prod", conn);
-                cmd.Parameters.Add(":id_producto", id_producto);
+                cmd.Parameters.Add(":id_producto", id);
                 OracleDataAdapter da = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -212,5 +196,21 @@ namespace maipoGrande.Pages
         {
             Close();
         }
+
+        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
+        public event UpdateDelegate UpdateEventHandler;
+
+        public class UpdateEventArgs : EventArgs
+        {
+            public string Data { get; set; }
+
+        }
+
+        protected void actualizar()
+        {
+            UpdateEventArgs args = new UpdateEventArgs();
+            UpdateEventHandler.Invoke(this, args);
+        }
     }
+
 }

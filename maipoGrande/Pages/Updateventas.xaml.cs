@@ -18,9 +18,9 @@ using System.Windows.Shapes;
 namespace maipoGrande.Pages
 {
     /// <summary>
-    /// Lógica de interacción para Addventas.xaml
+    /// Lógica de interacción para Updateventas.xaml
     /// </summary>
-    public partial class Addventas : Window
+    public partial class Updateventas : Window
     {
         OracleConnection conn = null;
         int id_usuario;
@@ -33,7 +33,7 @@ namespace maipoGrande.Pages
         int superuser;
         int ciudad;
         int rol;
-        public Addventas(int id_usuario, string nombre, string apellido, string email, string password, int run, int usuario_activo, int superuser, int ciudad, int rol)
+        public Updateventas(int id_usuario, string nombre, string apellido, string email, string password, int run, int usuario_activo, int superuser, int ciudad, int rol)
         {
             abrirConexion();
             InitializeComponent();
@@ -171,10 +171,10 @@ namespace maipoGrande.Pages
 
         }
 
-       
 
 
-       
+
+
         private void CbProducto_Loaded(object sender, RoutedEventArgs e)
         {
             cargarIdProducto2();
@@ -215,7 +215,7 @@ namespace maipoGrande.Pages
                 cbEstadoSolicitud.SelectedValue = 0;
                 cbIdSolicitudCompra.SelectedValue = 0;
                 cargarIdsolicitud2();
-                
+
             }
             catch (Exception)
             {
@@ -239,7 +239,7 @@ namespace maipoGrande.Pages
                 cbEstadoSolicitud.SelectedValue = 0;
                 cbIdSolicitudCompra.SelectedValue = 0;
                 cargarIdsolicitud2();
-                
+
             }
             catch (Exception)
             {
@@ -260,7 +260,7 @@ namespace maipoGrande.Pages
                 cbEstadoSolicitud.SelectedValue = 0;
                 cbIdSolicitudCompra.SelectedValue = 0;
                 cargarIdsolicitud2();
-                
+
             }
             catch (Exception)
             {
@@ -273,6 +273,4 @@ namespace maipoGrande.Pages
             Close();
         }
     }
-
-    
 }

@@ -18,33 +18,17 @@ using System.Windows.Shapes;
 namespace maipoGrande.Pages
 {
     /// <summary>
-    /// Lógica de interacción para Addpdv.xaml
+    /// Lógica de interacción para Updatepdv.xaml
     /// </summary>
-    public partial class Addpdv : Window
+    public partial class Updatepdv : Window
     {
         OracleConnection conn = null;
-        public Addpdv()
+        int id;
+        public Updatepdv(int id)
         {
             InitializeComponent();
             abrirConexion();
-
-
-        }
-
-
-        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
-        public event UpdateDelegate UpdateEventHandler;
-
-        public class UpdateEventArgs : EventArgs
-        {
-            public string Data { get; set; }
-
-        }
-
-        protected void Agregar()
-        {
-            UpdateEventArgs args = new UpdateEventArgs();
-            UpdateEventHandler.Invoke(this, args);
+            this.id = id;
         }
 
         private void abrirConexion()
@@ -242,9 +226,9 @@ namespace maipoGrande.Pages
             }
         }
 
-        
 
-        
+
+
 
         private void CbIDproceso_Loaded(object sender, RoutedEventArgs e)
         {
