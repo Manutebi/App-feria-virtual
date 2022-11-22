@@ -247,9 +247,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\p1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Avatars\avatar1.jpg" />
   </ItemGroup>
   <ItemGroup>
