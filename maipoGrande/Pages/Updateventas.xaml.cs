@@ -23,6 +23,7 @@ namespace maipoGrande.Pages
     public partial class Updateventas : Window
     {
         OracleConnection conn = null;
+        int id;
         int id_usuario;
         string nombre;
         string apellido;
@@ -34,10 +35,11 @@ namespace maipoGrande.Pages
         int ciudad;
         int rol;
 
-        public Updateventas(int id_usuario, string nombre, string apellido, string email, string password, int run, int usuario_activo, int superuser, int ciudad, int rol)
+        public Updateventas(int id, int id_usuario, string nombre, string apellido, string email, string password, int run, int usuario_activo, int superuser, int ciudad, int rol)
         {
             abrirConexion();
             InitializeComponent();
+            this.id = id;
             this.id_usuario = id_usuario;
             this.nombre = nombre;
             this.apellido = apellido;

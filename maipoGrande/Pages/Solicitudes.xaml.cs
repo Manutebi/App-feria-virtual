@@ -127,7 +127,7 @@ namespace maipoGrande.Pages
         {
             Decimal id = (Decimal)((Button)sender).CommandParameter;
             //new Updateusuarios(Convert.ToInt32(id)).Show();
-            Updateventas objupdventas = new Updateventas(id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol);
+            Updateventas objupdventas = new Updateventas(Convert.ToInt32(id), id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol);
             objupdventas.UpdateEventHandler += ActuUpdateEventHandler;
             objupdventas.Show();
         }
@@ -137,17 +137,17 @@ namespace maipoGrande.Pages
             Decimal id = (Decimal)((Button)sender).CommandParameter;
             try
             {
-                OracleCommand comando = new OracleCommand("eliminar_user", conn);
+                OracleCommand comando = new OracleCommand("eliminar_solicitud_compra", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Usuario eliminado con exito");
+                MessageBox.Show("Solicitud eliminada con exito");
 
                 cargarSolicitudDG2();
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
+                MessageBox.Show("Algo ha salido mal al eliminar la solicitud de compra.");
             }
         }
 

@@ -31,10 +31,7 @@ namespace maipoGrande.Pages
         {
             abrirConexion();
             InitializeComponent();
-             
         }
-
-     
 
         private void abrirConexion()
         {
