@@ -115,9 +115,9 @@ namespace maipoGrande.Pages
 
         private void add_ventas(object sender, RoutedEventArgs e)
         {
-            Addventas objaddventas = new Addventas(id);
+            Addventas objaddventas = new Addventas(id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol);
             objaddventas.UpdateEventHandler += AgreUpdateEventHandler;
-            objaddventas.Show(id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol);
+            objaddventas.Show();
 
         }
 

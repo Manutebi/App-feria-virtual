@@ -18,14 +18,11 @@
             <Label x:Name="avisoLabel0" Content="Ingresar Run sin puntos ni guion" HorizontalAlignment="Left" Margin="160,34,0,0" VerticalAlignment="Top" Height="26" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
             <Label x:Name="RunLabel" Content="Run" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="92"/>
             <TextBox x:Name="RunBox" HorizontalAlignment="Left" Height="24" Margin="160,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-            <Label x:Name="nombreLabel" Content="Nombres" HorizontalAlignment="Left" Margin="80,120,0,0" VerticalAlignment="Top" Width="92"/>
-            <TextBox
+            <Label x:Name="nomLabel" Content="Run" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="92"/>
+            <TextBox x:Name="nombreBox" HorizontalAlignment="Left" Height="24" Margin="160,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            
                
-             x:Name="nombreBox" Margin="241,323,400,95"
-            materialDesign:HintAssist.HelperText="Bigger Helper Text"
-            materialDesign:HintAssist.HelperTextFontSize="16"
-             materialDesign:HintAssist.Hint="Comment" />
-            <materialDesign:PackIcon Kind="Account" Margin="209,330,0,0" />
+            <materialDesign:PackIcon Kind="Account" Margin="80,123,0,0" Height="29" Width="32" />
             <Label x:Name="apellidoLabel" Content="Apellidos" HorizontalAlignment="Left" Margin="80,170,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.079,0.577" Width="92"/>
             <TextBox x:Name="apellidoBox" HorizontalAlignment="Left" Height="22" Margin="160,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
             <Label x:Name="emailLabel" Content="Email" HorizontalAlignment="Left" Margin="80,225,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.079,0.577" Width="92"/>

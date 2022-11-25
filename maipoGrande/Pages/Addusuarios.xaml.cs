@@ -35,15 +35,15 @@ namespace maipoGrande.Pages
         }
 
         public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
-        public event UpdateDelegate UpdateEventHandler; 
+        public event UpdateDelegate UpdateEventHandler;
 
-        public class UpdateEventArgs : EventArgs 
+        public class UpdateEventArgs : EventArgs
         {
             public string Data { get; set; }
 
         }
 
-        protected void Agregar() 
+        protected void Agregar()
         {
             UpdateEventArgs args = new UpdateEventArgs();
             UpdateEventHandler.Invoke(this, args);
@@ -65,7 +65,7 @@ namespace maipoGrande.Pages
 
         }
 
-        
+
         private void cargarTipoUser()
         {
             cbtipoUser.SelectedValue = 0;
@@ -200,7 +200,7 @@ namespace maipoGrande.Pages
             }
         }
 
-       
+
 
         private void CbPais_Loaded(object sender, RoutedEventArgs e)
         {
@@ -248,7 +248,7 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Algo fallo en la creacion del usuario, asegurate de rellenar todas las casillas.");
             }
         }
-        
+
 
         private void CbPais_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -280,9 +280,18 @@ namespace maipoGrande.Pages
         {
             Close();
         }
-    }
 
+
+
+
+
+
+
+    }
 }
+
+
+
 
 
 
