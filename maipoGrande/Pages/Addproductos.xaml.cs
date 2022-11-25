@@ -23,7 +23,7 @@ namespace maipoGrande.Pages
     public partial class Addproductos : Window
     {
         OracleConnection conn = null;
-        public Addproductos()
+        public Addproductos(Productos productos)
         {
             InitializeComponent();
             abrirConexion();

@@ -23,7 +23,7 @@ namespace maipoGrande.Pages
     public partial class Addpdv : Window
     {
         OracleConnection conn = null;
-        public Addpdv()
+        public Addpdv(Procesos Procesos)
         {
             InitializeComponent();
             abrirConexion();

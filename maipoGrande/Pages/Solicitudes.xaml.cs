@@ -71,11 +71,6 @@ namespace maipoGrande.Pages
 
         }
 
-        private void add_ventas(object sender, RoutedEventArgs e)
-        {
-            Addventas objaddventas = new Addventas(id_usuario, nombre,  apellido,  email,  password,  run,  usuario_activo,  superuser,  ciudad,  rol);
-            objaddventas.Show();
-        }
 
         private void ListadoSolicitudCompra_Loaded(object sender, RoutedEventArgs e) 
         { 
@@ -108,6 +103,54 @@ namespace maipoGrande.Pages
             cargarSolicitudDG2();
         }
 
-        
+
+        private void AgreUpdateEventHandler(object sender, Addventas.UpdateEventArgs args)
+        {
+            cargarSolicitudDG2();
+        }
+        private void ActuUpdateEventHandler(object sender, Updateventas.UpdateEventArgs args)
+        {
+            cargarSolicitudDG2();
+        }
+
+        private void add_ventas(object sender, RoutedEventArgs e)
+        {
+            Addventas objaddventas = new Addventas(id);
+            objaddventas.UpdateEventHandler += AgreUpdateEventHandler;
+            objaddventas.Show(id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol);
+
+        }
+
+     
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+            //new Updateusuarios(Convert.ToInt32(id)).Show();
+            Updateventas objupdventas = new Updateventas(id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol);
+            objupdventas.UpdateEventHandler += ActuUpdateEventHandler;
+            objupdventas.Show();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+            try
+            {
+                OracleCommand comando = new OracleCommand("eliminar_user", conn);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Usuario eliminado con exito");
+
+                cargarSolicitudDG2();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
+            }
+        }
+
+
     }
 }

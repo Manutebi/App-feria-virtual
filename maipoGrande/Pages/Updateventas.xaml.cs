@@ -33,6 +33,7 @@ namespace maipoGrande.Pages
         int superuser;
         int ciudad;
         int rol;
+
         public Updateventas(int id_usuario, string nombre, string apellido, string email, string password, int run, int usuario_activo, int superuser, int ciudad, int rol)
         {
             abrirConexion();

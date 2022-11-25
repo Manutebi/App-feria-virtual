@@ -227,9 +227,6 @@ namespace maipoGrande.Pages
         }
 
 
-
-
-
         private void CbIDproceso_Loaded(object sender, RoutedEventArgs e)
         {
             cargarIDProceso();
@@ -246,6 +243,22 @@ namespace maipoGrande.Pages
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+
+        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
+        public event UpdateDelegate UpdateEventHandler;
+
+        public class UpdateEventArgs : EventArgs
+        {
+            public string Data { get; set; }
+
+        }
+
+        protected void Agregar()
+        {
+            UpdateEventArgs args = new UpdateEventArgs();
+            UpdateEventHandler.Invoke(this, args);
         }
 
 

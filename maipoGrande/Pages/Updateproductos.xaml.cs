@@ -165,12 +165,12 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al cargar la id de calidad en el combobox");
             }
         }
-        private void cargarUpdateProducto(int id)
+        private void cargarUpdateProducto(string id)
         {
             try
             {
                 OracleCommand cmd = new OracleCommand("SELECT * FROM producto WHERE id_prod = :id_prod", conn);
-                cmd.Parameters.Add(":id_producto", id);
+                cmd.Parameters.Add(":id_prod", id);
                 OracleDataAdapter da = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

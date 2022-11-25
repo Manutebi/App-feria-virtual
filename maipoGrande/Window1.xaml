@@ -123,6 +123,9 @@
 
                 <Border Grid.Row="1" Margin="10">
                     <Frame x:Name="PagesNavigation" NavigationUIVisibility="Hidden">
+                        <Frame.Background>
+                            <ImageBrush ImageSource="/dashboard.png"/>
+                        </Frame.Background>
                         <!-- Page Content -->
                     </Frame>
                 </Border>

@@ -45,7 +45,7 @@
             <TextBlock Text="Gestion Proceso de venta" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
 
             <!--Add Button-->
-            <Button Style="{StaticResource addButton}" Click="addpdv">
+            <Button Style="{StaticResource addButton}" Click="add_pdv">
                 <StackPanel Orientation="Horizontal">
                     <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
                     <TextBlock Text="Agregar pdv"/>
@@ -102,7 +102,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Opciones" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn Header="Opciones" x:Name="IDBotones" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

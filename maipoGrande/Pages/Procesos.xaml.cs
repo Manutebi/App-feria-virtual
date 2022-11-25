@@ -69,14 +69,10 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al leer proceso");
             }
         }
+
         
 
-        private void addpdv(object sender, RoutedEventArgs e)
-        {
-            Addpdv objaddpdv = new Addpdv();
-            objaddpdv.Show();
-
-        }
+ 
 
         private void cargarSolicitudDG()
         {
@@ -100,26 +96,31 @@ namespace maipoGrande.Pages
         private void MostrarSolicitudNo_Checked(object sender, RoutedEventArgs e)
         {
             cargarProcesoDG();
+            IDBotones.Visibility = Visibility.Visible;
         }
         private void MostrarSolicitudSi_Checked(object sender, RoutedEventArgs e)
         {
             cargarSolicitudDG();
+            IDBotones.Visibility = Visibility.Collapsed;
+    
         }
 
-        private void AgreUpdateEventHandler(object sender, Addventas.UpdateEventArgs args)
-        {
-            cargarProcesoDG();
-        }
-        private void ActuUpdateEventHandler(object sender, Updateventas.UpdateEventArgs args)
+        private void AgreUpdateEventHandler(object sender, Addpdv.UpdateEventArgs args)
         {
             cargarProcesoDG();
         }
 
-        private void add_ventas(object sender, RoutedEventArgs e)
+
+        private void ActuUpdateEventHandler(object sender, Updatepdv.UpdateEventArgs args)
         {
-            Addventas objaddventas = new Addventas(this);
-            objaddventas.UpdateEventHandler += AgreUpdateEventHandler;
-            objaddventas.Show();
+            cargarProcesoDG();
+        }
+
+        private void add_pdv(object sender, RoutedEventArgs e)
+        {
+            Addpdv objaddpdv = new Addpdv(this);
+            objaddpdv.UpdateEventHandler += AgreUpdateEventHandler;
+            objaddpdv.Show();
 
         }
 
@@ -132,9 +133,9 @@ namespace maipoGrande.Pages
         {
             Decimal id = (Decimal)((Button)sender).CommandParameter;
             //new Updateusuarios(Convert.ToInt32(id)).Show();
-            Updateventas objupdventas = new Updateventas(Convert.ToInt32(id));
-            objupdventas.UpdateEventHandler += ActuUpdateEventHandler;
-            objupdventas.Show();
+            Updatepdv objupdpdv = new Updatepdv(Convert.ToInt32(id));
+            objupdpdv.UpdateEventHandler += ActuUpdateEventHandler;
+            objupdpdv.Show();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -155,6 +156,8 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
             }
         }
+
+      
 
     }
 }
