@@ -115,17 +115,17 @@ namespace maipoGrande.Pages
             Decimal id = (Decimal)((Button)sender).CommandParameter;
             try
             {
-                OracleCommand comando = new OracleCommand("eliminar_productos", conn);
+                OracleCommand comando = new OracleCommand("eliminar_producto", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Usuario eliminado con exito");
+                MessageBox.Show("Producto eliminado con exito");
 
                 cargarProductoDG();
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
+                MessageBox.Show("Algo ha salido mal al eliminar el producto.");
             }
         }
     }

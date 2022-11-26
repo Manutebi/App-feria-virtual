@@ -114,13 +114,13 @@ namespace maipoGrande.Pages
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Usuario eliminado con exito");
+                MessageBox.Show("Contrato eliminado con exito");
 
                 cargarContrato();
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
+                MessageBox.Show("Algo ha salido mal al eliminar el contrato.");
             }
         }
 

@@ -145,7 +145,7 @@
                     </Button>
                 </StackPanel>
             </Border>
-            <Button Content="Actualizar" HorizontalAlignment="Left" Margin="391,24,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <Button Content="Actualizar" HorizontalAlignment="Left" Margin="391,24,0,0" Grid.Row="1" VerticalAlignment="Top" Click="boton_actualizar"/>
 
         </Grid>
 

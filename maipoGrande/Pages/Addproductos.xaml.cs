@@ -75,6 +75,7 @@ namespace maipoGrande.Pages
 
                 cbIdProducto.SelectedValue = 0;
                 cargarIdProducto();
+                Agregar();
                 
             }
             catch (Exception)
@@ -102,6 +103,9 @@ namespace maipoGrande.Pages
                 cbIdProducto.SelectedValue = 0;
                 cargarIdProducto();
                 
+                
+                
+                
             }
             catch (Exception)
             {
@@ -120,6 +124,7 @@ namespace maipoGrande.Pages
 
                 cbIdProducto.SelectedValue = 0;
                 cargarIdProducto();
+                Visibility= Visibility.Collapsed;
                 
             }
             catch (Exception)

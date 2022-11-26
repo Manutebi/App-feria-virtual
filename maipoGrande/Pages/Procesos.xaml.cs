@@ -124,7 +124,8 @@ namespace maipoGrande.Pages
 
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+
+        public void boton_actualizar(object sender, RoutedEventArgs e)
         {
             cargarProcesoDG();
         }
@@ -143,21 +144,19 @@ namespace maipoGrande.Pages
             Decimal id = (Decimal)((Button)sender).CommandParameter;
             try
             {
-                OracleCommand comando = new OracleCommand("eliminar_user", conn);
+                OracleCommand comando = new OracleCommand("eliminar_pdv", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Usuario eliminado con exito");
+                MessageBox.Show("Proceso de venta eliminado con exito");
 
                 cargarProcesoDG();
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
+                MessageBox.Show("Algo ha salido mal al eliminar el proceso de venta.");
             }
         }
-
-      
 
     }
 }

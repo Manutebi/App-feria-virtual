@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:maipoGrande.Pages"
         mc:Ignorable="d"
-        Title="Addpdv" Height="450" Width="800"
+        Title="Addpdv" Height="450" Width="400"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
 
@@ -14,23 +14,17 @@
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
-            <Label x:Name="userLabel" Content="Usuario" Margin="87,57,641,350"/>
-            <ComboBox x:Name="cbIdUser2" DisplayMemberPath="Id_usuario" HorizontalAlignment="Left" Margin="198,62,0,0" VerticalAlignment="Top" Width="120" Loaded="CbIdContrato_Loaded" Height="32">
+            <Label x:Name="userLabel" Content="Usuario" Margin="63,61,262,346"/>
+            <ComboBox x:Name="cbIdUser2" DisplayMemberPath="Id_usuario" HorizontalAlignment="Left" Margin="196,50,0,0" VerticalAlignment="Top" Width="120" Loaded="CbIdContrato_Loaded" Height="32">
             </ComboBox>
-            <Label x:Name="fecha_InLabel" Content="Inicio de contrato" Margin="442,62,234,350"/>
-            <DatePicker x:Name="fecha_InDate" Margin="442,105,249,0" VerticalAlignment="Top"/>
-            <Label x:Name="fecha_TerLabel" Content="Termino de contrato" Margin="617,62,53,350"/>
-            <DatePicker x:Name="fecha_TerDate" Margin="617,105,67,0" VerticalAlignment="Top"/>
-            <Label x:Name="contratoLabel" Content="Contrato activo?" Margin="442,177,199,230" IsEnabled="False"/>
-            <RadioButton x:Name="contratoActivoSi" GroupName="contratoActivo" Content="Si" Margin="442,225,312,174" IsEnabled="False"/>
-            <RadioButton x:Name="ContratoActivoNo" GroupName="contratoActivo" Content="No" Margin="511,226,234,174" IsEnabled="False"/>
-            <Label x:Name="IDContratoLabel" Content="ID" Margin="68,260,677,149" RenderTransformOrigin="0.993,-0.639"/>
-            <ComboBox x:Name="cbIdContrato" DisplayMemberPath="Id_usuario" HorizontalAlignment="Left" Margin="142,260,0,0" VerticalAlignment="Top" Width="120" Height="32" Loaded="CbIdContrato_Loaded_1" SelectionChanged="CbIdContrato_SelectionChanged">
-            </ComboBox>
-            <Label x:Name="avisoLabel3" Content="*AVISO: ID habilitada para uso de modificación &#xD;&#xA;o eliminación de contratos. &#xD;&#xA;Seleccione para darle uso." HorizontalAlignment="Left" Margin="87,184,0,0" VerticalAlignment="Top" Height="52" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
-            <Button x:Name="guardarContrato" Content="Subir Contrato" HorizontalAlignment="Left" Margin="258,372,0,0" VerticalAlignment="Top" Width="127" Click="GuardarContrato_Click" />
-            <Button x:Name="actualizarContrato" Content="Modificar Contrato" HorizontalAlignment="Left" Margin="410,372,0,0" VerticalAlignment="Top" Width="156" Click="Actualizar_Contrato_Click" />
-            <Button x:Name="eliminarContrato" Content="Eliminar Contrato" HorizontalAlignment="Left" Margin="586,372,0,0" VerticalAlignment="Top" Width="147" Click="EliminarContrato_Click" />
+            <Label x:Name="fecha_InLabel" Content="Inicio de contrato" Margin="63,132,224,280"/>
+            <DatePicker x:Name="fecha_InDate" Margin="197,126,84,0" VerticalAlignment="Top"/>
+            <Label x:Name="fecha_TerLabel" Content="Termino de contrato" Margin="63,206,218,206"/>
+            <DatePicker x:Name="fecha_TerDate" Margin="200,206,87,0" VerticalAlignment="Top"/>
+            <Label x:Name="contratoLabel" Content="Contrato activo?" Margin="63,264,242,143" IsEnabled="False"/>
+            <RadioButton x:Name="contratoActivoSi" GroupName="contratoActivo" Content="Si" Margin="200,254,149,145" IsEnabled="False"/>
+            <RadioButton x:Name="ContratoActivoNo" GroupName="contratoActivo" Content="No" Margin="263,255,84,145" IsEnabled="False"/>
+            <Button x:Name="guardarContrato" Content="Subir Contrato" HorizontalAlignment="Left" Margin="142,378,0,0" VerticalAlignment="Top" Width="128" Click="GuardarContrato_Click" />
 
 
         </Grid>

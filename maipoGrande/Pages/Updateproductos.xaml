@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:maipoGrande.Pages"
         mc:Ignorable="d"
         Title="Updateproductos" Height="450" Width="800" 
-        WindowStyle="None" WindowStartupLocation="CenterOwner">
+        WindowStyle="None" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
