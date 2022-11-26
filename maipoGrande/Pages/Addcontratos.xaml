@@ -21,9 +21,7 @@
             <DatePicker x:Name="fecha_InDate" Margin="197,126,84,0" VerticalAlignment="Top"/>
             <Label x:Name="fecha_TerLabel" Content="Termino de contrato" Margin="63,206,218,206"/>
             <DatePicker x:Name="fecha_TerDate" Margin="200,206,87,0" VerticalAlignment="Top"/>
-            <Label x:Name="contratoLabel" Content="Contrato activo?" Margin="63,264,242,143" IsEnabled="False"/>
-            <RadioButton x:Name="contratoActivoSi" GroupName="contratoActivo" Content="Si" Margin="200,254,149,145" IsEnabled="False"/>
-            <RadioButton x:Name="ContratoActivoNo" GroupName="contratoActivo" Content="No" Margin="263,255,84,145" IsEnabled="False"/>
+            
             <Button x:Name="guardarContrato" Content="Subir Contrato" HorizontalAlignment="Left" Margin="142,378,0,0" VerticalAlignment="Top" Width="128" Click="GuardarContrato_Click" />
 
 

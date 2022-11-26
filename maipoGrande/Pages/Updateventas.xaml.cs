@@ -218,6 +218,7 @@ namespace maipoGrande.Pages
                 cbEstadoSolicitud.SelectedValue = 0;
                 cbIdSolicitudCompra.SelectedValue = 0;
                 cargarIdsolicitud2();
+                Agregar();
 
             }
             catch (Exception)

@@ -83,30 +83,7 @@ namespace maipoGrande.Pages
             }
         }
         
-        private void cargarUpdateContrato(string id_contrato)
-        {
-            try
-            {
-                OracleCommand cmd = new OracleCommand("SELECT * FROM contrato WHERE id_contrato = :id_contrato", conn);
-                cmd.Parameters.Add(":id_contrato", id_contrato);
-                OracleDataAdapter da = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                contratoActivoSi.IsEnabled = true;
-                ContratoActivoNo.IsEnabled = true;
-                cbIdUser2.SelectedValue = dt.Rows[0]["USUARIO_ID_USUARIO"].ToString();
-                fecha_InDate.Text = dt.Rows[0]["FECHA_INICIO"].ToString();
-                fecha_TerDate.Text = dt.Rows[0]["FECHA_TERMINO"].ToString();
-                string activo = dt.Rows[0]["CONTRATO_ACTIVO"].ToString();
-                if (activo == "1") { contratoActivoSi.IsChecked = true; }
-                else { ContratoActivoNo.IsChecked = true; }
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
+       
 
         private void CbIdContrato_Loaded(object sender, RoutedEventArgs e)
         {
@@ -141,8 +118,6 @@ namespace maipoGrande.Pages
         }
         
        
-
-        
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
