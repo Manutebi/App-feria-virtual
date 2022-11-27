@@ -23,9 +23,7 @@
             <Label x:Name="id_procesoLabel" Content="ID" HorizontalAlignment="Left" Margin="456,127,0,0" VerticalAlignment="Top" Width="45" Height="27"/>
             <ComboBox x:Name="cbIDproceso" Margin="506,140,152,0" Loaded="CbIDproceso_Loaded" SelectionChanged="CbIDproceso_SelectionChanged" Height="16" VerticalAlignment="Top"/>
             <Label x:Name="avisoLabel2" Content="*AVISO: ID habilitada para uso de modificación &#xD;&#xA;o eliminación de procesos de venta. &#xD;&#xA;Seleccione para darle uso." HorizontalAlignment="Left" Margin="493,40,0,0" VerticalAlignment="Top" Height="52" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
-            <Button x:Name="Guardar_proceso" Content="Guardar" HorizontalAlignment="Left" Margin="257,344,0,0" VerticalAlignment="Top" Width="111" Click="Guardar_proceso_Click" Cursor="Hand"/>
-            <Button x:Name="Actualizar_proceso" Content="Actualizar" HorizontalAlignment="Left" Margin="393,344,0,0" VerticalAlignment="Top" Width="101" Click="Actualizar_proceso_Click"/>
-            <Button x:Name="Eliminar_proceso" Content="Eliminar" HorizontalAlignment="Left" Margin="519,344,0,0" VerticalAlignment="Top" Width="117" Click="Eliminar_proceso_Click"/>
+            <Button x:Name="Actualizar_proceso" Content="Actualizar" HorizontalAlignment="Left" Margin="333,349,0,0" VerticalAlignment="Top" Width="101" Click="Actualizar_proceso_Click"/>
 
 
 

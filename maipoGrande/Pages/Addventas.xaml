@@ -15,10 +15,10 @@
             </StackPanel>
             <Label x:Name="cantidadLabel" Content="Cantidad de frutas requeridas" HorizontalAlignment="Left" Margin="32,81,0,0" VerticalAlignment="Top" Width="168"/>
             <TextBox x:Name="cantidadBox" HorizontalAlignment="Left" Height="22" Margin="232,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"/>
-            <Label x:Name="frutaLabel" Content="Fruta" HorizontalAlignment="Left" Margin="32,157,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbProducto" Margin="232,157,46,0" Loaded="CbProducto_Loaded" VerticalAlignment="Top"/>
-            <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="32,233,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbEstadoSolicitud" Margin="232,240,46,0" Loaded="CbEstadoSolicitud_Loaded" VerticalAlignment="Top"/>
+            <Label x:Name="frutaLabel" Content="Fruta" HorizontalAlignment="Left" Margin="32,169,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbProducto" Margin="232,156,46,0" Loaded="CbProducto_Loaded" VerticalAlignment="Top" Height="37"/>
+            <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="32,255,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbEstadoSolicitud" Margin="232,240,46,0" Loaded="CbEstadoSolicitud_Loaded" VerticalAlignment="Top" Height="39"/>
             <Button x:Name="GuardarSolicitud" Content="Guardar" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" Width="96" Click="GuardarSolicitud_Click" RenderTransformOrigin="0.492,0.427"/>
 
 

@@ -42,7 +42,7 @@
             </Button>
 
             <!--Page Title-->
-            <TextBlock Text="Gestion de Productos" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"><Run Language="es-mx" Text="P"/><Run Text="roductos"/></TextBlock>
 
             <!--Add Button-->
             <Button Style="{StaticResource addButton}" Click="add_productos" Cursor="Hand">
@@ -79,13 +79,6 @@
             <!--Members Data Grid-->
             <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="listadoProductos" Loaded="ListadoProductos_Loaded" Style="{DynamicResource DataGridStyle1}">
                 <DataGrid.Columns>
-                    <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
-                        <DataGridCheckBoxColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
-                            </DataTemplate>
-                        </DataGridCheckBoxColumn.HeaderTemplate>
-                    </DataGridCheckBoxColumn>
                     <DataGridTextColumn/>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>

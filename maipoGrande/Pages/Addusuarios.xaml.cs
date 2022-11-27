@@ -88,29 +88,7 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al leer tipo de usuario");
             }
         }
-        private void cargarIDUser()
-        {
-            cbID.SelectedValue = 0;
-            try
-            {
-                cbID.SelectedValue = 0;
-                OracleCommand comando = new OracleCommand("listar_user", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                cbID.SelectedValuePath = "ID_USUARIO";
-                cbID.DisplayMemberPath = "NOMBRE";
-                cbID.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al leer la id de usuario");
-            }
-        }
+       
         private void cargarPais()
         {
             cbPais.SelectedValue = 0;
@@ -210,10 +188,7 @@ namespace maipoGrande.Pages
         {
             cargarTipoUser();
         }
-        private void CbID_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarIDUser();
-        }
+        
 
         private void Guardar_Click(object sender, RoutedEventArgs e)
         {
@@ -235,8 +210,8 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("rol", OracleDbType.Int32).Value = Convert.ToInt32(cbtipoUser.SelectedValue);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Usuario Guardado en la base de datos.");
-                cbID.SelectedValue = 0;
-                cargarIDUser();
+               
+               
                 Agregar();
 
 
@@ -267,14 +242,7 @@ namespace maipoGrande.Pages
             }
         }
 
-        private void CbID_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbID.SelectedValue.ToString() != null)
-            {
-                string id_usuario = cbID.SelectedValue.ToString();
-                cargarUpdateUser(id_usuario);
-            }
-        }
+     
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {

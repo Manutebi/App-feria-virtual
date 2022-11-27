@@ -28,12 +28,6 @@ namespace maipoGrande
     /// </summary>
     public partial class Window1 : Window
     {
-        
-
-
-
-
-
         OracleConnection conn = null;
         int id_usuario;
         string nombre;
@@ -50,6 +44,8 @@ namespace maipoGrande
         {
             abrirConexion();
             InitializeComponent();
+            
+
             this.id_usuario = id_usuario;
             this.nombre = nombre;
             this.apellido = apellido;
@@ -169,6 +165,11 @@ namespace maipoGrande
             PagesNavigation.Navigate(new System.Uri("Pages/Subastas.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        private void click_dashboard(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new System.Uri("Pages/Dashboard.xaml", UriKind.RelativeOrAbsolute));
+        }
+
 
         //Theme Code ========================>
         public bool IsDarkTheme { get; set; }
@@ -201,6 +202,6 @@ namespace maipoGrande
             Application.Current.Shutdown();
         }
 
-        
+
     }
 }

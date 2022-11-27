@@ -138,3 +138,11 @@ C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoG
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoGrande.csproj.CopyComplete
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoGrande.exe
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoGrande.pdb
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\Pages\Dashboard.g.cs
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\Pages\Dashboard.baml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.pdb
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.Wpf.xml

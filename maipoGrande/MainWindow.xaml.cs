@@ -18,6 +18,7 @@ using System.Configuration;
 using System.Data;
 using maipoGrandeDatos;
 using MaterialDesignThemes.Wpf;
+using maipoGrande.Pages;
 
 namespace maipoGrande
 {
@@ -32,6 +33,9 @@ namespace maipoGrande
         {
             abrirConexion();
             InitializeComponent();
+            
+            
+            
         }
 
         private void abrirConexion()

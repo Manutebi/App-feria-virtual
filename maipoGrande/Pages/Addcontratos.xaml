@@ -17,11 +17,11 @@
             <Label x:Name="userLabel" Content="Usuario" Margin="63,61,262,346"/>
             <ComboBox x:Name="cbIdUser2" DisplayMemberPath="Id_usuario" HorizontalAlignment="Left" Margin="196,50,0,0" VerticalAlignment="Top" Width="120" Loaded="CbIdContrato_Loaded" Height="32">
             </ComboBox>
-            <Label x:Name="fecha_InLabel" Content="Inicio de contrato" Margin="63,132,224,280"/>
-            <DatePicker x:Name="fecha_InDate" Margin="197,126,84,0" VerticalAlignment="Top"/>
-            <Label x:Name="fecha_TerLabel" Content="Termino de contrato" Margin="63,206,218,206"/>
-            <DatePicker x:Name="fecha_TerDate" Margin="200,206,87,0" VerticalAlignment="Top"/>
-            
+            <Label x:Name="fecha_InLabel" Content="Inicio de contrato" Margin="63,156,224,256"/>
+            <DatePicker x:Name="fecha_InDate" Margin="200,150,81,0" VerticalAlignment="Top"/>
+            <Label x:Name="fecha_TerLabel" Content="Termino de contrato" Margin="63,256,218,156"/>
+            <DatePicker x:Name="fecha_TerDate" Margin="197,250,84,0" VerticalAlignment="Top"/>
+
             <Button x:Name="guardarContrato" Content="Subir Contrato" HorizontalAlignment="Left" Margin="142,378,0,0" VerticalAlignment="Top" Width="128" Click="GuardarContrato_Click" />
 
 

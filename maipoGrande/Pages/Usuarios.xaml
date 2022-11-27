@@ -50,7 +50,7 @@
             </Button>
 
             <!--Page Title-->
-            <TextBlock Text="Gestion de Usuarios" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+            <TextBlock Text="Usuarios" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
 
             <!--Add Button-->
             <Button Style= "{StaticResource addButton}" x:Name="agregarU" Click="add_usuarios">
@@ -103,15 +103,15 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     
-                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn Header="Opciones" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button x:Name="EditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding ID_USUARIO}" Click="EditButton_Click" >
-                                        <Icon:PackIconMaterial Kind="PencilBoxOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                     <Button x:Name="DeleteButton" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" CommandParameter="{Binding ID_USUARIO}" Click="DeleteButton_Click">
-                                        <Icon:PackIconMaterial Kind="DeleteAlertOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                 </StackPanel>
                             </DataTemplate>
