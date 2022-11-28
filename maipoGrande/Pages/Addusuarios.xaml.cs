@@ -16,7 +16,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using maipoGrande.Pages;
 using maipoGrandeDatos;
-
+using System.ComponentModel;
+using maipoGrande.Validaciones;
+using FluentValidation.Results;
 
 namespace maipoGrande.Pages
 {
@@ -88,7 +90,7 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al leer tipo de usuario");
             }
         }
-       
+
         private void cargarPais()
         {
             cbPais.SelectedValue = 0;
@@ -188,13 +190,13 @@ namespace maipoGrande.Pages
         {
             cargarTipoUser();
         }
-        
 
-        private void Guardar_Click(object sender, RoutedEventArgs e)
+
+        public void Guardar_Click(object sender, RoutedEventArgs e)
         {
-
+            int run;
             //Console.WriteLine(cbtipoUser.SelectedValue);
-
+            errores.Clear();
             try
             {
                 OracleCommand comando = new OracleCommand("agregar_user", conn);
@@ -210,8 +212,7 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("rol", OracleDbType.Int32).Value = Convert.ToInt32(cbtipoUser.SelectedValue);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Usuario Guardado en la base de datos.");
-               
-               
+
                 Agregar();
 
 
@@ -242,13 +243,15 @@ namespace maipoGrande.Pages
             }
         }
 
-     
+
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+        //lista de errores
+        BindingList<int> errores = new BindingList<int>();
 
 
 
@@ -257,6 +260,8 @@ namespace maipoGrande.Pages
 
     }
 }
+
+
 
 
 

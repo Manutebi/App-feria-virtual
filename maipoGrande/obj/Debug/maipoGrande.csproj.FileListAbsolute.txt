@@ -146,3 +146,9 @@ C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCh
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\FluentValidation.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\FluentValidation.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Threading.Tasks.Extensions.xml
