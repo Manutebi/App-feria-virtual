@@ -29,10 +29,10 @@
                 <TextBox Margin="40,50,575,340" Text="" x:Name="userBox" FontSize="18" materialDesign:HintAssist.Hint="Nombre" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
                 <DatePicker Width="140" materialDesign:HintAssist.HelperText="tu mama es weona" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="40,135,620,0" VerticalAlignment="Top" />
                 <TextBox Margin="285,50,330,340" x:Name="apellidoBox" FontSize="18" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                <TextBox Margin="288,135,330,260" x:Name="valorinicialBox" FontSize="18" materialDesign:HintAssist.Hint="Valor inicial" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                <TextBox Margin="288,135,330,258" x:Name="valorinicialBox" FontSize="18" materialDesign:HintAssist.Hint="Valor inicial" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
                 <RadioButton Content="Si" HorizontalAlignment="Left" Margin="132,287,0,0" VerticalAlignment="Top"/>
                 <RadioButton Content="No" HorizontalAlignment="Left" Margin="57,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.148,0.167"/>
-                <Label Content="Refrigeración?" HorizontalAlignment="Left" Margin="57,241,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.723,-0.376"/>
+                <Label Content="Tu mama es weona?" HorizontalAlignment="Left" Margin="57,241,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.723,-0.376"/>
                 <ComboBox HorizontalAlignment="Left" Margin="645,50,0,0" VerticalAlignment="Top" Width="75" Height="45" x:Name="Condcarga"/>
                 <ComboBox HorizontalAlignment="Left" Margin="645,124,0,0" VerticalAlignment="Top" Width="75" Height="38" x:Name="Condtamano"/>
                 <ComboBox HorizontalAlignment="Left" Margin="645,187,0,0" Width="75" Height="38" x:Name="ID_transportista" VerticalAlignment="Top"/>
