@@ -19,7 +19,7 @@
             <Label x:Name="fechafinLabel" Content="Fecha Fin de proceso &#xD;&#xA;de venta" HorizontalAlignment="Left" Margin="68,50,0,0" VerticalAlignment="Top" Width="132"/>
             <DatePicker x:Name="fechaFinBox" Margin="218,50,72,0" VerticalAlignment="Top" Height="31"/>
             <Label x:Name="IdEstadoPDVLabel" Content="Estado de la venta" HorizontalAlignment="Left" Margin="68,136,0,0" VerticalAlignment="Top" Width="132"/>
-            <ComboBox x:Name="cbIdEstadoPDV" Margin="218,127,72,0" Loaded="CbIdEstadoPDV_Loaded" Height="42" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbIdEstadoPDV" Margin="218,-150,72,0" Loaded="CbIdEstadoPDV_Loaded" Height="42"  />
             <Label x:Name="IdSolicitudLabel" Content="ID de la &#xD;&#xA;Solicitud de compra" HorizontalAlignment="Left" Margin="64,198,0,0" VerticalAlignment="Top" Width="132"/>
             <ComboBox x:Name="cbIdSolicitud" Margin="218,0,72,0" Loaded="CbIdSolicitud_Loaded" Height="38"/>
             <RadioButton x:Name="VentaLocalSi" GroupName="VentaLocal" Content="Venta Local" Margin="68,275,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="68" Width="108"/>
