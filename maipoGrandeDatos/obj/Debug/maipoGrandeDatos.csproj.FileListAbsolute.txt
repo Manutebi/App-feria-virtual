@@ -35,3 +35,10 @@ C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrandeDatos\bin\Debug\F
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrandeDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrandeDatos\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.csproj.CopyComplete
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\bin\Debug\FluentValidation.dll
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\bin\Debug\FluentValidation.xml
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrandeDatos\obj\Debug\maipoGrandeDatos.csproj.CopyComplete
