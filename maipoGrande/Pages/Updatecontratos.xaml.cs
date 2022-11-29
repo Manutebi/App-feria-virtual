@@ -49,7 +49,7 @@ namespace maipoGrande.Pages
 
         private void cargarIDUser2()
         {
-            cbIdUser2.SelectedValue = 0;
+            
             try
             {
                 OracleCommand comando = new OracleCommand("listar_user", conn);
@@ -69,28 +69,7 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al leer usuario");
             }
         }
-        private void cargarIDContrato()
-        {
-            cbIdContrato.SelectedValue = 0;
-            try
-            {
-                OracleCommand comando = new OracleCommand("listar_contrato", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                cbIdContrato.SelectedValuePath = "ID_CONTRATO";
-                cbIdContrato.DisplayMemberPath = "ID_CONTRATO";
-                cbIdContrato.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar contrato en el combobox");
-            }
-        }
+       
         private void cargarUpdateContrato(string id_contrato)
         {
             try
@@ -120,10 +99,7 @@ namespace maipoGrande.Pages
         {
             cargarIDUser2();
         }
-        private void CbIdContrato_Loaded_1(object sender, RoutedEventArgs e)
-        {
-            cargarIDContrato();
-        }
+        
 
         private void GuardarContrato_Click(object sender, RoutedEventArgs e)
         {
@@ -140,10 +116,10 @@ namespace maipoGrande.Pages
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Contrato Guardado en la base de datos.");
 
-                cbIdContrato.SelectedValue = 0;
+               
                 cargarIDUser2();
 
-                cargarIDContrato();
+                
             }
             catch (Exception)
             {
@@ -166,10 +142,10 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("usuario", OracleDbType.Varchar2).Value = Convert.ToInt32(cbIdUser2.SelectedValue);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Contrato actualizado con exito.");
-                cbIdContrato.SelectedValue = 0;
+               
                 cargarIDUser2();
 
-                cargarIDContrato();
+                
             }
             catch (Exception)
             {
@@ -182,14 +158,14 @@ namespace maipoGrande.Pages
             {
                 OracleCommand comando = new OracleCommand("eliminar_contrato", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIdContrato.SelectedValue);
+                
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Contrato eliminado con exito");
 
-                cbIdContrato.SelectedValue = 0;
+                
                 cargarIDUser2();
 
-                cargarIDContrato();
+                
             }
             catch (Exception)
             {
@@ -197,14 +173,7 @@ namespace maipoGrande.Pages
             }
         }
 
-        private void CbIdContrato_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbIdContrato.SelectedValue.ToString() != null)
-            {
-                string id_contrato = cbIdContrato.SelectedValue.ToString();
-                cargarUpdateContrato(id_contrato);
-            }
-        }
+       
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -226,6 +195,13 @@ namespace maipoGrande.Pages
             UpdateEventHandler.Invoke(this, args);
         }
 
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+             string id_contrato = Convert.ToString(id);
+             cargarUpdateContrato(id_contrato);
+            
+        }
     }
 
 

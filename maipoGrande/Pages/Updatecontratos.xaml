@@ -10,7 +10,7 @@
         Background="#00FFFFFF">
 
     <Border CornerRadius="15" BorderBrush="#FF673AB7" BorderThickness="1,3,1,5" Background="{DynamicResource SecundaryBackgroundColor}">
-        <Grid>
+        <Grid Loaded="Grid_Loaded">
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
@@ -24,10 +24,6 @@
             <Label x:Name="contratoLabel" Content="Contrato activo?" Margin="442,177,199,230" IsEnabled="False"/>
             <RadioButton x:Name="contratoActivoSi" GroupName="contratoActivo" Content="Si" Margin="442,225,312,174" IsEnabled="False"/>
             <RadioButton x:Name="ContratoActivoNo" GroupName="contratoActivo" Content="No" Margin="511,226,234,174" IsEnabled="False"/>
-            <Label x:Name="IDContratoLabel" Content="ID" Margin="87,258,658,151" RenderTransformOrigin="0.993,-0.639"/>
-            <ComboBox x:Name="cbIdContrato" DisplayMemberPath="Id_usuario" HorizontalAlignment="Left" Margin="198,259,0,0" VerticalAlignment="Top" Width="120" Height="32" Loaded="CbIdContrato_Loaded_1" SelectionChanged="CbIdContrato_SelectionChanged">
-            </ComboBox>
-            <Label x:Name="avisoLabel3" Content="*AVISO: ID habilitada para uso de modificación &#xD;&#xA;o eliminación de contratos. &#xD;&#xA;Seleccione para darle uso." HorizontalAlignment="Left" Margin="87,185,0,0" VerticalAlignment="Top" Height="52" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
             <Button x:Name="actualizarContrato" Content="Actualizar" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Width="156" Click="Actualizar_Contrato_Click" />
 
 

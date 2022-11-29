@@ -8,7 +8,7 @@
         Title="Updateventas" Height="450" Width="400"
         ShowInTaskbar="False"
         WindowStyle="None" 
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         Background="#00FFFFFF"
         AllowsTransparency="True">
 
@@ -19,9 +19,9 @@
             </StackPanel>
             <Label x:Name="cantidadLabel" Content="Cantidad de frutas requeridas" HorizontalAlignment="Left" Margin="32,75,0,0" VerticalAlignment="Top" Width="168"/>
             <TextBox x:Name="cantidadBox" HorizontalAlignment="Left" Height="22" Margin="234,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101"/>
-            <Label x:Name="frutaLabel" Content="Fruta" HorizontalAlignment="Left" Margin="32,132,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="frutaLabel" Content="Fruta" HorizontalAlignment="Left" Margin="32,140,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbProducto" Margin="234,139,54,0" Loaded="CbProducto_Loaded" VerticalAlignment="Top"/>
-            <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="32,192,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="32,200,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbEstadoSolicitud" Margin="234,199,54,0" Loaded="CbEstadoSolicitud_Loaded" VerticalAlignment="Top"/>
             <Button x:Name="ActualizarSolicitud" Content="Actualizar" HorizontalAlignment="Center" Margin="0,375,0,0" VerticalAlignment="Top" Width="100" Click="ActualizarSolicitud_Click"/>
 
