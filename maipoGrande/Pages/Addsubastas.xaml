@@ -12,10 +12,13 @@
         Background="#00FFFFFF">
     <Border CornerRadius="15" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
+            <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
+            </StackPanel>
             <TextBox Margin="40,50,575,340" Text="" x:Name="userBox" FontSize="18" materialDesign:HintAssist.Hint="Nombre" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
             <DatePicker Width="140" materialDesign:HintAssist.HelperText="tu mama es weona" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="40,135,620,0" VerticalAlignment="Top" />
             <TextBox Margin="40,225,575,165" Text="" x:Name="condtamano" FontSize="18" materialDesign:HintAssist.Hint="Cond tamaño" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-            <TextBox Margin="285,50,330,340" x:Name="apeliidoBox" FontSize="18" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" TextChanged="condtamano_Copy_TextChanged"/>
+            <TextBox Margin="285,50,330,340" x:Name="apeliidoBox" FontSize="18" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
             <RadioButton Content="Si" HorizontalAlignment="Left" Margin="417,201,0,0" VerticalAlignment="Top"/>
             <RadioButton Content="No" HorizontalAlignment="Left" Margin="297,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.148,0.167"/>
             <Label Content="Refrigeración?" HorizontalAlignment="Left" Margin="336,157,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.723,-0.376"/>

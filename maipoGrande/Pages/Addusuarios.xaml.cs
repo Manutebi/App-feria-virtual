@@ -194,9 +194,9 @@ namespace maipoGrande.Pages
 
         public void Guardar_Click(object sender, RoutedEventArgs e)
         {
-            int run;
+            
             //Console.WriteLine(cbtipoUser.SelectedValue);
-            errores.Clear();
+            
             try
             {
                 OracleCommand comando = new OracleCommand("agregar_user", conn);

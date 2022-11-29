@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +21,32 @@ namespace maipoGrande.Pages
     /// </summary>
     public partial class Addsubastas : Window
     {
+        OracleConnection conn = null;
         public Addsubastas()
         {
             InitializeComponent();
+            abrirConexion();
         }
 
-       
+        private void abrirConexion()
+        {
+            string ConnectionString = ConfigurationManager.ConnectionStrings["oracleDB"].ConnectionString;
+            conn = new OracleConnection(ConnectionString);
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error de conexion :O");
+                throw new Exception("Error de conexion");
+            }
+
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
