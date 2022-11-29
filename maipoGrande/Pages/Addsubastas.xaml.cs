@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
+using System.Deployment.Internal;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +23,22 @@ namespace maipoGrande.Pages
     /// </summary>
     public partial class Addsubastas : Window
     {
+        int id;
         OracleConnection conn = null;
-        public Addsubastas()
+        public Addsubastas(int id)
         {
             InitializeComponent();
             abrirConexion();
+            this.id = id;
         }
-
+        private void obtenerPDV(int id_pdv)
+        {
+            OracleCommand cmd = new OracleCommand("SELECT * FROM pdv WHERE id_pdv = :id_pdv", conn);
+            cmd.Parameters.Add(":id_pdv", id_pdv);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
         private void abrirConexion()
         {
             string ConnectionString = ConfigurationManager.ConnectionStrings["oracleDB"].ConnectionString;
@@ -47,6 +58,11 @@ namespace maipoGrande.Pages
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            obtenerPDV(id);
         }
     }
 }

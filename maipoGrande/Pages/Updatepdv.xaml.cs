@@ -29,6 +29,7 @@ namespace maipoGrande.Pages
             InitializeComponent();
             abrirConexion();
             this.id = id;
+
         }
 
         private void abrirConexion()
@@ -45,32 +46,6 @@ namespace maipoGrande.Pages
                 throw new Exception("Error de conexion");
             }
 
-        }
-
-
-
-
-        private void cargarIDProceso()
-        {
-            cbIDproceso.SelectedValue = 0;
-            try
-            {
-                OracleCommand comando = new OracleCommand("listar_pdv", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                cbIDproceso.SelectedValuePath = "ID_PDV";
-                cbIDproceso.DisplayMemberPath = "ID_PDV";
-                cbIDproceso.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al leer proceso");
-            }
         }
         private void cargarUpdatePDV(string id_pdv)
         {
@@ -95,7 +70,6 @@ namespace maipoGrande.Pages
         }
         private void cargarIdSolicitud()
         {
-            cbIdSolicitud.SelectedValue = 0;
             try
             {
                 OracleCommand comando = new OracleCommand("listar_solicitud_compra", conn);
@@ -117,7 +91,6 @@ namespace maipoGrande.Pages
         }
         private void cargarIdEstado()
         {
-            cbIdEstadoPDV.SelectedValue = 0;
             try
             {
                 OracleCommand comando = new OracleCommand("listar_estado_pdv", conn);
@@ -162,9 +135,7 @@ namespace maipoGrande.Pages
 
                 MessageBox.Show("proceso Guardado en la base de datos.");
                 cbIdEstadoPDV.SelectedValue = 0;
-                cbIDproceso.SelectedValue = 0;
                 cbIdSolicitud.SelectedValue = 0;
-                cargarIDProceso();
             }
             catch (Exception)
             {
@@ -179,7 +150,7 @@ namespace maipoGrande.Pages
                 DateTime f2a = Convert.ToDateTime(string.Format("{0:yyyy-mm-dd}", fechaFinBox));
 
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIDproceso.SelectedValue);
+                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.Parameters.Add("fecha_ter", OracleDbType.Date).Value = f2a;
                 comando.Parameters.Add("estado", OracleDbType.Int32).Value = Convert.ToInt32(cbIdEstadoPDV.SelectedValue);
                 comando.Parameters.Add("solicitud", OracleDbType.Int32).Value = Convert.ToInt32(cbIdSolicitud.SelectedValue);
@@ -188,49 +159,16 @@ namespace maipoGrande.Pages
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Proceso de venta actualizado con exito.");
                 cbIdEstadoPDV.SelectedValue = 0;
-                cbIDproceso.SelectedValue = 0;
                 cbIdSolicitud.SelectedValue = 0;
+                Agregar();
+                Close();
             }
             catch (Exception)
             {
                 MessageBox.Show("Algo fallo en la actualizacion, asegurate de rellenar todas las casillas");
             }
         }
-        private void Eliminar_proceso_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OracleCommand comando = new OracleCommand("eliminar_pdv", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIDproceso.Text);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Proceso de ventas eliminado con exito");
-                cbIDproceso.SelectedValue = 0;
-                cbIdEstadoPDV.SelectedValue = 0;
-                cbIDproceso.SelectedValue = 0;
-                cbIdSolicitud.SelectedValue = 0;
-                cargarIDProceso();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo ha salido mal al eliminar el proceso de ventas.");
-            }
-        }
 
-        private void CbIDproceso_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbIDproceso.SelectedValue.ToString() != null)
-            {
-                string id_pdv = cbIDproceso.SelectedValue.ToString();
-                cargarUpdatePDV(id_pdv);
-            }
-        }
-
-
-        private void CbIDproceso_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarIDProceso();
-        }
         private void CbIdSolicitud_Loaded(object sender, RoutedEventArgs e)
         {
             cargarIdSolicitud();
@@ -261,6 +199,10 @@ namespace maipoGrande.Pages
             UpdateEventHandler.Invoke(this, args);
         }
 
-
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            string id_pdv = Convert.ToString(id);
+            cargarUpdatePDV(id_pdv);
+        }
     }
 }

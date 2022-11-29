@@ -27,8 +27,6 @@ namespace maipoGrande.Pages
 
         private void add_subastas(object sender, RoutedEventArgs e)
         {
-            Addsubastas objaddsubastas = new Addsubastas();
-            objaddsubastas.Show();
         }
     }
 }

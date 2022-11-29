@@ -165,6 +165,7 @@ namespace maipoGrande.Pages
                 cbIdEstadoPDV.SelectedValue = 0;
                 cbIdSolicitud.SelectedValue = 0;
                 Agregar();
+                Close();
                 
             }
             catch (Exception)
