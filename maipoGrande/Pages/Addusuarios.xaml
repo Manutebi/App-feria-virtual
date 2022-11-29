@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:maipoGrande.Pages"
         mc:Ignorable="d"
         Title="Addusuarios" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" 
-        >
+        AllowsTransparency="True"
+        Background="#00FFFFFF">
 
     <Border CornerRadius="15" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>

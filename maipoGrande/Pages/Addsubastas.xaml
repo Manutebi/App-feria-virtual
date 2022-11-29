@@ -10,6 +10,8 @@
         WindowStyle="None" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         Background="#00FFFFFF">
+    
+    
     <Border CornerRadius="15" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">

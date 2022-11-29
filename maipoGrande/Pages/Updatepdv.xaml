@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:maipoGrande.Pages"
         mc:Ignorable="d"
-        Title="Updatepdv" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="Updatepdv" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="#00FFFFFF">
 
     <Border CornerRadius="15" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
