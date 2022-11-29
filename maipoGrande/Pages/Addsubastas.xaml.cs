@@ -10,25 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace maipoGrande.Pages
 {
     /// <summary>
-    /// Lógica de interacción para Subastas.xaml
+    /// Lógica de interacción para Addsubastas.xaml
     /// </summary>
-    public partial class Subastas : Page
+    public partial class Addsubastas : Window
     {
-        public Subastas()
+        public Addsubastas()
         {
             InitializeComponent();
         }
 
-        private void add_subastas(object sender, RoutedEventArgs e)
-        {
-            Addsubastas objaddsubastas = new Addsubastas();
-            objaddsubastas.Show();
-        }
+       
     }
 }

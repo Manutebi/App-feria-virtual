@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:maipoGrande.Pages"
         mc:Ignorable="d"
-        Title="Updateventas" Height="450" Width="400" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="Updateventas" Height="450" Width="400"
+        ShowInTaskbar="False"
+        WindowStyle="None" 
+        WindowStartupLocation="CenterOwner"
+        Background="#00FFFFFF"
+        AllowsTransparency="True">
 
     <Border CornerRadius="15" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
@@ -13,7 +18,7 @@
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
             <Label x:Name="cantidadLabel" Content="Cantidad de frutas requeridas" HorizontalAlignment="Left" Margin="32,75,0,0" VerticalAlignment="Top" Width="168"/>
-            <TextBox x:Name="cantidadBox" HorizontalAlignment="Left" Height="22" Margin="234,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112"/>
+            <TextBox x:Name="cantidadBox" HorizontalAlignment="Left" Height="22" Margin="234,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101"/>
             <Label x:Name="frutaLabel" Content="Fruta" HorizontalAlignment="Left" Margin="32,132,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbProducto" Margin="234,139,54,0" Loaded="CbProducto_Loaded" VerticalAlignment="Top"/>
             <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="32,192,0,0" VerticalAlignment="Top"/>
@@ -29,5 +34,6 @@
 
 
     </Border>
+
 
 </Window>

@@ -1,0 +1,49 @@
+﻿<Window x:Class="maipoGrande.Pages.Addsubastas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:maipoGrande.Pages"
+        mc:Ignorable="d"
+        Title="Addsubastas" Height="450" Width="800"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="#00FFFFFF">
+    <Border CornerRadius="15" Background="{DynamicResource SecundaryBackgroundColor}">
+        <Grid>
+            <TextBox Margin="40,50,575,340" Text="" x:Name="userBox" FontSize="18" materialDesign:HintAssist.Hint="Nombre" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+            <DatePicker Width="140" materialDesign:HintAssist.HelperText="tu mama es weona" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="40,135,620,0" VerticalAlignment="Top" />
+            <TextBox Margin="40,225,575,165" Text="" x:Name="condtamano" FontSize="18" materialDesign:HintAssist.Hint="Cond tamaño" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+            <TextBox Margin="285,50,330,340" x:Name="apeliidoBox" FontSize="18" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" TextChanged="condtamano_Copy_TextChanged"/>
+            <RadioButton Content="Si" HorizontalAlignment="Left" Margin="417,201,0,0" VerticalAlignment="Top"/>
+            <RadioButton Content="No" HorizontalAlignment="Left" Margin="297,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.148,0.167"/>
+            <Label Content="Refrigeración?" HorizontalAlignment="Left" Margin="336,157,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.723,-0.376"/>
+            <Grid>
+                <!-- raised button with progress, useful to auto dismiss/accept something -->
+                <Button
+                HorizontalAlignment="Center"
+                materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                materialDesign:ButtonProgressAssist.Value="{Binding DismissButtonProgress}"
+                Command="{Binding DismissCommand}"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignOutlinedButton}"
+                Visibility="{Binding ShowDismissButton, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,363,0,55">
+                    <StackPanel
+                Orientation="Horizontal">
+                        <TextBlock
+                Text="Guardar" />
+                        <materialDesign:PackIcon
+                Margin="4,.5,0,0"
+                Kind="Close" />
+                    </StackPanel>
+                </Button>
+                <TextBlock
+                VerticalAlignment="Center"
+                Text="{Binding DemoRestartCountdownText}"
+                Visibility="{Binding ShowDismissButton, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
+            </Grid>
+        </Grid>
+
+    </Border>
+</Window>

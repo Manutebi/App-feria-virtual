@@ -114,6 +114,9 @@
     <Compile Include="Pages\Addproductos.xaml.cs">
       <DependentUpon>Addproductos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Addsubastas.xaml.cs">
+      <DependentUpon>Addsubastas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Addusuarios.xaml.cs">
       <DependentUpon>Addusuarios.xaml</DependentUpon>
     </Compile>
@@ -189,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Addproductos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Addsubastas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
