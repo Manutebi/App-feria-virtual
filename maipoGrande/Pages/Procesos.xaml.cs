@@ -141,21 +141,29 @@ namespace maipoGrande.Pages
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            Decimal id = (Decimal)((Button)sender).CommandParameter;
-            try
-            {
-                OracleCommand comando = new OracleCommand("eliminar_pdv", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Proceso de venta eliminado con exito");
+            try {
+                Decimal id = (Decimal)((Button)sender).CommandParameter;
+                Addsubastas objaddSubasta = new Addsubastas(Convert.ToInt32(id));
+                objaddSubasta.Show();
+            }
+            catch (Exception) 
+            { 
+            }
+            //Decimal id = (Decimal)((Button)sender).CommandParameter;
+            //try
+            //{
+            //    OracleCommand comando = new OracleCommand("eliminar_pdv", conn);
+            //    comando.CommandType = System.Data.CommandType.StoredProcedure;
+            //    comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
+            //    comando.ExecuteNonQuery();
+            //    MessageBox.Show("Proceso de venta eliminado con exito");
 
-                cargarProcesoDG();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo ha salido mal al eliminar el proceso de venta.");
-            }
+            //    cargarProcesoDG();
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Algo ha salido mal al eliminar el proceso de venta.");
+            //}
         }
 
     }
