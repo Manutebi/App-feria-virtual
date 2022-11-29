@@ -20,29 +20,19 @@
             <RadioButton Content="No" HorizontalAlignment="Left" Margin="297,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.148,0.167"/>
             <Label Content="Refrigeración?" HorizontalAlignment="Left" Margin="336,157,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.723,-0.376"/>
             <Grid>
-                <!-- raised button with progress, useful to auto dismiss/accept something -->
-                <Button
-                HorizontalAlignment="Center"
-                materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                materialDesign:ButtonProgressAssist.Value="{Binding DismissButtonProgress}"
-                Command="{Binding DismissCommand}"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignOutlinedButton}"
-                Visibility="{Binding ShowDismissButton, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,363,0,55">
-                    <StackPanel
-                Orientation="Horizontal">
-                        <TextBlock
-                Text="Guardar" />
-                        <materialDesign:PackIcon
-                Margin="4,.5,0,0"
-                Kind="Close" />
-                    </StackPanel>
-                </Button>
-                <TextBlock
-                VerticalAlignment="Center"
-                Text="{Binding DemoRestartCountdownText}"
-                Visibility="{Binding ShowDismissButton, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
+               <Button
+                  materialDesign:ButtonAssist.CornerRadius="10"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                  Style="{StaticResource MaterialDesignRaisedButton}"
+                  Margin="342,345,342,73">
+                  <TextBlock Text="Guardar" />
+              </Button>
             </Grid>
+
+
+
+
+
         </Grid>
 
     </Border>
