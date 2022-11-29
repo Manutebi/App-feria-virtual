@@ -1,9 +1,10 @@
-﻿<Window x:Class="maipoGrande.Pages.Addproductos"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:maipoGrande.Pages"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="maipoGrande.Pages.Addproductos"
         mc:Ignorable="d"
         Title="Addproductos" Height="450" Width="400"
         WindowStyle="None" WindowStartupLocation="CenterScreen"
@@ -11,16 +12,16 @@
         Background="#00ffffff">
 
     <Border CornerRadius="15" BorderBrush="#FF673AB7" BorderThickness="1,3,1,5" Background="{DynamicResource SecundaryBackgroundColor}">
-      <Grid>
-         <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
-         </StackPanel>
-         <Label x:Name="NombreProductoLabel" Content="Producto" HorizontalAlignment="Left" Margin="62,108,0,0" VerticalAlignment="Top" Width="92"/>
-         <TextBox x:Name="NombreProductoBox" HorizontalAlignment="Left" Height="24" Margin="159,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
-         <Label x:Name="idCalidadLabel" Content="Calidad" HorizontalAlignment="Left" Margin="62,201,0,0" VerticalAlignment="Top" Width="63"/>
-         <ComboBox x:Name="cbIdCalidad" Margin="161,187,105,0" Loaded="CbIdCalidad_Loaded" VerticalAlignment="Top" Height="38" />
-         <Button x:Name="GuardarProducto" Content="Guardar" HorizontalAlignment="Center" Margin="0,341,0,0" VerticalAlignment="Top" Width="112" Click="GuardarProducto_Click" Cursor="Hand" />
-       </Grid>
+        <Grid>
+            <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
+            </StackPanel>
+
+            <Label x:Name="idCalidadLabel" Content="Calidad" HorizontalAlignment="Left" Margin="54,103,0,0" VerticalAlignment="Top" Width="65" Height="24"/>
+            <ComboBox x:Name="cbIdCalidad" Margin="143,89,94,0" Loaded="CbIdCalidad_Loaded" VerticalAlignment="Top" Height="38" />
+            <Button x:Name="GuardarProducto" Content="Guardar" HorizontalAlignment="Center" Margin="0,341,0,0" VerticalAlignment="Top" Width="112" Click="GuardarProducto_Click" Cursor="Hand" />
+            <TextBox Margin="143,165,94,221" Text="" x:Name="NombreProductoBox" FontSize="15" materialDesign:HintAssist.Hint="Producto" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+        </Grid>
     </Border>
-    
+
 </Window>

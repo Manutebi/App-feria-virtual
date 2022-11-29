@@ -23,13 +23,13 @@
                   materialDesign:ButtonAssist.CornerRadius="10"
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource MaterialDesignRaisedButton}"
-                  Margin="342,365,342,53">
+                  Margin="342,365,342,45">
                     <TextBlock Text="Guardar" />
                 </Button>
-                <TextBox Margin="40,50,575,340" Text="" x:Name="userBox" FontSize="18" materialDesign:HintAssist.Hint="Nombre" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                <TextBox Margin="40,50,575,330" Text="" x:Name="userBox" FontSize="15" materialDesign:HintAssist.Hint="Nombre" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
                 <DatePicker Width="140" materialDesign:HintAssist.HelperText="tu mama es weona" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="40,135,620,0" VerticalAlignment="Top" />
-                <TextBox Margin="285,50,330,340" x:Name="apellidoBox" FontSize="18" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                <TextBox Margin="288,135,330,258" x:Name="valorinicialBox" FontSize="18" materialDesign:HintAssist.Hint="Valor inicial" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                <TextBox Margin="285,50,330,330" x:Name="apellidoBox" FontSize="15" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                <TextBox Margin="285,135,330,250" x:Name="valorinicialBox" FontSize="15" materialDesign:HintAssist.Hint="Valor inicial" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
                 <RadioButton Content="Si" HorizontalAlignment="Left" Margin="132,287,0,0" VerticalAlignment="Top"/>
                 <RadioButton Content="No" HorizontalAlignment="Left" Margin="57,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.148,0.167"/>
                 <Label Content="Tu mama es weona?" HorizontalAlignment="Left" Margin="57,241,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.723,-0.376"/>

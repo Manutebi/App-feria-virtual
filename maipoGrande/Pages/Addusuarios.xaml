@@ -16,20 +16,9 @@
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
 
-            <Label x:Name="avisoLabel0" Content="Ingresar Run sin puntos ni guion" HorizontalAlignment="Left" Margin="160,34,0,0" VerticalAlignment="Top" Height="26" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
-            <Label x:Name="RunLabel" Content="Run" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="92"/>
-            <TextBox x:Name="RunBox" HorizontalAlignment="Left" Height="24" Margin="160,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-            <Label x:Name="nomLabel" Content="Run" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="92"/>
-            <TextBox x:Name="nombreBox" HorizontalAlignment="Left" Height="24" Margin="160,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <Label x:Name="avisoLabel0" Content="Ingresar Run sin puntos ni guion" HorizontalAlignment="Left" Margin="43,20,0,0" VerticalAlignment="Top" Height="27" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
 
-
-            <materialDesign:PackIcon Kind="Account" Margin="80,123,0,0" Height="29" Width="32" />
-            <Label x:Name="apellidoLabel" Content="Apellidos" HorizontalAlignment="Left" Margin="80,170,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.079,0.577" Width="92"/>
-            <TextBox x:Name="apellidoBox" HorizontalAlignment="Left" Height="22" Margin="160,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-            <Label x:Name="emailLabel" Content="Email" HorizontalAlignment="Left" Margin="80,225,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.079,0.577" Width="92"/>
-            <TextBox x:Name="emailBox" HorizontalAlignment="Left" Height="22" Margin="160,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-            <Label x:Name="passLabel" Content="Contraseña" HorizontalAlignment="Left" Margin="80,277,0,0" VerticalAlignment="Top" Width="92"/>
-            <TextBox x:Name="passBox" HorizontalAlignment="Left" Height="22" Margin="160,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <TextBox Margin="43,65,572,321" Text="" x:Name="RunBox" FontSize="15" materialDesign:HintAssist.Hint="Run" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
             <Label x:Name="tipoLabel" Content="Tipo de usuario" HorizontalAlignment="Left" Margin="468,257,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbtipoUser" Margin="595,257,106,0" Loaded="CbtipoUser_Loaded" VerticalAlignment="Top"/>
             <Label x:Name="PaisLabel" Content="Pais" HorizontalAlignment="Left" Margin="468,70,0,0" VerticalAlignment="Top" Width="54"/>
@@ -39,6 +28,10 @@
             <Label x:Name="CiudadLabel" Content="Ciudad" HorizontalAlignment="Left" Margin="468,184,0,0" VerticalAlignment="Top" Width="55"/>
             <ComboBox x:Name="cbCiudad" Margin="595,184,106,0" VerticalAlignment="Top"/>
             <Button x:Name="Guardar" Content="Guardar" HorizontalAlignment="Center" Margin="0,359,0,0" VerticalAlignment="Top" Width="110" Click="Guardar_Click"/>
+            <TextBox Margin="43,138,572,248" Text="" x:Name="nombreBox" FontSize="15" materialDesign:HintAssist.Hint="Nombre" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+            <TextBox Margin="43,213,572,173" Text="" x:Name="apellidoBox" FontSize="15" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+            <TextBox Margin="241,65,374,321" Text="" x:Name="emailBox" FontSize="15" materialDesign:HintAssist.Hint="Email" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+            <TextBox Margin="241,138,374,248" Text="" x:Name="passBox" FontSize="15" materialDesign:HintAssist.Hint="Password" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
         </Grid>
 
 
