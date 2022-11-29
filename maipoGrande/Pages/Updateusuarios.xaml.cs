@@ -65,6 +65,10 @@ namespace maipoGrande.Pages
                 passBox.Text = dt.Rows[0]["PASSWORD"].ToString();
                 emailBox.Text = dt.Rows[0]["EMAIL"].ToString();
                 cbtipoUser.SelectedValue = dt.Rows[0]["ROL_ID_ROL"].ToString();
+                cbPais.SelectedValue = dt.Rows[0]["PAIS_ID_PAIS"].ToString() ;
+                cbEstado.SelectedValue = dt.Rows[0]["ESTADOS_ID_ESTADO"].ToString();
+                cbCiudad.SelectedValue = dt.Rows[0]["CIUDAD_ID_CIUDAD"].ToString();
+
             }
             catch (Exception ex)
             {
@@ -88,7 +92,7 @@ namespace maipoGrande.Pages
 
         private void cargarTipoUser()
         {
-            cbtipoUser.SelectedValue = 0;
+            
             try
             {
                 OracleCommand comando = new OracleCommand("listar_rol", conn);
@@ -108,32 +112,10 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al leer tipo de usuario");
             }
         }
-        private void cargarIDUser()
-        {
-            cbID.SelectedValue = 0;
-            try
-            {
-                cbID.SelectedValue = 0;
-                OracleCommand comando = new OracleCommand("listar_user", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                cbID.SelectedValuePath = "ID_USUARIO";
-                cbID.DisplayMemberPath = "NOMBRE";
-                cbID.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al leer la id de usuario");
-            }
-        }
+        
         private void cargarPais()
         {
-            cbPais.SelectedValue = 0;
+            
             try
             {
                 OracleCommand cmd = new OracleCommand("SELECT * FROM PAIS ORDER BY N_PAIS", conn);
@@ -156,7 +138,7 @@ namespace maipoGrande.Pages
         }
         private void cargarRegion(string id_pais)
         {
-            cbEstado.SelectedValue = 0;
+            
             try
             {
                 OracleCommand cmd = new OracleCommand("SELECT * FROM estados WHERE pais_id_pais = :id_pais", conn);
@@ -178,7 +160,7 @@ namespace maipoGrande.Pages
         }
         private void cargarCiudad(string id_estado)
         {
-            cbCiudad.SelectedValue = 0;
+            
             try
             {
                 OracleCommand cmd = new OracleCommand("SELECT * FROM ciudad WHERE estados_id_estado = :id_estado", conn);
@@ -207,10 +189,7 @@ namespace maipoGrande.Pages
         {
             cargarTipoUser();
         }
-        private void CbID_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarIDUser();
-        }
+        
 
         
         private void Actualizar_Click(object sender, RoutedEventArgs e)
@@ -231,7 +210,6 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("rol", OracleDbType.Int32).Value = Convert.ToInt32(cbtipoUser.SelectedValue);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Usuario actualizado con exito.");
-                cargarIDUser();
                 actualizar();
             }
             catch (Exception)
@@ -257,13 +235,7 @@ namespace maipoGrande.Pages
             }
         }
 
-        private void CbID_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbID.SelectedValue.ToString() != null)
-            {
-                string id_usuario = cbID.SelectedValue.ToString();
-            }
-        }
+        
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {

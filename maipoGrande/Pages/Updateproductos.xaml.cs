@@ -57,9 +57,7 @@ namespace maipoGrande.Pages
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Producto Guardado en la base de datos.");
 
-                cbIdProducto.SelectedValue = 0;
-                cargarIdProducto();
-
+                
             }
             catch (Exception)
             {
@@ -74,7 +72,7 @@ namespace maipoGrande.Pages
             {
                 OracleCommand comando = new OracleCommand("actualizar_producto", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIdProducto.SelectedValue);
+                
                 comando.Parameters.Add("nom", OracleDbType.Varchar2).Value = NombreProductoBox.Text;
                 comando.Parameters.Add("ruta", OracleDbType.Varchar2).Value = "RutaNoDisponible";
                 comando.Parameters.Add("calidad", OracleDbType.Int32).Value = Convert.ToInt32(cbIdCalidad.SelectedValue);
@@ -83,8 +81,7 @@ namespace maipoGrande.Pages
 
                 NombreProductoBox.Clear();
                 cbIdCalidad.SelectedValue = 0;
-                cbIdProducto.SelectedValue = 0;
-                cargarIdProducto();
+                
 
             }
             catch (Exception)
@@ -98,12 +95,11 @@ namespace maipoGrande.Pages
             {
                 OracleCommand comando = new OracleCommand("eliminar_producto", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIdProducto.SelectedValue);
+                
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Producto eliminado con exito");
 
-                cbIdProducto.SelectedValue = 0;
-                cargarIdProducto();
+                
 
             }
             catch (Exception)
@@ -112,18 +108,11 @@ namespace maipoGrande.Pages
             }
         }
 
-        private void CbIdProducto_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbIdProducto.SelectedValue.ToString() != null)
-            {
-                string id_producto = cbIdProducto.SelectedValue.ToString();
-                cargarUpdateProducto(id_producto);
-            }
-        }
+      
 
         private void cargarIdCalidad()
         {
-            cbIdCalidad.SelectedValue = 0;
+           
             try
             {
                 OracleCommand comando = new OracleCommand("listar_calidad", conn);
@@ -143,28 +132,7 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al cargar la id de calidad en el combobox");
             }
         }
-        private void cargarIdProducto()
-        {
-            cbIdProducto.SelectedValue = 0;
-            try
-            {
-                OracleCommand comando = new OracleCommand("listar_producto", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                cbIdProducto.SelectedValuePath = "ID_PROD";
-                cbIdProducto.DisplayMemberPath = "N_PROD";
-                cbIdProducto.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar la id de calidad en el combobox");
-            }
-        }
+       
         private void cargarUpdateProducto(string id)
         {
             try
@@ -187,10 +155,7 @@ namespace maipoGrande.Pages
         {
             cargarIdCalidad();
         }
-        private void CbIdProducto_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarIdProducto();
-        }
+      
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -210,6 +175,12 @@ namespace maipoGrande.Pages
         {
             UpdateEventArgs args = new UpdateEventArgs();
             UpdateEventHandler.Invoke(this, args);
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            string id_producto = Convert.ToString(id);
+            cargarUpdateProducto(id_producto);
         }
     }
 
