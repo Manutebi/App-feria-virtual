@@ -180,6 +180,8 @@ namespace maipoGrande.Pages
 
                 cbProducto.SelectedValue = 0;
                 cbEstadoSolicitud.SelectedValue = 0;
+                Agregar();
+                Close();
                 
             }
             catch (Exception)

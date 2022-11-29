@@ -88,7 +88,6 @@ namespace maipoGrande.Pages
 
         private void cargarIdProducto2()
         {
-            cbProducto.SelectedValue = 0;
             try
             {
                 OracleCommand comando = new OracleCommand("listar_producto", conn);
@@ -126,10 +125,9 @@ namespace maipoGrande.Pages
             {
             }
         }
+
         private void cargarEstadoSolicitud()
         {
-
-            cbEstadoSolicitud.SelectedValue = 0;
             try
             {
                 OracleCommand comando = new OracleCommand("listar_estado_solicitud", conn);
@@ -149,35 +147,7 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al cargar la id de estado en el combobox");
             }
         }
-        private void cargarIdsolicitud2()
-        {
-            cbIdSolicitudCompra.SelectedValue = 0;
-            try
-            {
-                OracleCommand comando = new OracleCommand("listar_solicitud_compra", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                cbIdSolicitudCompra.SelectedValuePath = "ID_SOLICITUD";
-                cbIdSolicitudCompra.DisplayMemberPath = "ID_SOLICITUD";
-                cbIdSolicitudCompra.ItemsSource = lista.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar id de solicitud en el combobox");
-            }
-
-
-        }
-
-
-
-
-
+        
         private void CbProducto_Loaded(object sender, RoutedEventArgs e)
         {
             cargarIdProducto2();
@@ -185,19 +155,6 @@ namespace maipoGrande.Pages
         private void CbEstadoSolicitud_Loaded(object sender, RoutedEventArgs e)
         {
             cargarEstadoSolicitud();
-        }
-        private void CbIdSolicitudCompra_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarIdsolicitud2();
-        }
-
-        private void CbIdSolicitudCompra_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbIdSolicitudCompra.SelectedValue.ToString() != null)
-            {
-                string id_solicitud = cbIdSolicitudCompra.SelectedValue.ToString();
-                cargarUpdateSolicitud(id_solicitud);
-            }
         }
 
         private void GuardarSolicitud_Click(object sender, RoutedEventArgs e)
@@ -216,8 +173,6 @@ namespace maipoGrande.Pages
 
                 cbProducto.SelectedValue = 0;
                 cbEstadoSolicitud.SelectedValue = 0;
-                cbIdSolicitudCompra.SelectedValue = 0;
-                cargarIdsolicitud2();
                 Agregar();
 
             }
@@ -232,7 +187,7 @@ namespace maipoGrande.Pages
             {
                 OracleCommand comando = new OracleCommand("actualizar_solicitud_compra", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIdSolicitudCompra.SelectedValue);
+                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.Parameters.Add("c_necesaria", OracleDbType.Int32).Value = Convert.ToInt32(cantidadBox.Text);
                 comando.Parameters.Add("estado", OracleDbType.Int32).Value = Convert.ToInt32(cbEstadoSolicitud.SelectedValue);
                 comando.Parameters.Add("producto", OracleDbType.Int32).Value = Convert.ToInt32(cbProducto.SelectedValue);
@@ -241,8 +196,8 @@ namespace maipoGrande.Pages
 
                 cbProducto.SelectedValue = 0;
                 cbEstadoSolicitud.SelectedValue = 0;
-                cbIdSolicitudCompra.SelectedValue = 0;
-                cargarIdsolicitud2();
+                Agregar();
+                Close();
 
             }
             catch (Exception)
@@ -250,31 +205,18 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Algo fallo en la actualizacion, asegurate de rellenar todas las casillas");
             }
         }
-        private void EliminarSolicitud_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OracleCommand comando = new OracleCommand("eliminar_solicitud_compra", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = Convert.ToInt32(cbIdSolicitudCompra.SelectedValue);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Solicitud eliminada con exito");
 
-                cbProducto.SelectedValue = 0;
-                cbEstadoSolicitud.SelectedValue = 0;
-                cbIdSolicitudCompra.SelectedValue = 0;
-                cargarIdsolicitud2();
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo ha salido mal al eliminar la solicitud.");
-            }
-        }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            string id_solicitud;
+            id_solicitud = Convert.ToString(id);
+            cargarUpdateSolicitud(id_solicitud);
+        }
+        
     }
 }
