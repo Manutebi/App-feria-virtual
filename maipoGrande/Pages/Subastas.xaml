@@ -85,7 +85,7 @@
             </Grid>
 
             <!--Members Data Grid-->
-            <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="listadoSubastas" Loaded="ListadoSubastas_Loaded" Style="{DynamicResource DataGridStyle1}">
+            <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn/>
@@ -107,10 +107,10 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="EditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding ID_USUARIO}" Click="EditButton_Click" >
+                                    <Button x:Name="EditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding ID_USUARIO}" >
                                         <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
-                                    <Button x:Name="DeleteButton" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" CommandParameter="{Binding ID_USUARIO}" Click="DeleteButton_Click">
+                                    <Button x:Name="DeleteButton" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" CommandParameter="{Binding ID_USUARIO}" >
                                         <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                 </StackPanel>
@@ -144,7 +144,7 @@
                     </Button>
                 </StackPanel>
             </Border>
-            <Button Content="Actualizar" HorizontalAlignment="Center" Margin="0,25,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Actualizar" HorizontalAlignment="Center" Margin="0,25,0,0" Grid.Row="1" VerticalAlignment="Top" Cursor="Hand" />
 
         </Grid>
 
