@@ -1,4 +1,6 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using BespokeFusion;
+using MaterialDesignThemes.Wpf;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -104,7 +106,7 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("contrato", OracleDbType.Int32).Value = 1;
                 comando.Parameters.Add("usuario", OracleDbType.Varchar2).Value = Convert.ToInt32(cbIdUser2.SelectedValue);
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Contrato Guardado en la base de datos.");
+                MaterialMessageBox.Show("TU MAMA ES WEONA");
 
                 Close();
                 cargarIDUser2();
@@ -113,7 +115,7 @@ namespace maipoGrande.Pages
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo fallo en el guardado de contrato, asegurate de rellenar todas las casillas.");
+                MaterialMessageBox.ShowError("Algo fallo en el guardado de contrato, asegurate de rellenar todas las casillas.");
             }
         }
         

@@ -17,8 +17,8 @@ using System.Windows.Shapes;
 using maipoGrande.Pages;
 using maipoGrandeDatos;
 using System.ComponentModel;
-using maipoGrande.Validaciones;
-using FluentValidation.Results;
+
+
 
 namespace maipoGrande.Pages
 {

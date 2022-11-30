@@ -20,7 +20,8 @@ using maipoGrandeDatos;
 using MaterialDesignThemes.Wpf;
 using maipoGrande.Pages;
 using System.ComponentModel;
-using maipoGrande.Validaciones;
+
+
 
 namespace maipoGrande
 {
@@ -58,10 +59,13 @@ namespace maipoGrande
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+      
+
             try
             {
-                errores.Clear();
+                
 
+                
                 OracleCommand comando = new OracleCommand("login", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
@@ -72,7 +76,10 @@ namespace maipoGrande
                 DataTable lista = new DataTable();
                 adaptador.Fill(lista);
 
-                Vusuarios validator = new Vusuarios();
+                
+                
+
+               
                 
 
                 //OracleCommand comando = new OracleCommand("SELECT * FROM usuario WHERE EMAIL = :email AND PASSWORD = :password AND ROL_ID_ROL = 1", conn);
@@ -128,6 +135,7 @@ namespace maipoGrande
 
         BindingList<string> errores = new BindingList<string>();
 
+        
     }   
 }
  

@@ -146,10 +146,8 @@ C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCh
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\LiveCharts.Wpf.xml
-C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\FluentValidation.dll
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\FluentValidation.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\Pages\Addsubastas.g.cs
@@ -170,5 +168,19 @@ C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Addsubastas.g.cs
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Dashboard.g.cs
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Addsubastas.baml
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Dashboard.baml
+<<<<<<< HEAD
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\UpdateSubastas.g.cs
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\UpdateSubastas.baml
+=======
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\ControlzEx.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MahApps.Metro.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\ControlzEx.pdb
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\ControlzEx.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MahApps.Metro.pdb
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MahApps.Metro.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\de\MahApps.Metro.resources.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\BespokeFusion.dll
+>>>>>>> f8a33e5b038b4b4a79c3cfe92d3dd5b00758a410
