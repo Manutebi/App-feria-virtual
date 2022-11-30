@@ -64,7 +64,7 @@
                         <RadioButton x:Name="rdVentas" Content="Ventas" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Solicitud}" Margin="0 5 0 5" Click="click_solicitudes" Cursor="Hand"/>
                         <RadioButton x:Name="rdContratos" Content="Contratos" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Contrato}" Margin="0 5 0 5" Click="click_contratos"/>
                         <RadioButton x:Name="rdSubastas" Content="Subastas" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Camion}" Margin="0 5 0 5" Click="click_camion" Cursor="Hand"/>
-                        <RadioButton x:Name="rdotros" Content="Otros" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Documento1}" Margin="0 5 0 5" Click="click_camion" Cursor="Hand"/>
+                        <RadioButton x:Name="rdotros" Content="Otros" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Documento1}" Margin="0 5 0 5" Visibility="Hidden" Cursor="Hand"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Orientation="Horizontal" Width="200" Margin="0 0 0 20">
