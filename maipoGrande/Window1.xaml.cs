@@ -202,6 +202,14 @@ namespace maipoGrande
             Application.Current.Shutdown();
         }
 
+        private void LabelNombreUser_Loaded(object sender, RoutedEventArgs e)
+        {
+            LabelNombreUser.Content = (nombre +" "+ apellido);
+        }
 
+        private void LabelEmailUser_Loaded(object sender, RoutedEventArgs e)
+        {
+            LabelEmailUser.Content = (email);
+        }
     }
 }
