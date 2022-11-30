@@ -60,7 +60,8 @@ namespace maipoGrande.Pages
                 adaptador.SelectCommand = comando;
                 DataTable lista = new DataTable();
                 adaptador.Fill(lista);
-
+                int cantidad = lista.Rows.Count;
+                cantidadUsuarios.Text = cantidad + " Usuarios registrados en el sistema";
                 listadoUser.ItemsSource = lista.DefaultView;
 
             }

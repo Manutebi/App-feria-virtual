@@ -144,6 +144,7 @@ namespace maipoGrande.Pages
             try {
                 Decimal id = (Decimal)((Button)sender).CommandParameter;
                 Addsubastas objaddSubasta = new Addsubastas(Convert.ToInt32(id));
+                objaddSubasta.UpdateEventHandler += ActuUpdateEventHandler;
                 objaddSubasta.Show();
             }
             catch (Exception) 
@@ -164,6 +165,10 @@ namespace maipoGrande.Pages
             //{
             //    MessageBox.Show("Algo ha salido mal al eliminar el proceso de venta.");
             //}
+        }
+        private void ActuUpdateEventHandler(object sender, Addsubastas.UpdateEventArgs args)
+        {
+            cargarProcesoDG();
         }
 
     }

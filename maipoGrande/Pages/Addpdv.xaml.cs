@@ -31,6 +31,7 @@ namespace maipoGrande.Pages
         {
             InitializeComponent();
             abrirConexion();
+<<<<<<< HEAD
             this.id = id;
         }
         private void obtenerSolicitud(string id_solicitud)
@@ -46,6 +47,8 @@ namespace maipoGrande.Pages
             
             
 
+=======
+>>>>>>> 830736e2602b966092878a211b3595d48581ad87
         }
 
         public delegate void UpdateDelegate(object sender, UpdateEventArgs args);

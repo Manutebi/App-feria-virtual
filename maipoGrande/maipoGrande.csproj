@@ -120,6 +120,9 @@
     <Compile Include="Pages\Addcontratos.xaml.cs">
       <DependentUpon>Addcontratos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddEstadisticas.xaml.cs">
+      <DependentUpon>AddEstadisticas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Addpdv.xaml.cs">
       <DependentUpon>Addpdv.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,9 @@
     <Compile Include="Pages\Updateproductos.xaml.cs">
       <DependentUpon>Updateproductos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UpdateSubastas.xaml.cs">
+      <DependentUpon>UpdateSubastas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Updateusuarios.xaml.cs">
       <DependentUpon>Updateusuarios.xaml</DependentUpon>
     </Compile>
@@ -196,6 +202,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Addcontratos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEstadisticas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Updateproductos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdateSubastas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

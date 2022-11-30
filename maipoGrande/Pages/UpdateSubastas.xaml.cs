@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
-using System.Deployment.Internal;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,23 +15,40 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using static maipoGrande.Pages.Addsubastas;
-using static System.Resources.ResXFileRef;
 
 namespace maipoGrande.Pages
 {
     /// <summary>
-    /// Lógica de interacción para Addsubastas.xaml
+    /// Lógica de interacción para UpdateSubastas.xaml
     /// </summary>
-    public partial class Addsubastas : Window
+    public partial class UpdateSubastas : Window
     {
         int id;
         OracleConnection conn = null;
-        public Addsubastas(int id)
+        public UpdateSubastas(int id)
         {
             InitializeComponent();
             abrirConexion();
             this.id = id;
+        }
+        private void obtenerPDV(string id_pdv)
+        {
+            OracleCommand cmd = new OracleCommand("SELECT * FROM pdv WHERE id_pdv = :id_pdv", conn);
+            cmd.Parameters.Add(":id_pdv", id_pdv);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            precioPdv.Text = dt.Rows[0]["PRECIO_TOTAL"].ToString();
+            cbIdPdv.SelectedValue = id_pdv;
+            if (dt.Rows[0]["TIPO_LOCAL"].ToString() == "0")
+            {
+                RbLocalNo.IsChecked = true;
+            }
+            else
+            {
+                RbLocalSi.IsChecked = true;
+            }
         }
         public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
         public event UpdateDelegate UpdateEventHandler;
@@ -47,23 +63,6 @@ namespace maipoGrande.Pages
         {
             UpdateEventArgs args = new UpdateEventArgs();
             UpdateEventHandler.Invoke(this, args);
-        }
-        private void obtenerPDV(string id_pdv)
-        {
-            OracleCommand cmd = new OracleCommand("SELECT * FROM pdv WHERE id_pdv = :id_pdv", conn);
-            cmd.Parameters.Add(":id_pdv", id_pdv);
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            precioPdv.Text = dt.Rows[0]["PRECIO_TOTAL"].ToString();
-            cbIdPdv.SelectedValue = id_pdv;
-            if (dt.Rows[0]["TIPO_LOCAL"].ToString() == "0"){
-                RbLocalNo.IsChecked = true;
-            }
-            else{
-                RbLocalSi.IsChecked = true;
-            }
         }
         private void abrirConexion()
         {
@@ -80,73 +79,50 @@ namespace maipoGrande.Pages
             }
 
         }
-        private void GuardarSubasta_Click(object sender, RoutedEventArgs e)
+        private void ActualizarSubasta_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                OracleCommand comando = new OracleCommand("agregar_subastas", conn);
+                OracleCommand comando = new OracleCommand("actualizar_subastas", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("fecha_p", OracleDbType.Date).Value = DateTime.Today;
+                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
                 comando.Parameters.Add("fecha_t", OracleDbType.Date).Value = Convert.ToDateTime(string.Format("{0:yyyy-mm-dd}", fechaTerminoSubasta));
                 comando.Parameters.Add("cond_c", OracleDbType.Int32).Value = Convert.ToInt32(condCarga.SelectedValue);
                 comando.Parameters.Add("cond_t", OracleDbType.Int32).Value = Convert.ToInt32(condTamano.SelectedValue);
                 comando.Parameters.Add("cond_r", OracleDbType.Int32).Value = Convert.ToInt32(condRefrigeracion.SelectedValue);
-                comando.Parameters.Add("valor_i", OracleDbType.Int32).Value = 0;
-                comando.Parameters.Add("pdv", OracleDbType.Int32).Value = Convert.ToInt32(cbIdPdv.SelectedValue);
                 comando.Parameters.Add("estado_s", OracleDbType.Int32).Value = Convert.ToInt32(CbEstadoSubasta.SelectedValue);
-                comando.Parameters.Add("precio_pdv", OracleDbType.Int32).Value = Convert.ToInt32(precioPdv.Text);
-                if (RbLocalNo.IsChecked == true)
-                {
-                    comando.Parameters.Add("tipo_pdv", OracleDbType.Int32).Value = 0;
-                }
-                else
-                {
-                    comando.Parameters.Add("tipo_pdv", OracleDbType.Int32).Value = 1;
-                }
-
-                try
-                {
-                    OracleCommand comando2 = new OracleCommand("eliminar_pdv", conn);
-                    comando2.CommandType = System.Data.CommandType.StoredProcedure;
-                    comando2.Parameters.Add("idp", OracleDbType.Int32).Value = id;
-                    comando.ExecuteNonQuery();
-                    comando2.ExecuteNonQuery();
-                    MessageBox.Show("Proceso de venta eliminado con exito");
-                    MessageBox.Show("Subasta guardada en la base de datos.");
-                    Agregar();
-                    Close();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Algo ha salido mal al eliminar el proceso de venta.");
-                }
-
-
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Subasta actualizada en la base de datos.");
+                Agregar();
+                Close();
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo fallo en el guardado de la subasta, asegurate de rellenar todas las casillas.");
+                MessageBox.Show("Algo fallo en el actualizado de la subasta, asegurate de rellenar todas las casillas.");
             }
+        }
+        private void GuardarSubasta_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
         private void cargarIdPdv()
         {
             try
             {
-                OracleCommand comando = new OracleCommand("listar_pdv", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
+                OracleCommand comando = new OracleCommand("select * from pdv order by ID_PDV", conn);
+                OracleDataAdapter da = new OracleDataAdapter(comando);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                DataRow fila = dt.NewRow();
 
                 cbIdPdv.SelectedValuePath = "ID_PDV";
                 cbIdPdv.DisplayMemberPath = "ID_PDV";
-                cbIdPdv.ItemsSource = lista.DefaultView;
+                cbIdPdv.ItemsSource = dt.DefaultView;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al leer ID PDV");
+                MessageBox.Show("Error al leer tipo de usuario");
             }
         }
         private void cargarIdEstadoSubasta()
@@ -167,7 +143,7 @@ namespace maipoGrande.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al leer ID ESTADO SUBASTA");
+                MessageBox.Show("Error al leer tipo de usuario");
             }
         }
         private void CbEstadoSubasta_Loaded(object sender, RoutedEventArgs e)
@@ -182,8 +158,8 @@ namespace maipoGrande.Pages
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            string id_pdv = Convert.ToString(id);
-            obtenerPDV(id_pdv);
+            string id_subasta = Convert.ToString(id);
+            cargarUpdateSubasta(id_subasta);
         }
 
         private void cbIdPdv_Loaded(object sender, RoutedEventArgs e)
@@ -238,6 +214,32 @@ namespace maipoGrande.Pages
         {
             public String refrigeracion { get; set; }
         }
+        private void cargarUpdateSubasta(string id_subasta)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand("SELECT * FROM subasta WHERE id_subasta = :id_subasta", conn);
+                cmd.Parameters.Add(":id_pdv", id_subasta);
+                OracleDataAdapter da = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
+                fechaTerminoSubasta.Text = dt.Rows[0]["FECHA_TERMINO_SUB"].ToString();
+                condCarga.SelectedValue = dt.Rows[0]["COND_CARGA"].ToString();
+                condTamano.SelectedValue = dt.Rows[0]["COND_TAMANO"].ToString();
+                condRefrigeracion.SelectedValue = dt.Rows[0]["COND_REFRIGERACION"].ToString();
+                cbIdPdv.SelectedValue = dt.Rows[0]["PDV_ID_PDV"].ToString();
+                CbEstadoSubasta.SelectedValue = dt.Rows[0]["ESTADO_SUBASTA_ID_ESTADO"].ToString();
+                precioPdv.Text = dt.Rows[0]["PRECIO_PDV"].ToString();
+                string activo = dt.Rows[0]["TIPO_PDV"].ToString();
+                if (activo == "0") { RbLocalNo.IsChecked = true; }
+                else { RbLocalSi.IsChecked = true; }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        
     }
 }
