@@ -94,7 +94,7 @@
                                     <Button x:Name="EditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding ID_SUBASTA}" Click="EditButton_Click" >
                                         <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
-                                    <Button x:Name="DeleteButton" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" CommandParameter="{Binding ID_SUBASTA}" >
+                                    <Button x:Name="DeleteButton" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" CommandParameter="{Binding ID_SUBASTA}" Click="DeleteButton_Click" >
                                         <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                 </StackPanel>

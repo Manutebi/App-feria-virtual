@@ -1,0 +1,48 @@
+﻿<Window x:Class="maipoGrande.Pages.AddEstadisticas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:maipoGrande.Pages"
+        mc:Ignorable="d"
+        Title="AddEstadisticas" Height="450" Width="400" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="#00FFFFFF">
+
+
+    <Border CornerRadius="15" BorderBrush="#FF673AB7" BorderThickness="1,3,1,5" Background="{DynamicResource SecundaryBackgroundColor}">
+        <Grid>
+            <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
+            </StackPanel>
+
+            <Grid Loaded="Grid_Loaded">
+                <Button x:Name="GuardarSubasta"
+                  materialDesign:ButtonAssist.CornerRadius="10"
+                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                  Style="{StaticResource MaterialDesignRaisedButton}"
+                  Margin="147,386,145,24" Click="GuardarSubasta_Click">
+                    <TextBlock Text="Guardar" />
+                </Button>
+                <RadioButton x:Name="RbLocalSi" GroupName="ventaLocal"  Content="Local" HorizontalAlignment="Left" Margin="130,338,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <RadioButton x:Name="RbLocalNo" GroupName="ventaLocal" Content="Externa" HorizontalAlignment="Left" Margin="200,338,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <Label Content="Tipo de Procesos de venta" HorizontalAlignment="Center" Margin="0,297,0,0" VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.723,-0.376"/>
+                <TextBox x:Name="SubastaId" HorizontalAlignment="Left" Margin="198,41,0,0" VerticalAlignment="Top" Width="97" Height="45" IsEnabled="False"/>
+                <TextBox x:Name="PrecioPdv" HorizontalAlignment="Left" Margin="199,97,0,0" VerticalAlignment="Top" Width="96" Height="38" IsEnabled="False"/>
+                <TextBox x:Name="ValorSubasta" HorizontalAlignment="Left" Margin="201,158,0,0" Width="95" Height="38" VerticalAlignment="Top" IsEnabled="False"/>
+                <Label Content="Valor de la Subasta" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top"/>
+                <Label Content="Id. Subasta" HorizontalAlignment="Left" Margin="113,62,0,0" VerticalAlignment="Top"/>
+                <Label Content="Precio del Proceso de Venta" HorizontalAlignment="Left" Margin="24,114,0,0" VerticalAlignment="Top"/>
+                <ComboBox HorizontalAlignment="Left" Margin="201,221,0,0" VerticalAlignment="Top" Width="95" Height="39" x:Name="CbFechaAsignada" Loaded="CbFechaAsignada_Loaded" IsEnabled="False"/>
+                <Label Content="Fecha Asignada" HorizontalAlignment="Left" Margin="88,236,0,0" VerticalAlignment="Top"/>
+            </Grid>
+
+
+
+
+
+        </Grid>
+
+    </Border>
+</Window>

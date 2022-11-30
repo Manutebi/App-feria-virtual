@@ -80,7 +80,19 @@ namespace maipoGrande.Pages
             objupdatesubastas.UpdateEventHandler += ActuUpdateEventHandler;
             objupdatesubastas.Show();
         }
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Decimal id = (Decimal)((Button)sender).CommandParameter;
+            //new Updateusuarios(Convert.ToInt32(id)).Show();
+            AddEstadisticas objaddestadisticas = new AddEstadisticas(Convert.ToInt32(id));
+            objaddestadisticas.UpdateEventHandler += ActuUpdateEventHandler;
+            objaddestadisticas.Show();
+        }
         private void ActuUpdateEventHandler(object sender, UpdateSubastas.UpdateEventArgs args)
+        {
+            cargarSubastaDG();
+        }
+        private void ActuUpdateEventHandler(object sender, AddEstadisticas.UpdateEventArgs args)
         {
             cargarSubastaDG();
         }

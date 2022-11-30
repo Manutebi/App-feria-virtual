@@ -120,6 +120,9 @@
     <Compile Include="Pages\Addcontratos.xaml.cs">
       <DependentUpon>Addcontratos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddEstadisticas.xaml.cs">
+      <DependentUpon>AddEstadisticas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Addpdv.xaml.cs">
       <DependentUpon>Addpdv.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Addcontratos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEstadisticas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
