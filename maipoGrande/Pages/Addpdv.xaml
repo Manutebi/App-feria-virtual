@@ -12,7 +12,7 @@
         Background="#00ffffff">
 
     <Border CornerRadius="15" BorderBrush="#FF673AB7" BorderThickness="1,3,1,5" Background="{DynamicResource SecundaryBackgroundColor}">
-        <Grid>
+        <Grid Loaded="Grid_Loaded">
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
@@ -21,7 +21,7 @@
             <Label x:Name="IdEstadoPDVLabel" Content="Estado de la venta" HorizontalAlignment="Left" Margin="68,136,0,0" VerticalAlignment="Top" Width="132"/>
             <ComboBox x:Name="cbIdEstadoPDV" Margin="218,-150,72,0" Loaded="CbIdEstadoPDV_Loaded" Height="42"  />
             <Label x:Name="IdSolicitudLabel" Content="ID de la &#xD;&#xA;Solicitud de compra" HorizontalAlignment="Left" Margin="64,198,0,0" VerticalAlignment="Top" Width="132"/>
-            <ComboBox x:Name="cbIdSolicitud" Margin="218,0,72,0" Loaded="CbIdSolicitud_Loaded" Height="38"/>
+            <ComboBox x:Name="cbIdSolicitud" Margin="218,0,72,0" Loaded="CbIdSolicitud_Loaded" Height="38" IsEnabled="False"/>
             <RadioButton x:Name="VentaLocalSi" GroupName="VentaLocal" Content="Venta Local" Margin="68,275,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="68" Width="108"/>
             <RadioButton x:Name="VentaLocalNo" GroupName="VentaLocal" Content="Venta Externa" Margin="200,283,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="52" Width="106"/>
             <Button x:Name="Guardar_proceso" Content="Guardar" HorizontalAlignment="Center" Margin="0,377,0,0" VerticalAlignment="Top" Width="112" Click="Guardar_proceso_Click" Cursor="Hand"/>

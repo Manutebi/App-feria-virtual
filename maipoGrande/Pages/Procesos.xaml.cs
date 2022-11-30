@@ -118,9 +118,9 @@ namespace maipoGrande.Pages
 
         private void add_pdv(object sender, RoutedEventArgs e)
         {
-            Addpdv objaddpdv = new Addpdv(this);
-            objaddpdv.UpdateEventHandler += AgreUpdateEventHandler;
-            objaddpdv.Show();
+            //Addpdv objaddpdv = new Addpdv(this);
+            //objaddpdv.UpdateEventHandler += AgreUpdateEventHandler;
+            //objaddpdv.Show();
 
         }
 

@@ -130,7 +130,7 @@ namespace maipoGrande.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al leer tipo de usuario");
+                MessageBox.Show("Error al leer ID PDV");
             }
         }
         private void cargarIdEstadoSubasta()
@@ -151,7 +151,7 @@ namespace maipoGrande.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al leer tipo de usuario");
+                MessageBox.Show("Error al leer ID ESTADO SUBASTA");
             }
         }
         private void CbEstadoSubasta_Loaded(object sender, RoutedEventArgs e)

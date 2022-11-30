@@ -171,18 +171,15 @@ namespace maipoGrande
         }
 
 
-      
 
-       
 
-<<<<<<< HEAD
+
+
+
         private void LabelNombreUser_Loaded(object sender, RoutedEventArgs e)
         {
-            LabelNombreUser.Content = (nombre +" "+ apellido);
+            LabelNombreUser.Content = (nombre + " " + apellido);
         }
-=======
-     
->>>>>>> 0986a744df5955b5582964ad282b1ab95878cfed
 
         private void LabelEmailUser_Loaded(object sender, RoutedEventArgs e)
         {
