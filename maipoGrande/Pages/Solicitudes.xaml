@@ -84,7 +84,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button x:Name="EditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding ID_SOLICITUD}" Click="EditButton_Click" >
-                                        <Icon:PackIconMaterial Kind="PencilBoxOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                     <Button x:Name="DeleteButton" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" CommandParameter="{Binding ID_SOLICITUD}" Click="DeleteButton_Click">
                                         <Icon:PackIconMaterial Kind="Sale" Style="{StaticResource gridButtonIcon}"/>
