@@ -18,7 +18,7 @@
                 <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
             </StackPanel>
 
-            <TextBlock Text="Selección Subasta" FontSize="32" FontWeight="SemiBold" Margin="249,10,0,380" Foreground="#121518" HorizontalAlignment="Left" Width="255"/>
+            <TextBlock Text="Selección Subasta" FontSize="32" FontWeight="SemiBold" Margin="0,20,0,370" Foreground="#121518" HorizontalAlignment="Center" Width="262"/>
 
             <Grid Loaded="Grid_Loaded">
                 <Button x:Name="GuardarSubasta"

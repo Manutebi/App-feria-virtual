@@ -26,21 +26,21 @@
                   Margin="342,365,342,45" Click="ActualizarSubasta_Click">
                     <TextBlock Text="Actualizar" />
                 </Button>
-                <DatePicker x:Name="fechaTerminoSubasta" Width="140" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="104,138,554,0" VerticalAlignment="Top" />
+                <DatePicker x:Name="fechaTerminoSubasta" Width="140" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="43,138,615,0" VerticalAlignment="Top" />
                 <RadioButton x:Name="RbLocalSi" GroupName="ventaLocal"  Content="Local" HorizontalAlignment="Left" Margin="56,317,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                 <RadioButton x:Name="RbLocalNo" GroupName="ventaLocal" Content="Externa" HorizontalAlignment="Left" Margin="132,317,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <Label Content="Tipo de Procesos de venta" HorizontalAlignment="Left" Margin="26,274,0,0" VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.723,-0.376"/>
+                <Label Content="Tipo de Procesos de venta" HorizontalAlignment="Left" Margin="43,283,0,0" VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.723,-0.376"/>
                 <ComboBox x:Name="condTamano" HorizontalAlignment="Left" Margin="169,41,0,0" VerticalAlignment="Top" Width="75" Height="45" Loaded="condTamano_Loaded"/>
                 <ComboBox x:Name="condCarga" HorizontalAlignment="Left" Margin="399,48,0,0" VerticalAlignment="Top" Width="75" Height="38" Loaded="condCarga_Loaded"/>
-                <ComboBox x:Name="condRefrigeracion" HorizontalAlignment="Left" Margin="622,50,0,0" Width="75" Height="38" VerticalAlignment="Top" Loaded="condRefrigeracion_Loaded"/>
-                <ComboBox HorizontalAlignment="Left" Margin="644,247,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="cbIdPdv" Loaded="cbIdPdv_Loaded" IsEnabled="False"/>
-                <Label Content="Cond. Refrigeracion" HorizontalAlignment="Left" Margin="496,57,0,0" VerticalAlignment="Top"/>
-                <Label Content="ID Pdv" HorizontalAlignment="Left" Margin="521,260,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="condRefrigeracion" HorizontalAlignment="Left" Margin="645,58,0,0" Width="75" Height="38" VerticalAlignment="Top" Loaded="condRefrigeracion_Loaded"/>
+                <ComboBox HorizontalAlignment="Left" Margin="644,221,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="cbIdPdv" Loaded="cbIdPdv_Loaded" IsEnabled="False"/>
+                <Label Content="Cond. Refrigeracion" HorizontalAlignment="Left" Margin="510,77,0,0" VerticalAlignment="Top"/>
+                <Label Content="ID Pdv" HorizontalAlignment="Left" Margin="512,230,0,0" VerticalAlignment="Top"/>
                 <Label Content="Cond. Tamaño" HorizontalAlignment="Left" Margin="43,62,0,0" VerticalAlignment="Top"/>
                 <Label Content="Cond. Carga" HorizontalAlignment="Left" Margin="273,63,0,0" VerticalAlignment="Top"/>
-                <ComboBox HorizontalAlignment="Left" Margin="633,141,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="CbEstadoSubasta" Loaded="CbEstadoSubasta_Loaded"/>
+                <ComboBox HorizontalAlignment="Left" Margin="644,141,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="CbEstadoSubasta" Loaded="CbEstadoSubasta_Loaded"/>
                 <Label Content="Estado Subasta" HorizontalAlignment="Left" Margin="510,156,0,0" VerticalAlignment="Top"/>
-                <Label Content="Precio Total del PDV:" HorizontalAlignment="Left" Margin="523,302,0,0" VerticalAlignment="Top"/>
+                <Label Content="Precio Total del PDV:" HorizontalAlignment="Left" Margin="510,300,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="precioPdv" Margin="645,302,0,0" Width="74" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False"/>
             </Grid>
 
