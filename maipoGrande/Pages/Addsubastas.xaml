@@ -19,32 +19,29 @@
             </StackPanel>
 
             <Grid Loaded="Grid_Loaded">
-                <Button
+                <Button x:Name="GuardarSubasta"
                   materialDesign:ButtonAssist.CornerRadius="10"
                   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                   Style="{StaticResource MaterialDesignRaisedButton}"
-                  Margin="342,365,342,45">
+                  Margin="342,365,342,45" Click="GuardarSubasta_Click">
                     <TextBlock Text="Guardar" />
                 </Button>
-                <TextBox Margin="40,50,575,330" Text="" x:Name="userBox" FontSize="15" materialDesign:HintAssist.Hint="Nombre" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                <DatePicker Width="140" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="40,135,620,0" VerticalAlignment="Top" />
-                <TextBox Margin="285,50,330,330" x:Name="apellidoBox" FontSize="15" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                <TextBox Margin="285,135,330,250" x:Name="valorinicialBox" FontSize="15" materialDesign:HintAssist.Hint="Valor inicial" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                <RadioButton x:Name="RbLocalSi" GroupName="ventaLocal"  Content="Local" HorizontalAlignment="Left" Margin="57,287,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="RbLocalNo" GroupName="ventaLocal" Content="Externa" HorizontalAlignment="Left" Margin="132,287,0,0" VerticalAlignment="Top"/>
-                <Label Content="Tipo de Procesos de venta" HorizontalAlignment="Left" Margin="27,244,0,0" VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.723,-0.376"/>
-                <ComboBox HorizontalAlignment="Left" Margin="645,50,0,0" VerticalAlignment="Top" Width="75" Height="45" x:Name="Condcarga"/>
-                <ComboBox HorizontalAlignment="Left" Margin="645,124,0,0" VerticalAlignment="Top" Width="75" Height="38" x:Name="Condtamano"/>
-                <ComboBox HorizontalAlignment="Left" Margin="645,187,0,0" Width="75" Height="38" x:Name="ID_transportista" VerticalAlignment="Top"/>
-                <ComboBox HorizontalAlignment="Left" Margin="645,248,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="cbIdPdv" Loaded="cbIdPdv_Loaded"/>
-                <Label Content="ID Transportista" HorizontalAlignment="Left" Margin="519,194,0,0" VerticalAlignment="Top"/>
-                <Label Content="ID Pdv" HorizontalAlignment="Left" Margin="522,261,0,0" VerticalAlignment="Top"/>
-                <Label Content="Cond Tamaño" HorizontalAlignment="Left" Margin="519,71,0,0" VerticalAlignment="Top"/>
-                <Label Content="Cond Carga" HorizontalAlignment="Left" Margin="519,139,0,0" VerticalAlignment="Top"/>
-                <ComboBox HorizontalAlignment="Left" Margin="645,327,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="Estado_subasta"/>
-                <Label Content="Estado Subasta" HorizontalAlignment="Left" Margin="522,342,0,0" VerticalAlignment="Top"/>
-                <Label Content="Precio Total del PDV:" HorizontalAlignment="Left" Margin="524,303,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="Precio_pdv" Margin="646,303,0,0" Width="74" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <DatePicker x:Name="fechaTerminoSubasta" Width="140" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="104,138,554,0" VerticalAlignment="Top" />
+                <RadioButton x:Name="RbLocalSi" GroupName="ventaLocal"  Content="Local" HorizontalAlignment="Left" Margin="56,317,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <RadioButton x:Name="RbLocalNo" GroupName="ventaLocal" Content="Externa" HorizontalAlignment="Left" Margin="132,317,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <Label Content="Tipo de Procesos de venta" HorizontalAlignment="Left" Margin="26,274,0,0" VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.723,-0.376"/>
+                <ComboBox x:Name="condTamano" HorizontalAlignment="Left" Margin="169,41,0,0" VerticalAlignment="Top" Width="75" Height="45" Loaded="condTamano_Loaded"/>
+                <ComboBox x:Name="condCarga" HorizontalAlignment="Left" Margin="399,48,0,0" VerticalAlignment="Top" Width="75" Height="38" Loaded="condCarga_Loaded"/>
+                <ComboBox x:Name="condRefrigeracion" HorizontalAlignment="Left" Margin="622,50,0,0" Width="75" Height="38" VerticalAlignment="Top" Loaded="condRefrigeracion_Loaded"/>
+                <ComboBox HorizontalAlignment="Left" Margin="644,247,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="cbIdPdv" Loaded="cbIdPdv_Loaded" IsEnabled="False"/>
+                <Label Content="Cond. Refrigeracion" HorizontalAlignment="Left" Margin="496,57,0,0" VerticalAlignment="Top"/>
+                <Label Content="ID Pdv" HorizontalAlignment="Left" Margin="521,260,0,0" VerticalAlignment="Top"/>
+                <Label Content="Cond. Tamaño" HorizontalAlignment="Left" Margin="43,62,0,0" VerticalAlignment="Top"/>
+                <Label Content="Cond. Carga" HorizontalAlignment="Left" Margin="273,63,0,0" VerticalAlignment="Top"/>
+                <ComboBox HorizontalAlignment="Left" Margin="633,141,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="CbEstadoSubasta" Loaded="CbEstadoSubasta_Loaded"/>
+                <Label Content="Estado Subasta" HorizontalAlignment="Left" Margin="510,156,0,0" VerticalAlignment="Top"/>
+                <Label Content="Precio Total del PDV:" HorizontalAlignment="Left" Margin="523,302,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="precioPdv" Margin="645,302,0,0" Width="74" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False"/>
             </Grid>
 
 
