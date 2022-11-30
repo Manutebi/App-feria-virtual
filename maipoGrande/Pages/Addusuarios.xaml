@@ -18,7 +18,7 @@
 
             <Label x:Name="avisoLabel0" Content="Ingresar Run sin puntos ni guion" HorizontalAlignment="Left" Margin="43,20,0,0" VerticalAlignment="Top" Height="27" FontSize="10" FontWeight="Bold" Foreground="#FF6C6C6C"/>
 
-            <TextBox Margin="43,65,572,321" Text="" x:Name="RunBox" FontSize="15" materialDesign:HintAssist.Hint="Run" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+            <TextBox Margin="43,65,572,321" Text="" x:Name="RunBox" FontSize="15" materialDesign:HintAssist.Hint="Run" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" UndoLimit="9"/>
             <Label x:Name="tipoLabel" Content="Tipo de usuario" HorizontalAlignment="Left" Margin="468,257,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbtipoUser" Margin="595,257,106,0" Loaded="CbtipoUser_Loaded" VerticalAlignment="Top"/>
             <Label x:Name="PaisLabel" Content="Pais" HorizontalAlignment="Left" Margin="468,70,0,0" VerticalAlignment="Top" Width="54"/>
