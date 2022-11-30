@@ -36,9 +36,9 @@
 
                 <TextBlock Margin="0,25,0,5" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" ><Run Language="es-mx" Text="Bienvenido!"/></TextBlock>
 
-                <TextBlock FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center"><Run Text="Log"/><Run Language="es-mx" Text="eate xuxetumare loco "/></TextBlock>
+                <TextBlock FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center"><Run Text="Entorno Administrativo"/><Run Language="es-mx"/></TextBlock>
 
-                <TextBox Margin="0,50,0,0" Text="" x:Name="userBox" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Ingrese Ususario" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                <TextBox Margin="0,50,0,0" Text="" x:Name="userBox" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Ingrese Usuario" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
                 <PasswordBox Margin="0,20,0,0" x:Name="passBox" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Ingrese Password" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
 

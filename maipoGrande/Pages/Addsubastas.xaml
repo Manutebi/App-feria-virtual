@@ -27,22 +27,24 @@
                     <TextBlock Text="Guardar" />
                 </Button>
                 <TextBox Margin="40,50,575,330" Text="" x:Name="userBox" FontSize="15" materialDesign:HintAssist.Hint="Nombre" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                <DatePicker Width="140" materialDesign:HintAssist.HelperText="tu mama es weona" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="40,135,620,0" VerticalAlignment="Top" />
+                <DatePicker Width="140" materialDesign:HintAssist.Hint="Fecha termino" Style="{StaticResource MaterialDesignFilledDatePicker}" Margin="40,135,620,0" VerticalAlignment="Top" />
                 <TextBox Margin="285,50,330,330" x:Name="apellidoBox" FontSize="15" materialDesign:HintAssist.Hint="Apellido" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
                 <TextBox Margin="285,135,330,250" x:Name="valorinicialBox" FontSize="15" materialDesign:HintAssist.Hint="Valor inicial" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                <RadioButton Content="Si" HorizontalAlignment="Left" Margin="132,287,0,0" VerticalAlignment="Top"/>
-                <RadioButton Content="No" HorizontalAlignment="Left" Margin="57,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.148,0.167"/>
-                <Label Content="Tu mama es weona?" HorizontalAlignment="Left" Margin="57,241,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.723,-0.376"/>
+                <RadioButton x:Name="RbLocalSi" GroupName="ventaLocal"  Content="Local" HorizontalAlignment="Left" Margin="57,287,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="RbLocalNo" GroupName="ventaLocal" Content="Externa" HorizontalAlignment="Left" Margin="132,287,0,0" VerticalAlignment="Top"/>
+                <Label Content="Tipo de Procesos de venta" HorizontalAlignment="Left" Margin="27,244,0,0" VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.723,-0.376"/>
                 <ComboBox HorizontalAlignment="Left" Margin="645,50,0,0" VerticalAlignment="Top" Width="75" Height="45" x:Name="Condcarga"/>
                 <ComboBox HorizontalAlignment="Left" Margin="645,124,0,0" VerticalAlignment="Top" Width="75" Height="38" x:Name="Condtamano"/>
                 <ComboBox HorizontalAlignment="Left" Margin="645,187,0,0" Width="75" Height="38" x:Name="ID_transportista" VerticalAlignment="Top"/>
-                <ComboBox HorizontalAlignment="Left" Margin="645,248,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="ID_pdv"/>
+                <ComboBox HorizontalAlignment="Left" Margin="645,248,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="cbIdPdv" Loaded="cbIdPdv_Loaded"/>
                 <Label Content="ID Transportista" HorizontalAlignment="Left" Margin="519,194,0,0" VerticalAlignment="Top"/>
                 <Label Content="ID Pdv" HorizontalAlignment="Left" Margin="522,261,0,0" VerticalAlignment="Top"/>
                 <Label Content="Cond Tamaño" HorizontalAlignment="Left" Margin="519,71,0,0" VerticalAlignment="Top"/>
                 <Label Content="Cond Carga" HorizontalAlignment="Left" Margin="519,139,0,0" VerticalAlignment="Top"/>
-                <ComboBox HorizontalAlignment="Left" Margin="645,320,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="Estado_subasta"/>
-                <Label Content="Estado Subasta" HorizontalAlignment="Left" Margin="522,335,0,0" VerticalAlignment="Top"/>
+                <ComboBox HorizontalAlignment="Left" Margin="645,327,0,0" VerticalAlignment="Top" Width="75" Height="39" x:Name="Estado_subasta"/>
+                <Label Content="Estado Subasta" HorizontalAlignment="Left" Margin="522,342,0,0" VerticalAlignment="Top"/>
+                <Label Content="Precio Total del PDV:" HorizontalAlignment="Left" Margin="524,303,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Precio_pdv" Margin="646,303,0,0" Width="74" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </Grid>
 
 
