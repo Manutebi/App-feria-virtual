@@ -74,7 +74,7 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Producto Guardado en la base de datos.");
 
                 
-                
+                Close();
                 Agregar();
                 
             }

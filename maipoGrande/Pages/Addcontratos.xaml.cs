@@ -106,7 +106,7 @@ namespace maipoGrande.Pages
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Contrato Guardado en la base de datos.");
 
-                
+                Close();
                 cargarIDUser2();
                 Agregar();
                 

@@ -19,6 +19,8 @@ using System.Data;
 using maipoGrandeDatos;
 using MaterialDesignThemes.Wpf;
 using maipoGrande.Pages;
+using System.ComponentModel;
+using maipoGrande.Validaciones;
 
 namespace maipoGrande
 {
@@ -58,6 +60,8 @@ namespace maipoGrande
         {
             try
             {
+                errores.Clear();
+
                 OracleCommand comando = new OracleCommand("login", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
@@ -67,6 +71,9 @@ namespace maipoGrande
                 adaptador.SelectCommand = comando;
                 DataTable lista = new DataTable();
                 adaptador.Fill(lista);
+
+                Vusuarios validator = new Vusuarios();
+                
 
                 //OracleCommand comando = new OracleCommand("SELECT * FROM usuario WHERE EMAIL = :email AND PASSWORD = :password AND ROL_ID_ROL = 1", conn);
 
@@ -105,41 +112,22 @@ namespace maipoGrande
 
         }
 
-        //Theme Code ========================>
-        public bool IsDarkTheme { get; set; }
-        private readonly PaletteHelper paletteHelper = new PaletteHelper();
-        //===================================>
-
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-            DragMove();
-        }
-
-        private void toggleTheme(object sender, RoutedEventArgs e)
-        {
-            //Theme Code ========================>
-            ITheme theme = paletteHelper.GetTheme();
-            if (IsDarkTheme = theme.GetBaseTheme() == BaseTheme.Dark)
-            {
-                IsDarkTheme = false;
-                theme.SetBaseTheme(Theme.Light);
-            }
-            else
-            {
-                IsDarkTheme = true;
-                theme.SetBaseTheme(Theme.Dark);
-            }
-
-            paletteHelper.SetTheme(theme);
-            //===================================>
-        }
+       
 
         private void exitApp(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-      
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        //Lista de errores
+
+        BindingList<string> errores = new BindingList<string>();
+
     }   
 }
+ 

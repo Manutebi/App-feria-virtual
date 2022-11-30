@@ -159,7 +159,7 @@
     <Compile Include="Pages\Usuarios.xaml.cs">
       <DependentUpon>Usuarios.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Validaciones\Vcontratos.cs" />
+    <Compile Include="Validaciones\Vusuarios.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>

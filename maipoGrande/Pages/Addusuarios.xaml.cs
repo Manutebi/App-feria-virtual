@@ -212,7 +212,7 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("rol", OracleDbType.Int32).Value = Convert.ToInt32(cbtipoUser.SelectedValue);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Usuario Guardado en la base de datos.");
-
+                Close();
                 Agregar();
 
 
