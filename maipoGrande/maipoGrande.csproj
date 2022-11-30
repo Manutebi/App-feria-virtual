@@ -150,6 +150,9 @@
     <Compile Include="Pages\Updateproductos.xaml.cs">
       <DependentUpon>Updateproductos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UpdateSubastas.xaml.cs">
+      <DependentUpon>UpdateSubastas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Updateusuarios.xaml.cs">
       <DependentUpon>Updateusuarios.xaml</DependentUpon>
     </Compile>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Updateproductos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdateSubastas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,8 +27,6 @@ namespace maipoGrande.Pages
         {
             InitializeComponent();
             abrirConexion();
-
-
         }
 
         public delegate void UpdateDelegate(object sender, UpdateEventArgs args);

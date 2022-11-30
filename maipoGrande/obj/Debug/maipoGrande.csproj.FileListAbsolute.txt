@@ -170,3 +170,5 @@ C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Addsubastas.g.cs
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Dashboard.g.cs
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Addsubastas.baml
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\Dashboard.baml
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\UpdateSubastas.g.cs
+C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\Pages\UpdateSubastas.baml
