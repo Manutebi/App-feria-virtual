@@ -117,13 +117,5 @@ namespace maipoGrande.Pages
                     MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
                 }
         }
-<<<<<<< HEAD
-=======
-
-        private void Button_Click_1()
-        {
-
-        }
->>>>>>> 8f0d286afe94237205989bb44be3491b911e8837
     }
 }

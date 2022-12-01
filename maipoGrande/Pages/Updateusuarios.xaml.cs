@@ -220,22 +220,28 @@ namespace maipoGrande.Pages
 
         private void CbPais_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbPais.SelectedValue.ToString() != null)
+            if (cbPais.SelectedValue != null)
             {
                 string id_pais = cbPais.SelectedValue.ToString();
                 cargarRegion(id_pais);
             }
         }
+
         private void CbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbEstado.SelectedValue.ToString() != null)
+            if (cbEstado.SelectedValue != null)
             {
                 string id_estado = cbEstado.SelectedValue.ToString();
                 cargarCiudad(id_estado);
             }
+            else
+            {
+                string id_estado = "0";
+                cargarCiudad(id_estado);
+            }
         }
 
-        
+
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
