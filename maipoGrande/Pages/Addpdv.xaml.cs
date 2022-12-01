@@ -22,15 +22,34 @@ namespace maipoGrande.Pages
     /// </summary>
     public partial class Addpdv : Window
     {
+        int id;
         OracleConnection conn = null;
-        public Addpdv(Procesos procesos)
+
+        
+
+        public Addpdv(int id)
         {
             InitializeComponent();
             abrirConexion();
+            this.id = id;
+        }
+        private void obtenerSolicitud(string id_solicitud)
+        {
+            //OracleCommand cmd = new OracleCommand("SELECT * FROM solicitud_compra WHERE id_solicitud = :id_solicitud", conn);
+            //cmd.Parameters.Add(":id_solicitud", id_solicitud);
+            //OracleDataAdapter da = new OracleDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+
+
+            cbIdSolicitud.SelectedValue = Convert.ToString(id);
+            
+            
+
         }
 
         public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
-        public event UpdateDelegate UpdateEventHandler;
+        public event UpdateDelegate UpdateEventHandler1;
 
         public class UpdateEventArgs : EventArgs
         {
@@ -41,10 +60,11 @@ namespace maipoGrande.Pages
         protected void Agregar()
         {
             UpdateEventArgs args = new UpdateEventArgs();
-            UpdateEventHandler.Invoke(this, args);
+            UpdateEventHandler1.Invoke(this, args);
         }
 
 
+ 
 
         private void abrirConexion()
         {
@@ -89,7 +109,7 @@ namespace maipoGrande.Pages
         }
         private void cargarIdSolicitud()
         {
-            cbIdSolicitud.SelectedValue = 0;
+            
             try
             {
                 OracleCommand comando = new OracleCommand("listar_solicitud_compra", conn);
@@ -159,11 +179,26 @@ namespace maipoGrande.Pages
                 else { comando.Parameters.Add("local", OracleDbType.Int32).Value = 0; }
                 comando.ExecuteNonQuery();
 
-                MessageBox.Show("proceso Guardado en la base de datos.");
-                cbIdEstadoPDV.SelectedValue = 0;
-                cbIdSolicitud.SelectedValue = 0;
-                Agregar();
-                Close();
+                try
+                {
+                    OracleCommand comando2 = new OracleCommand("eliminar_solicitud_compra", conn);
+                    comando2.CommandType = System.Data.CommandType.StoredProcedure;
+                    comando2.Parameters.Add("idp", OracleDbType.Int32).Value = id;
+                    comando.ExecuteNonQuery();
+                    comando2.ExecuteNonQuery();
+                    MessageBox.Show("Solicitud de compra eliminada con exito");
+                    MessageBox.Show("proceso Guardado en la base de datos.");
+                    Agregar();
+                    Close();
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Algo ha salido mal al eliminar la solicitud de compra");
+                }
+
+                
+                
                 
             }
             catch (Exception)
@@ -192,5 +227,11 @@ namespace maipoGrande.Pages
         }
 
 
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            string id_solicitud = Convert.ToString(id);
+            obtenerSolicitud(id_solicitud);
+        }
     }
 }

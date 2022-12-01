@@ -102,7 +102,11 @@
             <!--<Label Grid.Column="1"
                     Grid.Row="2"
                     Grid.ColumnSpan="5"
+<<<<<<< HEAD
                     Content=""
+=======
+                    Content="Top 10 ventas del mes"
+>>>>>>> 8f0d286afe94237205989bb44be3491b911e8837
                     FontSize="30"
                     FontWeight="ExtraBlack"
                     HorizontalAlignment="Center"

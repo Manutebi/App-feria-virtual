@@ -113,6 +113,12 @@ namespace maipoGrande.Pages
             cargarSolicitudDG2();
         }
 
+        private void ActuUpdateEventHandler1(object sender, Addpdv.UpdateEventArgs args)
+        {
+            cargarSolicitudDG2();
+        }
+
+
         private void add_ventas(object sender, RoutedEventArgs e)
         {
             Addventas objaddventas = new Addventas(id_usuario, nombre, apellido, email, password, run, usuario_activo, superuser, ciudad, rol);
@@ -134,20 +140,16 @@ namespace maipoGrande.Pages
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            Decimal id = (Decimal)((Button)sender).CommandParameter;
+
             try
             {
-                OracleCommand comando = new OracleCommand("eliminar_solicitud_compra", conn);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idp", OracleDbType.Int32).Value = id;
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Solicitud eliminada con exito");
-
-                cargarSolicitudDG2();
+                Decimal id = (Decimal)((Button)sender).CommandParameter;
+                Addpdv objaddpdv = new Addpdv(Convert.ToInt32(id));
+                objaddpdv.UpdateEventHandler1 += ActuUpdateEventHandler1;
+                objaddpdv.Show();
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo ha salido mal al eliminar la solicitud de compra.");
             }
         }
 

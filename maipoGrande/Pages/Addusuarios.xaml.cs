@@ -224,7 +224,16 @@ namespace maipoGrande.Pages
 
         private void CbPais_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+<<<<<<< HEAD
             if (cbPais.SelectedValue != null)
+=======
+            if (cbPais.SelectedValue.ToString() == null)
+            {
+                
+                MessageBox.Show("sdaa");
+            }
+            else 
+>>>>>>> 8f0d286afe94237205989bb44be3491b911e8837
             {
                 string id_pais = cbPais.SelectedValue.ToString();
                 cargarRegion(id_pais);
@@ -233,9 +242,20 @@ namespace maipoGrande.Pages
         
         private void CbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+<<<<<<< HEAD
             
             if (cbEstado.SelectedValue != null)
             { 
+=======
+            Console.WriteLine("adadad"+cbEstado);
+            if (cbEstado.SelectedValue.ToString() == null)
+            {
+                MessageBox.Show("asda");
+                
+
+            }
+            else {
+>>>>>>> 8f0d286afe94237205989bb44be3491b911e8837
                 string id_estado = cbEstado.SelectedValue.ToString();
                 cargarCiudad(id_estado);
             }
@@ -252,9 +272,7 @@ namespace maipoGrande.Pages
             Close();
         }
 
-        //lista de errores
-        BindingList<int> errores = new BindingList<int>();
-
+  
 
 
 
