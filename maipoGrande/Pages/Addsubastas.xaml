@@ -15,7 +15,7 @@
     <Border CornerRadius="15" BorderBrush="#FF673AB7" BorderThickness="1,3,1,5" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
-                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Cursor="Hand"/>
             </StackPanel>
 
             <TextBlock Text="Selección Subasta" FontSize="32" FontWeight="SemiBold" Margin="0,20,0,370" Foreground="#121518" HorizontalAlignment="Center" Width="262"/>

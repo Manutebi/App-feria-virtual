@@ -21,7 +21,7 @@
         </Border.Background>-->
         <Grid>
             <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
-                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Cursor="Hand"/>
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Cursor="Hand"/>
             </StackPanel>
             <Label x:Name="userLabel" Content="Usuario" Margin="63,61,262,346"/>
             <ComboBox x:Name="cbIdUser2" DisplayMemberPath="Id_usuario" HorizontalAlignment="Left" Margin="196,50,0,0" VerticalAlignment="Top" Width="120" Loaded="CbIdContrato_Loaded" Height="32">
