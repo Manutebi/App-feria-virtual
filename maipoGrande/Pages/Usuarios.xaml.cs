@@ -32,7 +32,6 @@ namespace maipoGrande.Pages
             abrirConexion();
             InitializeComponent();
         }
-
         private void abrirConexion()
         {
             string ConnectionString = ConfigurationManager.ConnectionStrings["oracleDB"].ConnectionString;
@@ -48,8 +47,7 @@ namespace maipoGrande.Pages
             }
 
         }
-
-         private void cargarUsuarioDG()
+        private void cargarUsuarioDG()
         {
             try
             {
@@ -70,16 +68,10 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error al cargar usuario");
             }
         }
-       
-       
-
-
         private void ListadoUser_Loaded(object sender, RoutedEventArgs e)
         {
             cargarUsuarioDG();
         }
-
-
         private void AgreUpdateEventHandler(object sender, Addusuarios.UpdateEventArgs args)
         {
             cargarUsuarioDG();
@@ -88,7 +80,6 @@ namespace maipoGrande.Pages
         {
             cargarUsuarioDG();
         }
-
         private void add_usuarios(object sender, RoutedEventArgs e)
         {
             Addusuarios objaddusuarios = new Addusuarios(this);
@@ -96,12 +87,10 @@ namespace maipoGrande.Pages
             objaddusuarios.Show();
             
         } 
-
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             cargarUsuarioDG();
         }
-
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             Decimal id = (Decimal)((Button)sender).CommandParameter;
@@ -110,7 +99,6 @@ namespace maipoGrande.Pages
             objupdusuarios.UpdateEventHandler += ActuUpdateEventHandler;
             objupdusuarios.Show();
         }
-
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             Decimal id = (Decimal)((Button)sender).CommandParameter;
@@ -129,7 +117,5 @@ namespace maipoGrande.Pages
                     MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
                 }
         }
-
-        
     }
 }

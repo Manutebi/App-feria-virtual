@@ -36,9 +36,6 @@ namespace maipoGrande
         {
             abrirConexion();
             InitializeComponent();
-            
-            
-            
         }
 
         private void abrirConexion()
@@ -59,73 +56,68 @@ namespace maipoGrande
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-      
+
 
             try
             {
-                
-
-                
                 OracleCommand comando = new OracleCommand("login", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                 OracleDataAdapter adaptador = new OracleDataAdapter();
-                comando.Parameters.Add("mail", userBox.Text);
-                comando.Parameters.Add("pass", passBox.Password);
-                adaptador.SelectCommand = comando;
-                DataTable lista = new DataTable();
-                adaptador.Fill(lista);
-
-                
-                
-
-               
-                
-
-                //OracleCommand comando = new OracleCommand("SELECT * FROM usuario WHERE EMAIL = :email AND PASSWORD = :password AND ROL_ID_ROL = 1", conn);
-
-                //comando.Parameters.Add(":email", userBox.Text);
-                //comando.Parameters.Add(":password", passBox.Password);
-
-                OracleDataReader lector = comando.ExecuteReader();
-
-                if (lector.Read())
+                if (userBox.Text.Length <= 0)
                 {
-                    Usuario user = new Usuario();
-                    user.Id_usuario = lector.GetInt32(0);
-                    user.Nombre = lector.GetString(1);
-                    user.Apellido = lector.GetString(2);
-                    user.Email = lector.GetString(3);
-                    user.Password = lector.GetString(4);
-                    user.Run = lector.GetInt32(5);
-                    user.Usuario_activo = lector.GetInt32(6);
-                    user.Superuser = lector.GetInt32(7);
-                    user.Ciudad_id_ciudad = lector.GetInt32(8);
-                    user.Rol_id_rol = lector.GetInt32(9);
-
-                    new Window1(user.Id_usuario, user.Nombre, user.Apellido, user.Email, user.Password, user.Run, user.Usuario_activo, user.Superuser, user.Ciudad_id_ciudad, user.Rol_id_rol).Show();
-                    Close();
+                    MessageBox.Show("Email vacio, porfavor ingrese un email valido");
+                }
+                else if (passBox.Password.Length <= 0)
+                {
+                    MessageBox.Show("Contraseña vacia, porfavor ingrese una contraseña valida");
                 }
                 else
                 {
-                    MessageBox.Show("No se reconoce un usuario correcto. Vuelva a intentar");
+                    comando.Parameters.Add("mail", userBox.Text);
+                    comando.Parameters.Add("pass", passBox.Password);
+                    adaptador.SelectCommand = comando;
+                    DataTable lista = new DataTable();
+                    adaptador.Fill(lista);
+                    //OracleCommand comando = new OracleCommand("SELECT * FROM usuario WHERE EMAIL = :email AND PASSWORD = :password AND ROL_ID_ROL = 1", conn);
+
+                    //comando.Parameters.Add(":email", userBox.Text);
+                    //comando.Parameters.Add(":password", passBox.Password);
+
+                    OracleDataReader lector = comando.ExecuteReader();
+
+                    if (lector.Read())
+                    {
+                        Usuario user = new Usuario();
+                        user.Id_usuario = lector.GetInt32(0);
+                        user.Nombre = lector.GetString(1);
+                        user.Apellido = lector.GetString(2);
+                        user.Email = lector.GetString(3);
+                        user.Password = lector.GetString(4);
+                        user.Run = lector.GetInt32(5);
+                        user.Usuario_activo = lector.GetInt32(6);
+                        user.Superuser = lector.GetInt32(7);
+                        user.Ciudad_id_ciudad = lector.GetInt32(8);
+                        user.Rol_id_rol = lector.GetInt32(9);
+
+                        new Window1(user.Id_usuario, user.Nombre, user.Apellido, user.Email, user.Password, user.Run, user.Usuario_activo, user.Superuser, user.Ciudad_id_ciudad, user.Rol_id_rol).Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se reconoce un usuario correcto. Vuelva a intentar");
+                    }
                 }
             }
             catch (Exception)
             {
                 MessageBox.Show("Error en la conexion");
             }
-
-
         }
-
-       
-
         private void exitApp(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();

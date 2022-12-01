@@ -56,7 +56,7 @@ namespace maipoGrande.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error de conexion :O");
+                MessageBox.Show("Error de conexion");
                 throw new Exception("Error de conexion");
             }
 
@@ -106,7 +106,7 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("contrato", OracleDbType.Int32).Value = 1;
                 comando.Parameters.Add("usuario", OracleDbType.Varchar2).Value = Convert.ToInt32(cbIdUser2.SelectedValue);
                 comando.ExecuteNonQuery();
-                MaterialMessageBox.Show("TU MAMA ES WEONA");
+                MaterialMessageBox.Show("Contrato guardado con exito.");
 
                 Close();
                 cargarIDUser2();

@@ -99,14 +99,14 @@
 
 
 
-            <Label Grid.Column="1"
+            <!--<Label Grid.Column="1"
                     Grid.Row="2"
                     Grid.ColumnSpan="5"
-                    Content="Tu mami es weona yera"
+                    Content=""
                     FontSize="30"
                     FontWeight="ExtraBlack"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"/>
+                    VerticalAlignment="Center"/>-->
 
             <lvc:CartesianChart Name="Chart" 
                                 Grid.Row="3"

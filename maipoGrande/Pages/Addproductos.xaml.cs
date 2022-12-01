@@ -58,7 +58,6 @@ namespace maipoGrande.Pages
                 MessageBox.Show("Error de conexion :O");
                 throw new Exception("Error de conexion");
             }
-
         }
 
         private void GuardarProducto_Click(object sender, RoutedEventArgs e)
@@ -72,7 +71,6 @@ namespace maipoGrande.Pages
                 comando.Parameters.Add("calidad", OracleDbType.Int32).Value = Convert.ToInt32(cbIdCalidad.SelectedValue);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Producto Guardado en la base de datos.");
-
                 
                 Close();
                 Agregar();
