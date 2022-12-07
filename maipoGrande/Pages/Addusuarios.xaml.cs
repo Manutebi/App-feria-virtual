@@ -191,7 +191,6 @@ namespace maipoGrande.Pages
             cargarTipoUser();
         }
 
-
         public void Guardar_Click(object sender, RoutedEventArgs e)
         {
             
@@ -234,7 +233,7 @@ namespace maipoGrande.Pages
         private void CbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cbEstado.SelectedValue != null)
-            {
+            { 
                 string id_estado = cbEstado.SelectedValue.ToString();
                 cargarCiudad(id_estado);
             }

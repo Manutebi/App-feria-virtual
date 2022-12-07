@@ -117,5 +117,7 @@ namespace maipoGrande.Pages
                     MessageBox.Show("Algo ha salido mal al eliminar el usuario.");
                 }
         }
+
+        
     }
 }

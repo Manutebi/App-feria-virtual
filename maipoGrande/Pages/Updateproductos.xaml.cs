@@ -72,15 +72,13 @@ namespace maipoGrande.Pages
             {
                 OracleCommand comando = new OracleCommand("actualizar_producto", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                
+
+                comando.Parameters.Add("idp", OracleDbType.Varchar2).Value = id;
                 comando.Parameters.Add("nom", OracleDbType.Varchar2).Value = NombreProductoBox.Text;
                 comando.Parameters.Add("ruta", OracleDbType.Varchar2).Value = "RutaNoDisponible";
                 comando.Parameters.Add("calidad", OracleDbType.Int32).Value = Convert.ToInt32(cbIdCalidad.SelectedValue);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Producto actualizado con exito.");
-
-                NombreProductoBox.Clear();
-                cbIdCalidad.SelectedValue = 0;
                 
 
             }
