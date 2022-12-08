@@ -34,10 +34,10 @@
             </Grid.RowDefinitions>
             <Border Background="{DynamicResource PrimaryHueLightBrush}"
                     Grid.Column="1"
+                    Grid.ColumnSpan="2"
                     Grid.Row="1"
                     />
-
-            <Label Grid.Row="1"
+            <!--<Label Grid.Row="1"
                    Grid.Column="1"
                    Margin="0 10 0 0"
                    FontSize="20"
@@ -51,21 +51,38 @@
                    FontSize="20"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Center"
-                   Name="totalVentas"/>
-            <Border CornerRadius="0 20 20 0"
+                   Name="totalVentas"/>-->
+            <lvc:CartesianChart x:Name="preciosPdv" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Series="{Binding SeriesCollection}" LegendLocation="Top">
+                <!--<lvc:cartesianchart.axisx>
+                    <lvc:axis title="salesman" labels="{binding labels}"></lvc:axis>
+                </lvc:cartesianchart.axisx>
+                <lvc:cartesianchart.axisy>
+                    <lvc:axis title="sold apps" labelformatter="{binding formatter}"></lvc:axis>
+                </lvc:cartesianchart.axisy>-->
+            </lvc:CartesianChart>
+
+            <!--<Border CornerRadius="0 20 20 0"
                     Grid.Row="1"
                     Grid.Column="2"
                     Background="{DynamicResource PrimaryHueLightBrush}"/>
             <Image Source="\Images\bienes.png" 
                    Grid.Row="1"
-                   Grid.Column="2"/>
+                   Grid.Column="2"/>-->
 
             <Border Background="{DynamicResource PrimaryHueLightBrush}"
                     Grid.Column="4"
+                    Grid.ColumnSpan="2"
                     Grid.Row="1"
                     />
-
-            <Label Grid.Row="1"
+            <lvc:CartesianChart Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" Series="{Binding SeriesCollection2}" LegendLocation="Top">
+                <!--<lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Salesman" Labels="{Binding Labels}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Sold Apps" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>-->
+            </lvc:CartesianChart>
+            <!--<Label Grid.Row="1"
                    Grid.Column="4"
                    Margin="0 10 0 0"
                    FontSize="20"
@@ -79,18 +96,18 @@
                    FontSize="20"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Center"
-                   Name="TotalSubastas"/>
-            <StackPanel Grid.Row="2" x:Name="menu">
-                <RadioButton x:Name="ventasLocales" Content="Ventas internas" Style="{DynamicResource MenuRadioButtonStyle2}" Tag="{DynamicResource Camion}" Click="Click_ventasLocales" Cursor="Hand"/>
-                <RadioButton x:Name="ventasExternas" Content="Ventas externas" Style="{DynamicResource MenuRadioButtonStyle2}" Tag="{DynamicResource Avion}" Margin="0 5 0 5" Click="click_ventasExternas" Cursor="Hand"/>
+                   Name="TotalSubastas"/>-->
+            <StackPanel Grid.Row="4" x:Name="menu">
+                <RadioButton x:Name="ventasLocales" Content="Ventas internas" Style="{DynamicResource MenuRadioButtonStyle2}" Tag="{DynamicResource Camion}" Click="Click_ventasLocales" Cursor="Hand" Checked="ventasLocales_Checked"/>
+                <RadioButton x:Name="ventasExternas" Content="Ventas externas" Style="{DynamicResource MenuRadioButtonStyle2}" Tag="{DynamicResource Avion}" Margin="0 5 0 5" Click="click_ventasExternas" Cursor="Hand" Checked="ventasExternas_Checked"/>
             </StackPanel>
-            <Border CornerRadius="0 20 20 0"
+            <!--<Border CornerRadius="0 20 20 0"
                     Grid.Row="1"
                     Grid.Column="5"
                     Background="{DynamicResource PrimaryHueLightBrush}" Cursor=""/>
             <Image Source="\Images\grafico-de-barras.png" 
                    Grid.Row="1"
-                   Grid.Column="5"/>
+                   Grid.Column="5"/>-->
 
             <Border 
                 Grid.Column="1"
@@ -100,9 +117,6 @@
                 Background="{DynamicResource PrimaryHueLightBrush}"
                 CornerRadius="20"
                 />
-
-
-
             <!--<Label Grid.Column="1"
                     Grid.Row="2"
                     Grid.ColumnSpan="5"
@@ -116,16 +130,16 @@
                                 Grid.Row="3"
                                 Grid.RowSpan="3"
                                 Grid.Column="1" 
-                                Grid.ColumnSpan="5" 
-                                Margin="15">
+                                Grid.ColumnSpan="3" 
+                                Margin="15,15,50,15">
                 <lvc:CartesianChart.Series>
                     <lvc:LineSeries Values="{Binding Values}" 
                                 LineSmoothness="1" 
                                 StrokeThickness="2" 
                                 DataLabels="True" 
                                 FontSize="15" 
-                                Foreground="Black"
-                                Stroke="Black" 
+                                Foreground="#39275C"
+                                Stroke="#39275C" 
                                 Fill="Transparent" 
                                 PointGeometrySize="0"/>
                     <lvc:LineSeries Values="{Binding Values2}" 
@@ -133,8 +147,8 @@
                                 StrokeThickness="2" 
                                 DataLabels="True" 
                                 FontSize="15" 
-                                Foreground="Black"
-                                Stroke="blue" 
+                                Foreground="#8C5FE1"
+                                Stroke="#8C5FE1" 
                                 Fill="Transparent" 
                                 PointGeometrySize="0"/>
                 </lvc:CartesianChart.Series>
@@ -153,6 +167,15 @@
                     </lvc:Axis>
                 </lvc:CartesianChart.AxisY>
             </lvc:CartesianChart>
+
+            <lvc:PieChart Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="5" Grid.RowSpan="3" LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}">
+                <lvc:PieChart.Series>
+                    <lvc:PieSeries Title="Ventas Locales" Values="{Binding valorPdvLocal}" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                    <lvc:PieSeries Title="Ventas Externas" Values="{Binding valorPdvExterno}" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                </lvc:PieChart.Series>
+            </lvc:PieChart>
 
             <!--<Button Grid.Column="5" 
                     Grid.Row="4" 
@@ -180,8 +203,8 @@
                 </Button.Template>
             </Button>-->
 
-            
-           
+
+
 
 
 
