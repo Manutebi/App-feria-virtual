@@ -40,11 +40,6 @@ namespace maipoGrande
             abrirConexion();
             InitializeComponent();
             Email();
-
-
-
-            
-           
         }
 
         public static void Email()
