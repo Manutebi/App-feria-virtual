@@ -1,4 +1,5 @@
 ﻿using LiveCharts;
+using LiveCharts.Wpf;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -28,10 +29,26 @@ namespace maipoGrande.Pages
         OracleConnection conn = null;
         public ChartValues<double> Values { get; set; } = new ChartValues<double> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         public ChartValues<double> Values2 { get; set; } = new ChartValues<double> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
+
+        public SeriesCollection SeriesCollection2 { get; set; }
+        public string[] Labels2 { get; set; }
+        public Func<double, string> Formatter2 { get; set; }
+        public Func<ChartPoint, string> PointLabel { get; set; }
+
+        public ChartValues<double> valorPdvLocal { get; set; } = new ChartValues<double> { 0 };
+        public ChartValues<double> valorPdvExterno { get; set; } = new ChartValues<double> { 0 };
+
         int sumaPrecioPdv_local = 0;
         int sumaValorSubasta_local = 0;
         int sumaPrecioPdv_externa = 0;
         int sumaValorSubasta_externa = 0;
+
+        int sumaTotalPdv = 0;
+        int sumaTotalSubasta = 0;
 
         int precioPdv_mes1_local = 0;
         int precioPdv_mes2_local = 0;
@@ -86,6 +103,7 @@ namespace maipoGrande.Pages
         {
             InitializeComponent();
             abrirConexion();
+
             cargar_precioPdv_mes1_local();
             cargar_precioPdv_mes2_local();
             cargar_precioPdv_mes3_local();
@@ -135,6 +153,74 @@ namespace maipoGrande.Pages
             cargar_valorsubasta_mes10_externa();
             cargar_valorsubasta_mes11_externa();
             cargar_valorsubasta_mes12_externa();
+
+            sumarPrecioPdv_local();
+            sumarPrecioPdv_externa();
+            sumarValorSubasta_local();
+            sumarValorSubasta_externa();
+            sumarTotalPdv();
+            sumarTotalSubasta();
+
+            //--------------Enlazado de datos Primer Grafico-------------//
+            SeriesCollection = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Ventas Locales",
+                    Values = new ChartValues<double> { sumaPrecioPdv_local }
+                }
+            };
+            SeriesCollection.Add(new ColumnSeries
+            {
+                Title = "Ventas Externas",
+                Values = new ChartValues<double> { sumaPrecioPdv_externa }
+            });
+            SeriesCollection.Add(new ColumnSeries
+            {
+                Title = "Ventas Totales",
+                Values = new ChartValues<double> { sumaTotalPdv }
+            });
+            Labels = new[] { "Ventas Confirmadas" };
+            Formatter = value => value.ToString("N");
+            DataContext = this;
+            //-------------Enlazado de datos Segundo Grafico------------//
+            SeriesCollection2 = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Cobros de subastas Locales",
+                    Values = new ChartValues<double> { sumaValorSubasta_local }
+                }
+            };
+            SeriesCollection2.Add(new ColumnSeries
+            {
+                Title = "Cobros de subastas Externas",
+                Values = new ChartValues<double> { sumaValorSubasta_externa }
+            });
+            SeriesCollection2.Add(new ColumnSeries
+            {
+                Title = "Cobros de subastas Totales",
+                Values = new ChartValues<double> { sumaTotalSubasta }
+            });
+            Labels2 = new[] { "Ventas Confirmadas" };
+            Formatter2 = value => value.ToString("N");
+            DataContext = this;
+            //------------Enlazado de datos Grafico de Torta------------//
+            PointLabel = chartPoint =>
+                string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            DataContext = this;
+        }
+
+        private void Chart_OnDataClick(object sender, ChartPoint chartpoint)
+        {
+            var chart = (LiveCharts.Wpf.PieChart)chartpoint.ChartView;
+
+            //clear selected slice.
+            foreach (PieSeries series in chart.Series)
+                series.PushOut = 0;
+
+            var selectedSeries = (PieSeries)chartpoint.SeriesView;
+            selectedSeries.PushOut = 8;
         }
 
         private void abrirConexion()
@@ -153,8 +239,7 @@ namespace maipoGrande.Pages
 
         }
 
-        // Inicio de Cargas locales//
-
+        //----------------Inicio de Cargas locales----------------//
         private void cargar_precioPdv_mes1_local()
         {
             OracleCommand cmd = new OracleCommand("select precio_pdv from estadisticas where fecha_id_fecha = 1 and tipo_pdv = 1", conn);
@@ -421,16 +506,15 @@ namespace maipoGrande.Pages
         private void sumarPrecioPdv_local()
         {
             sumaPrecioPdv_local = precioPdv_mes1_local + precioPdv_mes2_local + precioPdv_mes3_local + precioPdv_mes4_local + precioPdv_mes5_local + precioPdv_mes6_local + precioPdv_mes7_local + precioPdv_mes8_local + precioPdv_mes9_local + precioPdv_mes10_local + precioPdv_mes11_local + precioPdv_mes12_local;
+            valorPdvLocal = new ChartValues<double> { sumaPrecioPdv_local };
         }
         private void sumarValorSubasta_local()
         {
             sumaValorSubasta_local = valorSubasta_mes1_local + valorSubasta_mes2_local + valorSubasta_mes3_local + valorSubasta_mes4_local + valorSubasta_mes5_local + valorSubasta_mes6_local + valorSubasta_mes7_local + valorSubasta_mes8_local + valorSubasta_mes9_local + valorSubasta_mes10_local + valorSubasta_mes11_local + valorSubasta_mes12_local;
         }
+        //------------------Fin de Cargas Locales------------------//
 
-        //Fin de Cargas Locales//
-
-        //Inicio de Cargas Externas//
-
+        //----------------Inicio de Cargas Externas----------------//
         private void cargar_precioPdv_mes1_externa()
         {
             OracleCommand cmd = new OracleCommand("select precio_pdv from estadisticas where fecha_id_fecha = 1 and tipo_pdv = 0", conn);
@@ -698,13 +782,20 @@ namespace maipoGrande.Pages
         private void sumarPrecioPdv_externa()
         {
             sumaPrecioPdv_externa = precioPdv_mes1_externa + precioPdv_mes2_externa + precioPdv_mes3_externa + precioPdv_mes4_externa + precioPdv_mes5_externa + precioPdv_mes6_externa + precioPdv_mes7_externa + precioPdv_mes8_externa + precioPdv_mes9_externa + precioPdv_mes10_externa + precioPdv_mes11_externa + precioPdv_mes12_externa;
+            valorPdvExterno = new ChartValues<double> { sumaPrecioPdv_externa };
         }
         private void sumarValorSubasta_externa()
         {
             sumaValorSubasta_externa = valorSubasta_mes1_externa + valorSubasta_mes2_externa + valorSubasta_mes3_externa + valorSubasta_mes4_externa + valorSubasta_mes5_externa + valorSubasta_mes6_externa + valorSubasta_mes7_externa + valorSubasta_mes8_externa + valorSubasta_mes9_externa + valorSubasta_mes10_externa + valorSubasta_mes11_externa + valorSubasta_mes12_externa;
         }
+        //----------------Fin de Cargas Externas----------------//
 
-        //Fin de Cargas Externas
+        private void sumarTotalPdv() {
+            sumaTotalPdv = sumaPrecioPdv_local + sumaPrecioPdv_externa;
+        }
+        private void sumarTotalSubasta() {
+            sumaTotalSubasta = sumaValorSubasta_local + sumaValorSubasta_externa;
+        }
 
         private void UpdateOnclick(object sender, RoutedEventArgs e)
         {
@@ -713,32 +804,29 @@ namespace maipoGrande.Pages
 
         private void Click_ventasLocales(object sender, RoutedEventArgs e)
         {
-            sumarPrecioPdv_local();
-            totalVentas.Content = (sumaPrecioPdv_local);
-
-            sumarValorSubasta_local();
-            TotalSubastas.Content = (sumaValorSubasta_local);
             
+        }
+        private void click_ventasExternas(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void ventasLocales_Checked(object sender, RoutedEventArgs e)
+        {
             DataContext = null;
             Values = new ChartValues<double> { precioPdv_mes1_local, precioPdv_mes2_local, precioPdv_mes3_local, precioPdv_mes4_local, precioPdv_mes5_local, precioPdv_mes6_local, precioPdv_mes7_local, precioPdv_mes8_local, precioPdv_mes9_local, precioPdv_mes10_local, precioPdv_mes11_local, precioPdv_mes12_local };
             Values2 = new ChartValues<double> { valorSubasta_mes1_local, valorSubasta_mes2_local, valorSubasta_mes3_local, valorSubasta_mes4_local, valorSubasta_mes5_local, valorSubasta_mes6_local, valorSubasta_mes7_local, valorSubasta_mes8_local, valorSubasta_mes9_local, valorSubasta_mes10_local, valorSubasta_mes11_local, valorSubasta_mes12_local };
             DataContext = this;
-            Chart.Update(true);
+            //Chart.Update(true);
         }
-        private void click_ventasExternas(object sender, RoutedEventArgs e)
+
+        private void ventasExternas_Checked(object sender, RoutedEventArgs e)
         {
-            sumarPrecioPdv_externa();
-            totalVentas.Content = (sumaPrecioPdv_externa);
-
-            sumarValorSubasta_externa();
-            TotalSubastas.Content = (sumaValorSubasta_externa);
-
             DataContext = null;
             Values = new ChartValues<double> { precioPdv_mes1_externa, precioPdv_mes2_externa, precioPdv_mes3_externa, precioPdv_mes4_externa, precioPdv_mes5_externa, precioPdv_mes6_externa, precioPdv_mes7_externa, precioPdv_mes8_externa, precioPdv_mes9_externa, precioPdv_mes10_externa, precioPdv_mes11_externa, precioPdv_mes12_externa };
             Values2 = new ChartValues<double> { valorSubasta_mes1_externa, valorSubasta_mes2_externa, valorSubasta_mes3_externa, valorSubasta_mes4_externa, valorSubasta_mes5_externa, valorSubasta_mes6_externa, valorSubasta_mes7_externa, valorSubasta_mes8_externa, valorSubasta_mes9_externa, valorSubasta_mes10_externa, valorSubasta_mes11_externa, valorSubasta_mes12_externa };
             DataContext = this;
-            
-            Chart.Update(true);
+            //Chart.Update(true);
         }
     }
 }

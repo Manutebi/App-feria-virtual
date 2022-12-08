@@ -86,8 +86,6 @@ namespace maipoGrande
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-
-
             try
             {
                 OracleCommand comando = new OracleCommand("login", conn);
