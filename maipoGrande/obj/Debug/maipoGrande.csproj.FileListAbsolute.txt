@@ -196,3 +196,17 @@ C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoG
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoGrande.csproj.GenerateResource.cache
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoGrande.csproj.CoreCompileInputs.cache
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoGrande.csproj.CopyComplete
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MailKit.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MimeKit.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Buffers.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Memory.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MailKit.pdb
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MailKit.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MimeKit.pdb
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MimeKit.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Buffers.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Memory.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Numerics.Vectors.xml
