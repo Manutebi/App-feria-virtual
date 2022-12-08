@@ -146,6 +146,12 @@ namespace maipoGrande.Pages
                 Addsubastas objaddSubasta = new Addsubastas(Convert.ToInt32(id));
                 objaddSubasta.UpdateEventHandler += ActuUpdateEventHandler;
                 objaddSubasta.Show();
+
+
+
+
+
+                
             }
             catch (Exception) 
             { 

@@ -193,26 +193,57 @@ namespace maipoGrande.Pages
 
         public void Guardar_Click(object sender, RoutedEventArgs e)
         {
-            
+
             //Console.WriteLine(cbtipoUser.SelectedValue);
-            
+
             try
             {
                 OracleCommand comando = new OracleCommand("agregar_user", conn);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("nom", OracleDbType.Varchar2).Value = nombreBox.Text;
-                comando.Parameters.Add("ape", OracleDbType.Varchar2).Value = apellidoBox.Text;
-                comando.Parameters.Add("ema", OracleDbType.Varchar2).Value = emailBox.Text;
-                comando.Parameters.Add("cont", OracleDbType.Varchar2).Value = passBox.Text;
-                comando.Parameters.Add("run", OracleDbType.Int32).Value = Convert.ToInt32(RunBox.Text);
-                comando.Parameters.Add("activo", OracleDbType.Int32).Value = 1;
-                comando.Parameters.Add("super", OracleDbType.Int32).Value = 0;
-                comando.Parameters.Add("ciudad", OracleDbType.Int32).Value = Convert.ToInt32(cbCiudad.SelectedValue);
-                comando.Parameters.Add("rol", OracleDbType.Int32).Value = Convert.ToInt32(cbtipoUser.SelectedValue);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Usuario Guardado en la base de datos.");
-                Close();
-                Agregar();
+                
+
+                if (nombreBox.Text.Length <= 5 | nombreBox.Text.Length >= 40)
+                {
+                    MessageBox.Show("Cantidad de caracteres invalidos (Nombre)");
+                }
+                else if (apellidoBox.Text.Length <= 6 | apellidoBox.Text.Length >= 20)
+                {
+                    MessageBox.Show("Cantidad de caracteres invalidos (Apellido)");
+                }
+                else if (emailBox.Text.Length <= 12 & emailBox.Text.Length >= 20)
+                {
+                    MessageBox.Show("Cantidad de caracteres invalidos (Email)");
+                }
+                else if (passBox.Text.Length <= 6 & passBox.Text.Length >= 15)
+                {
+                    MessageBox.Show("Cantidad de caracteres invalidos (Pass)");
+                }
+                else if (RunBox.Text.Length <= 9 & RunBox.Text.Length >= 9)
+                {
+                    MessageBox.Show("Cantidad de caracteres invalidos (Run)");
+                }
+               
+                else
+                {
+                    comando.Parameters.Add("nom", OracleDbType.Varchar2).Value = nombreBox.Text;
+                    comando.Parameters.Add("ape", OracleDbType.Varchar2).Value = apellidoBox.Text;
+                    comando.Parameters.Add("ema", OracleDbType.Varchar2).Value = emailBox.Text;
+                    comando.Parameters.Add("cont", OracleDbType.Varchar2).Value = passBox.Text;
+                    comando.Parameters.Add("run", OracleDbType.Int32).Value = Convert.ToInt32(RunBox.Text);
+                    comando.Parameters.Add("activo", OracleDbType.Int32).Value = 1;
+                    comando.Parameters.Add("super", OracleDbType.Int32).Value = 0;
+                    comando.Parameters.Add("ciudad", OracleDbType.Int32).Value = Convert.ToInt32(cbCiudad.SelectedValue);
+                    comando.Parameters.Add("rol", OracleDbType.Int32).Value = Convert.ToInt32(cbtipoUser.SelectedValue);
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Usuario Guardado en la base de datos.");
+                    Close();
+                    Agregar();
+
+
+
+
+
+                }
             }
             catch (Exception)
             {
