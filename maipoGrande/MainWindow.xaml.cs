@@ -99,11 +99,11 @@ namespace maipoGrande
                 OracleDataAdapter adaptador = new OracleDataAdapter();
                 if (userBox.Text.Length <= 12 | userBox.Text.Length >=30 )
                 {
-                    MessageBox.Show("Cantidad de caracteres imvalidos");
+                    MessageBox.Show("Cantidad de caracteres invalidos");
                 }
                 else if (passBox.Password.Length <= 6 & passBox.Password.Length >= 30)
                 {
-                    MessageBox.Show("Cantidad de caracteres imvalidos");
+                    MessageBox.Show("Cantidad de caracteres invalidos");
                 }
                 else
                 {

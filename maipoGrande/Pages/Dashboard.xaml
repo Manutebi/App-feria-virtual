@@ -177,6 +177,8 @@
                 </lvc:PieChart.Series>
             </lvc:PieChart>
 
+            <Button x:Name="facturaLocal" Content="facturaLocal" HorizontalAlignment="Center" Grid.Row="7" Grid.Column="2" VerticalAlignment="Top" Click="facturaLocal_Click"/>
+
             <!--<Button Grid.Column="5" 
                     Grid.Row="4" 
                     Width="40" 
