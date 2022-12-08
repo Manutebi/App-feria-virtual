@@ -1,5 +1,6 @@
 ﻿using LiveCharts;
 using LiveCharts.Wpf;
+using maipoGrande.Properties;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using iTextSharp;
+using iTextSharp.tool.xml;
+using iTextSharp.text.pdf;
+using System.Windows.Forms;
+using iTextSharp.text;
+using System.IO;
 
 namespace maipoGrande.Pages
 {
@@ -202,7 +209,7 @@ namespace maipoGrande.Pages
                 Title = "Cobros de subastas Totales",
                 Values = new ChartValues<double> { sumaTotalSubasta }
             });
-            Labels2 = new[] { "Ventas Confirmadas" };
+            Labels2 = new[] { "Ventas de subastas confirmadas" };
             Formatter2 = value => value.ToString("N");
             DataContext = this;
             //------------Enlazado de datos Grafico de Torta------------//
@@ -233,7 +240,7 @@ namespace maipoGrande.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error de conexion :O");
+                System.Windows.MessageBox.Show("Error de conexion :O");
                 throw new Exception("Error de conexion");
             }
 
@@ -827,6 +834,29 @@ namespace maipoGrande.Pages
             Values2 = new ChartValues<double> { valorSubasta_mes1_externa, valorSubasta_mes2_externa, valorSubasta_mes3_externa, valorSubasta_mes4_externa, valorSubasta_mes5_externa, valorSubasta_mes6_externa, valorSubasta_mes7_externa, valorSubasta_mes8_externa, valorSubasta_mes9_externa, valorSubasta_mes10_externa, valorSubasta_mes11_externa, valorSubasta_mes12_externa };
             DataContext = this;
             //Chart.Update(true);
+        }
+
+        private void facturaLocal_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.SaveFileDialog guardar = new System.Windows.Forms.SaveFileDialog();
+            guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+
+            string paginaHtmlLocal_texto = "<table><tr><td>HOLA CTM</td></tr></table>";
+            if (guardar.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+
+                    pdfDoc.Open();
+                    pdfDoc.Add(new Phrase(paginaHtmlLocal_texto));
+                    pdfDoc.Close();
+                    stream.Close();
+                }
+
+
+            }
         }
     }
 }

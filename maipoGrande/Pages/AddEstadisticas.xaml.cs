@@ -144,12 +144,16 @@ namespace maipoGrande.Pages
                     OracleCommand comando2 = new OracleCommand("eliminar_subastas", conn);
                     comando2.CommandType = System.Data.CommandType.StoredProcedure;
                     comando2.Parameters.Add("idp", OracleDbType.Int32).Value = id;
-                    comando.ExecuteNonQuery();
-                    comando2.ExecuteNonQuery();
-                    MessageBox.Show("Subasta completada con exito");
-                    MessageBox.Show("Datos de la venta guardados con exito.");
-                    Agregar();
-                    Close();
+                    try {
+                        //FALTA EL CORREO :)
+                        comando.ExecuteNonQuery();
+                        comando2.ExecuteNonQuery();
+                        MessageBox.Show("Subasta completada con exito");
+                        MessageBox.Show("Datos de la venta guardados con exito.");
+                        Agregar();
+                        Close();
+                    }
+                    catch { }
                 }
                 catch (Exception)
                 {

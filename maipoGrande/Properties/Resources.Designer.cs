@@ -59,5 +59,31 @@ namespace maipoGrande.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;&lt;/title&gt;
+        ///&lt;/head&gt;
+        ///&lt;body style=&quot;font-family: &apos;Times New Roman&apos;&quot;&gt;
+        ///    &lt;div align=&quot;center&quot;&gt;
+        ///        &lt;hr /&gt;
+        ///        &lt;h2 align=&quot;center&quot;&gt;Annie&apos;s Store&lt;/h2&gt;
+        ///        &lt;table width=&quot;300&quot; align=&quot;center&quot;&gt;
+        ///            &lt;tr align=&quot;center&quot;&gt;
+        ///                &lt;td&gt;IVA REG #000-0&lt;/td&gt;
+        ///            &lt;/tr&gt;
+        ///            &lt;tr align=&quot;center&quot;&gt;
+        ///                &lt;td&gt;NIT: 0000-000000-000-0&lt;/td&gt;
+        ///            &lt;/t [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string facturaLocal {
+            get {
+                return ResourceManager.GetString("facturaLocal", resourceCulture);
+            }
+        }
     }
 }
