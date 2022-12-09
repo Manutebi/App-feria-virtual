@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:maipoGrande.Pages"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Addpdv" Height="450" Width="400"
         WindowStyle="None"
@@ -26,7 +27,7 @@
             <ComboBox x:Name="cbIdSolicitud" Margin="218,223,72,0" Loaded="CbIdSolicitud_Loaded" Height="38" IsEnabled="False" VerticalAlignment="Top"/>
             <RadioButton x:Name="VentaLocalSi" GroupName="VentaLocal" Content="Venta Local" Margin="68,275,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="68" Width="108"/>
             <RadioButton x:Name="VentaLocalNo" GroupName="VentaLocal" Content="Venta Externa" Margin="200,283,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="52" Width="106"/>
-            <Button x:Name="Guardar_proceso" Content="Guardar" HorizontalAlignment="Center" Margin="0,377,0,0" VerticalAlignment="Top" Width="112" Click="Guardar_proceso_Click" Cursor="Hand"/>
+            <Button  materialDesign:ButtonAssist.CornerRadius="10" x:Name="Guardar_proceso" Content="Guardar" HorizontalAlignment="Center" Margin="0,377,0,0" VerticalAlignment="Top" Width="112" Click="Guardar_proceso_Click" Cursor="Hand"/>
 
 
 

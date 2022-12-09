@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
         xmlns:local="clr-namespace:maipoGrande.Pages"
         mc:Ignorable="d"
         Title="Updatecontratos" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None"
@@ -24,7 +26,7 @@
             <Label x:Name="contratoLabel" Content="Contrato activo?" Margin="442,177,199,230" IsEnabled="False"/>
             <RadioButton x:Name="contratoActivoSi" GroupName="contratoActivo" Content="Si" Margin="442,225,312,174" IsEnabled="False"/>
             <RadioButton x:Name="ContratoActivoNo" GroupName="contratoActivo" Content="No" Margin="511,226,234,174" IsEnabled="False"/>
-            <Button x:Name="actualizarContrato" Content="Actualizar" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Width="156" Click="Actualizar_Contrato_Click" />
+            <Button materialDesign:ButtonAssist.CornerRadius="10" x:Name="actualizarContrato" Content="Actualizar" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Width="156" Click="Actualizar_Contrato_Click" />
 
 
         </Grid>
