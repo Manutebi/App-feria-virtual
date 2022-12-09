@@ -195,18 +195,18 @@ namespace maipoGrande.Pages
             {
                 new ColumnSeries
                 {
-                    Title = "Cobros de subastas Locales",
+                    Title = "Cobros subastas Locales",
                     Values = new ChartValues<double> { sumaValorSubasta_local }
                 }
             };
             SeriesCollection2.Add(new ColumnSeries
             {
-                Title = "Cobros de subastas Externas",
+                Title = "Cobros subastas Externas",
                 Values = new ChartValues<double> { sumaValorSubasta_externa }
             });
             SeriesCollection2.Add(new ColumnSeries
             {
-                Title = "Cobros de subastas Totales",
+                Title = "Cobros subastas Totales",
                 Values = new ChartValues<double> { sumaTotalSubasta }
             });
             Labels2 = new[] { "Ventas de subastas confirmadas" };
@@ -824,6 +824,7 @@ namespace maipoGrande.Pages
             Values = new ChartValues<double> { precioPdv_mes1_local, precioPdv_mes2_local, precioPdv_mes3_local, precioPdv_mes4_local, precioPdv_mes5_local, precioPdv_mes6_local, precioPdv_mes7_local, precioPdv_mes8_local, precioPdv_mes9_local, precioPdv_mes10_local, precioPdv_mes11_local, precioPdv_mes12_local };
             Values2 = new ChartValues<double> { valorSubasta_mes1_local, valorSubasta_mes2_local, valorSubasta_mes3_local, valorSubasta_mes4_local, valorSubasta_mes5_local, valorSubasta_mes6_local, valorSubasta_mes7_local, valorSubasta_mes8_local, valorSubasta_mes9_local, valorSubasta_mes10_local, valorSubasta_mes11_local, valorSubasta_mes12_local };
             DataContext = this;
+            Grafico1.Content = "Grafico ventas locales";
             //Chart.Update(true);
         }
 
@@ -833,6 +834,7 @@ namespace maipoGrande.Pages
             Values = new ChartValues<double> { precioPdv_mes1_externa, precioPdv_mes2_externa, precioPdv_mes3_externa, precioPdv_mes4_externa, precioPdv_mes5_externa, precioPdv_mes6_externa, precioPdv_mes7_externa, precioPdv_mes8_externa, precioPdv_mes9_externa, precioPdv_mes10_externa, precioPdv_mes11_externa, precioPdv_mes12_externa };
             Values2 = new ChartValues<double> { valorSubasta_mes1_externa, valorSubasta_mes2_externa, valorSubasta_mes3_externa, valorSubasta_mes4_externa, valorSubasta_mes5_externa, valorSubasta_mes6_externa, valorSubasta_mes7_externa, valorSubasta_mes8_externa, valorSubasta_mes9_externa, valorSubasta_mes10_externa, valorSubasta_mes11_externa, valorSubasta_mes12_externa };
             DataContext = this;
+            Grafico1.Content = "Grafico ventas externas";
             //Chart.Update(true);
         }
 

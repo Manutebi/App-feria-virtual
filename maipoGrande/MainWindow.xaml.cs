@@ -20,9 +20,6 @@ using maipoGrandeDatos;
 using MaterialDesignThemes.Wpf;
 using maipoGrande.Pages;
 using System.ComponentModel;
-using MailKit.Net.Smtp;
-using MailKit;
-using MimeKit;
 
 
 
@@ -39,34 +36,10 @@ namespace maipoGrande
         {
             abrirConexion();
             InitializeComponent();
-            Email();
+           
         }
 
-        public static void Email()
-        {
-            String Servidor = "smtp.gmail.com";
-            int Puerto = 587;
-
-            String GmailUser = "manuanigar@gmail.com";
-            String GmailPass = "zwcd lzpb omzi edyx";
-
-            MimeMessage mensaje = new MimeMessage();
-            mensaje.From.Add(new MailboxAddress("Pruebads", GmailUser));
-            mensaje.To.Add(new MailboxAddress("destiuon", GmailUser));
-            mensaje.Subject = "dajsdajdhajddahdadjadakdsakd";
-
-            BodyBuilder CuerpoMensaje = new BodyBuilder();
-            CuerpoMensaje.TextBody = "HOLAAAAAAA";
-            CuerpoMensaje.HtmlBody = "TU <b>MAMA E WEONA</b>";
-
-            SmtpClient ClienteSmtp = new SmtpClient();
-            ClienteSmtp.CheckCertificateRevocation = false;
-            ClienteSmtp.Connect(Servidor, Puerto, MailKit.Security.SecureSocketOptions.StartTls);
-            ClienteSmtp.Authenticate(GmailUser, GmailPass);
-            ClienteSmtp.Send(mensaje);
-            ClienteSmtp.Disconnect(true);
-        }
-
+    
 
         private void abrirConexion()
         {

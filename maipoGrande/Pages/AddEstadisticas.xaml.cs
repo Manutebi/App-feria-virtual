@@ -1,4 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using MimeKit;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,6 +15,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
+
 
 namespace maipoGrande.Pages
 {
@@ -148,8 +153,39 @@ namespace maipoGrande.Pages
                         //FALTA EL CORREO :)
                         comando.ExecuteNonQuery();
                         comando2.ExecuteNonQuery();
+              
+
+                        String Servidor = "smtp.gmail.com";
+                        int Puerto = 587;
+
+                        String GmailUser = "manuanigar@gmail.com";
+                        String GmailPass = "zwcd lzpb omzi edyx";
+
+                        MimeMessage mensaje = new MimeMessage();
+                        mensaje.From.Add(new MailboxAddress("Pruebads", GmailUser));
+                        mensaje.To.Add(new MailboxAddress("destiuon", GmailUser));
+                        mensaje.Subject = "Hola";
+
+                        BodyBuilder CuerpoMensaje = new BodyBuilder();
+                        CuerpoMensaje.TextBody = "Hola";
+                        CuerpoMensaje.HtmlBody = "Hola <b>Hola</b>";
+
+                        SmtpClient ClienteSmtp = new SmtpClient();
+                        ClienteSmtp.CheckCertificateRevocation = false;
+                        ClienteSmtp.Connect(Servidor, Puerto, MailKit.Security.SecureSocketOptions.StartTls);
+                        ClienteSmtp.Authenticate(GmailUser, GmailPass);
+                        ClienteSmtp.Send(mensaje);
+                        ClienteSmtp.Disconnect(true);
+
                         MessageBox.Show("Subasta completada con exito");
                         MessageBox.Show("Datos de la venta guardados con exito.");
+                        MessageBox.Show("Notificación enviada al correo del cliente");
+
+
+
+
+
+
                         Agregar();
                         Close();
                     }

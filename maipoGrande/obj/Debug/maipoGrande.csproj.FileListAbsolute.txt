@@ -202,7 +202,6 @@ C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MimeKi
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Buffers.dll
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Memory.dll
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\BouncyCastle.Crypto.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MailKit.pdb
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MailKit.xml
 C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\MimeKit.pdb
@@ -229,3 +228,9 @@ C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\bin\Debug\System.Drawing.Common.dll
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\bin\Debug\itextsharp.xml
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\bin\Debug\System.Drawing.Common.xml
 C:\Users\Gino\Desktop\VEGA\app2\maipoGrande\obj\Debug\maipoGrande_Content.g.cs
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\itextsharp.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Drawing.Common.dll
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\itextsharp.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\bin\Debug\System.Drawing.Common.xml
+C:\Users\Manu\OneDrive\Escritorio\App-feria-virtual\maipoGrande\obj\Debug\maipoGrande_Content.g.cs

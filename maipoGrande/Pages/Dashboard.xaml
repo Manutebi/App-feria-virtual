@@ -32,26 +32,22 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border Background="{DynamicResource PrimaryHueLightBrush}"
+            <Border CornerRadius="10"
+                    Background="{DynamicResource PrimaryHueLightBrush}"
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
                     Grid.Row="1"
                     />
-            <!--<Label Grid.Row="1"
+            <Label Grid.Row="0"
                    Grid.Column="1"
                    Margin="0 10 0 0"
+                   FontWeight="ExtraBlack"
+                   Grid.ColumnSpan="2"
                    FontSize="20"
-                   Content="Total ventas "
+                   Content="Total ventas pdv "
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center"/>
-            <Label Content="0"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   Margin="0 0 0 10"
-                   FontSize="20"
-                   VerticalAlignment="Bottom"
-                   HorizontalAlignment="Center"
-                   Name="totalVentas"/>-->
+       
             <lvc:CartesianChart x:Name="preciosPdv" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Series="{Binding SeriesCollection}" LegendLocation="Top">
                 <!--<lvc:cartesianchart.axisx>
                     <lvc:axis title="salesman" labels="{binding labels}"></lvc:axis>
@@ -69,9 +65,11 @@
                    Grid.Row="1"
                    Grid.Column="2"/>-->
 
-            <Border Background="{DynamicResource PrimaryHueLightBrush}"
+            <Border CornerRadius="10"
+                    Background="{DynamicResource PrimaryHueLightBrush}"
                     Grid.Column="4"
                     Grid.ColumnSpan="2"
+                    Grid.RowSpan="1"
                     Grid.Row="1"
                     />
             <lvc:CartesianChart Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" Series="{Binding SeriesCollection2}" LegendLocation="Top">
@@ -82,21 +80,16 @@
                     <lvc:Axis Title="Sold Apps" LabelFormatter="{Binding Formatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>-->
             </lvc:CartesianChart>
-            <!--<Label Grid.Row="1"
+            <Label Grid.Row="0"
                    Grid.Column="4"
+                   Grid.ColumnSpan="2"
                    Margin="0 10 0 0"
+                   FontWeight="ExtraBlack"
                    FontSize="20"
-                   Content="Otros "
+                   Content="Total valores subastas "
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center"/>
-            <Label Content="0"
-                   Grid.Row="1"
-                   Grid.Column="4"
-                   Margin="0 0 0 10"
-                   FontSize="20"
-                   VerticalAlignment="Bottom"
-                   HorizontalAlignment="Center"
-                   Name="TotalSubastas"/>-->
+            
             <StackPanel Grid.Row="4" x:Name="menu">
                 <RadioButton x:Name="ventasLocales" Content="Ventas internas" Style="{DynamicResource MenuRadioButtonStyle2}" Tag="{DynamicResource Camion}" Click="Click_ventasLocales" Cursor="Hand" Checked="ventasLocales_Checked"/>
                 <RadioButton x:Name="ventasExternas" Content="Ventas externas" Style="{DynamicResource MenuRadioButtonStyle2}" Tag="{DynamicResource Avion}" Margin="0 5 0 5" Click="click_ventasExternas" Cursor="Hand" Checked="ventasExternas_Checked"/>
@@ -117,14 +110,15 @@
                 Background="{DynamicResource PrimaryHueLightBrush}"
                 CornerRadius="20"
                 />
-            <!--<Label Grid.Column="1"
+            <Label Grid.Column="1"
                     Grid.Row="2"
                     Grid.ColumnSpan="5"
-                    Content=""
+                    Content="Graficos"
                     FontSize="30"
                     FontWeight="ExtraBlack"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"/>-->
+                    VerticalAlignment="Bottom"
+                    Name="Grafico1"/>
 
             <lvc:CartesianChart Name="Chart" 
                                 Grid.Row="3"
@@ -177,7 +171,12 @@
                 </lvc:PieChart.Series>
             </lvc:PieChart>
 
-            <Button x:Name="facturaLocal" Content="facturaLocal" HorizontalAlignment="Center" Grid.Row="7" Grid.Column="2" VerticalAlignment="Top" Click="facturaLocal_Click"/>
+            <Button x:Name="facturaLocal" 
+                    Content="Factura local" 
+                    HorizontalAlignment="Center" 
+                    Grid.Row="7" Grid.Column="2" 
+                    VerticalAlignment="Top" 
+                    Click="facturaLocal_Click"/>
 
             <!--<Button Grid.Column="5" 
                     Grid.Row="4" 
