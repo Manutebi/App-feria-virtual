@@ -62,8 +62,6 @@ namespace maipoGrande.Pages
             UpdateEventArgs args = new UpdateEventArgs();
             UpdateEventHandler1.Invoke(this, args);
         }
-
-
  
 
         private void abrirConexion()
@@ -81,11 +79,6 @@ namespace maipoGrande.Pages
             }
 
         }
-
-
-
-
-       
         private void cargarUpdatePDV(string id_pdv)
         {
             try

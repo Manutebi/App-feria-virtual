@@ -25,6 +25,7 @@ using iTextSharp.text.pdf;
 using System.Windows.Forms;
 using iTextSharp.text;
 using System.IO;
+using System.Globalization;
 
 namespace maipoGrande.Pages
 {
@@ -195,18 +196,18 @@ namespace maipoGrande.Pages
             {
                 new ColumnSeries
                 {
-                    Title = "Cobros subastas Locales",
+                    Title = "Cobros de subastas Locales",
                     Values = new ChartValues<double> { sumaValorSubasta_local }
                 }
             };
             SeriesCollection2.Add(new ColumnSeries
             {
-                Title = "Cobros subastas Externas",
+                Title = "Cobros de subastas Externas",
                 Values = new ChartValues<double> { sumaValorSubasta_externa }
             });
             SeriesCollection2.Add(new ColumnSeries
             {
-                Title = "Cobros subastas Totales",
+                Title = "Cobros de subastas Totales",
                 Values = new ChartValues<double> { sumaTotalSubasta }
             });
             Labels2 = new[] { "Ventas de subastas confirmadas" };
@@ -824,7 +825,6 @@ namespace maipoGrande.Pages
             Values = new ChartValues<double> { precioPdv_mes1_local, precioPdv_mes2_local, precioPdv_mes3_local, precioPdv_mes4_local, precioPdv_mes5_local, precioPdv_mes6_local, precioPdv_mes7_local, precioPdv_mes8_local, precioPdv_mes9_local, precioPdv_mes10_local, precioPdv_mes11_local, precioPdv_mes12_local };
             Values2 = new ChartValues<double> { valorSubasta_mes1_local, valorSubasta_mes2_local, valorSubasta_mes3_local, valorSubasta_mes4_local, valorSubasta_mes5_local, valorSubasta_mes6_local, valorSubasta_mes7_local, valorSubasta_mes8_local, valorSubasta_mes9_local, valorSubasta_mes10_local, valorSubasta_mes11_local, valorSubasta_mes12_local };
             DataContext = this;
-            Grafico1.Content = "Grafico ventas locales";
             //Chart.Update(true);
         }
 
@@ -834,30 +834,111 @@ namespace maipoGrande.Pages
             Values = new ChartValues<double> { precioPdv_mes1_externa, precioPdv_mes2_externa, precioPdv_mes3_externa, precioPdv_mes4_externa, precioPdv_mes5_externa, precioPdv_mes6_externa, precioPdv_mes7_externa, precioPdv_mes8_externa, precioPdv_mes9_externa, precioPdv_mes10_externa, precioPdv_mes11_externa, precioPdv_mes12_externa };
             Values2 = new ChartValues<double> { valorSubasta_mes1_externa, valorSubasta_mes2_externa, valorSubasta_mes3_externa, valorSubasta_mes4_externa, valorSubasta_mes5_externa, valorSubasta_mes6_externa, valorSubasta_mes7_externa, valorSubasta_mes8_externa, valorSubasta_mes9_externa, valorSubasta_mes10_externa, valorSubasta_mes11_externa, valorSubasta_mes12_externa };
             DataContext = this;
-            Grafico1.Content = "Grafico ventas externas";
             //Chart.Update(true);
         }
 
         private void facturaLocal_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.SaveFileDialog guardar = new System.Windows.Forms.SaveFileDialog();
-            guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+            string paginaHtmlLocal_texto = Properties.Resources.facturaLocal.ToString();
 
-            string paginaHtmlLocal_texto = "<table><tr><td>HOLA CTM</td></tr></table>";
+            string nombreMes = "";
+            string filas = string.Empty;
+            decimal total = 0;
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.FileName = "l" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+
+            OracleCommand cmd = new OracleCommand("select ID_ESTAD, estadisticas.PRECIO_PDV, estadisticas.VALOR_SUBASTA, SUBASTA_ID_SUBASTA, FECHA_ID_FECHA, subasta.ID_SUBASTA ,CAP_TRANSPORTE.USUARIO_ID_USUARIO TRANSPORTISTA, pdv.ID_PDV, pdv.OFERTANTE_ID_OFERTANTE PRODUCTOR, solicitud_compra.ID_SOLICITUD, solicitud_compra.USUARIO_ID_USUARIO CLIENTE from estadisticas inner join subasta on subasta.ID_SUBASTA = estadisticas.SUBASTA_ID_SUBASTA inner join pdv on pdv.ID_PDV = subasta.PDV_ID_PDV inner join solicitud_compra on solicitud_compra.ID_SOLICITUD = pdv.SOLICITUD_COMPRA_ID_SOLICITUD inner join CAP_TRANSPORTE on CAP_TRANSPORTE.ID_TRANSPORTE = subasta.CAP_TRANSPORTE_ID_TRANSPORTE where estadisticas.tipo_pdv = 1 order by FECHA_ID_FECHA", conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            
+            foreach (DataRow row in dt.Rows)
+            {
+                DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
+                filas += "<tr>";
+                filas += "<td>" + row["ID_ESTAD"].ToString() + "</td>";
+                filas += "<td>" + row["PRECIO_PDV"].ToString() + "</td>";
+                filas += "<td>" + row["VALOR_SUBASTA"].ToString() + "</td>";
+                filas += "<td>" + row["ID_SUBASTA"].ToString() + "</td>";
+                filas += "<td>" + row["TRANSPORTISTA"].ToString() + "</td>";
+                filas += "<td>" + row["ID_PDV"].ToString() + "</td>";
+                filas += "<td>" + row["PRODUCTOR"].ToString() + "</td>";
+                filas += "<td>" + row["ID_SOLICITUD"].ToString() + "</td>";
+                filas += "<td>" + row["CLIENTE"].ToString() + "</td>";
+                if (row["FECHA_ID_FECHA"].ToString() == "1")
+                {
+                    nombreMes = "Enero";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "2")
+                {
+                    nombreMes = "Febrero";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "3")
+                {
+                    nombreMes = "Marzo";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "4")
+                {
+                    nombreMes = "Abril";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "5")
+                {
+                    nombreMes = "Mayo";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "6")
+                {
+                    nombreMes = "Junio";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "7")
+                {
+                    nombreMes = "Julio";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "8")
+                {
+                    nombreMes = "Agosto";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "9")
+                {
+                    nombreMes = "Septiembre";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "10")
+                {
+                    nombreMes = "Octubre";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "11")
+                {
+                    nombreMes = "Noviembre";
+                }
+                else
+                {
+                    nombreMes = "Diciembre";
+                }
+                filas += "<td>" + nombreMes + "</td>";
+                filas += "</tr>";
+            }
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@FILAS", filas);
+            
+            string IdFactura = "L" + DateTime.Now.ToString("ddMMyyyyHHmmss");
+            string FechaEmision = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@IdFactura", IdFactura);
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@FECHA", FechaEmision);
             if (guardar.ShowDialog() == DialogResult.OK)
             {
                 using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
                 {
                     Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
-                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
 
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                    
                     pdfDoc.Open();
-                    pdfDoc.Add(new Phrase(paginaHtmlLocal_texto));
+                    using (StringReader sr = new StringReader(paginaHtmlLocal_texto))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    }
+
                     pdfDoc.Close();
                     stream.Close();
                 }
-
-
             }
         }
     }
