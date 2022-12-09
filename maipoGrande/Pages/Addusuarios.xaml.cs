@@ -218,7 +218,7 @@ namespace maipoGrande.Pages
                 {
                     MessageBox.Show("Cantidad de caracteres invalidos (Pass)");
                 }
-                else if (RunBox.Text.Length <= 9 & RunBox.Text.Length >= 9)
+                else if (RunBox.Text.Length <= 8 & RunBox.Text.Length >= 10)
                 {
                     MessageBox.Show("Cantidad de caracteres invalidos (Run)");
                 }

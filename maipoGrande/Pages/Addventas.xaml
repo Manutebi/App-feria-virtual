@@ -20,9 +20,10 @@
             <Label x:Name="estadoLabel" Content="Estado de la solicitud" HorizontalAlignment="Left" Margin="57,158,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbEstadoSolicitud" Margin="199,143,79,0" Loaded="CbEstadoSolicitud_Loaded" VerticalAlignment="Top" Height="39"/>
             <Button x:Name="GuardarSolicitud" Content="Guardar" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" Width="96" Click="GuardarSolicitud_Click" RenderTransformOrigin="0.492,0.427"/>
+            <TextBox x:Name="cantidadBox" HorizontalAlignment="Left" Height="24" Margin="199,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Frutas" HorizontalAlignment="Left" Height="29" Margin="57,228,0,0" VerticalAlignment="Top" Width="72"/>
 
 
-            <TextBox Margin="199,211,79,175" Text="" x:Name="cantidadBox" FontSize="15" materialDesign:HintAssist.Hint="Nro de frutas requeridas" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
 
 
         </Grid>
