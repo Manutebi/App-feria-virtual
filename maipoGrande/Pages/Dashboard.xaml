@@ -47,7 +47,7 @@
                    Content="Total ventas pdv "
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center"/>
-       
+
             <lvc:CartesianChart x:Name="preciosPdv" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Series="{Binding SeriesCollection}" LegendLocation="Top">
                 <!--<lvc:cartesianchart.axisx>
                     <lvc:axis title="salesman" labels="{binding labels}"></lvc:axis>
@@ -89,7 +89,7 @@
                    Content="Total valores subastas "
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center"/>
-            
+
             <StackPanel Grid.Row="4" x:Name="menu">
                 <RadioButton x:Name="ventasLocales" Content="Ventas internas" Style="{DynamicResource MenuRadioButtonStyle2}" Tag="{DynamicResource Camion}" Click="Click_ventasLocales" Cursor="Hand" Checked="ventasLocales_Checked"/>
                 <RadioButton x:Name="ventasExternas" Content="Ventas externas" Style="{DynamicResource MenuRadioButtonStyle2}" Tag="{DynamicResource Avion}" Margin="0 5 0 5" Click="click_ventasExternas" Cursor="Hand" Checked="ventasExternas_Checked"/>
@@ -174,10 +174,16 @@
             <Button x:Name="facturaLocal" 
                     Content="Factura local" 
                     HorizontalAlignment="Center" 
-                    Grid.Row="7" Grid.Column="2" 
-                    VerticalAlignment="Top" 
+                    Grid.Row="6" Grid.Column="2" 
+                    VerticalAlignment="Center" 
                     Click="facturaLocal_Click"/>
 
+            <Button x:Name="facturaExterna" 
+                    Content="Factura Externa" 
+                    HorizontalAlignment="Center" 
+                    Grid.Row="6" Grid.Column="4" 
+                    VerticalAlignment="Center" 
+                    Click="facturaExterna_Click"/>
             <!--<Button Grid.Column="5" 
                     Grid.Row="4" 
                     Width="40" 

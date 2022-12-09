@@ -41,15 +41,9 @@
             <td colspan="2">
                 <table style="width:100%;">
                     <tr>
-                        <td colspan="1" style="width:20%">Autor del documento:</td>
-                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@CLIENTE</td>
-                    </tr>
-                </table>
-                <table style="width:100%">
-                    <tr>
-                        <td style="width:20%">Documento:</td>
-                        <td style="width:30%;border-bottom:1px solid black">@DOCUMENTO</td>
-                        <td style="width:10%">Fecha:</td>
+                        <td style="width:20%">Tipo de Ventas:</td>
+                        <td style="width:30%;border-bottom:1px solid black">@Tipo</td>
+                        <td style="width:10%"> Fecha:</td>
                         <td style="width:40%;border-bottom:1px solid black">@FECHA</td>
                     </tr>
                 </table>
@@ -78,11 +72,25 @@
                     </thead>
                     <tbody>
                         @FILAS
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table class="border" style="width:100%;  font-size:small; text-align:center">
+                    <thead>
+                        <tr style="background-color:#D8D8D8">
+                            <td>Valor total de Procesos de venta</td>
+                            <td>Valor total de subastas</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <td style="border: 0px !important"></td>
-                            <td style="border: 0px !important"></td>
-                            <td align="right">Total:</td>
-                            <td>@TOTAL</td>
+                            <td>$@TotalPdv</td>
+                            <td>$@TotalSubasta</td>
+                            <td>$@TOTAL</td>
                         </tr>
                     </tbody>
                 </table>

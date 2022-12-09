@@ -26,6 +26,7 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using System.IO;
 using System.Globalization;
+using maipoGrandeDatos;
 
 namespace maipoGrande.Pages
 {
@@ -107,10 +108,11 @@ namespace maipoGrande.Pages
         int valorSubasta_mes10_externa = 0;
         int valorSubasta_mes11_externa = 0;
         int valorSubasta_mes12_externa = 0;
+
         public Dashboard()
         {
-            InitializeComponent();
             abrirConexion();
+            InitializeComponent();
 
             cargar_precioPdv_mes1_local();
             cargar_precioPdv_mes2_local();
@@ -196,18 +198,18 @@ namespace maipoGrande.Pages
             {
                 new ColumnSeries
                 {
-                    Title = "Cobros de subastas Locales",
+                    Title = "Subastas Locales",
                     Values = new ChartValues<double> { sumaValorSubasta_local }
                 }
             };
             SeriesCollection2.Add(new ColumnSeries
             {
-                Title = "Cobros de subastas Externas",
+                Title = "Subastas Externas",
                 Values = new ChartValues<double> { sumaValorSubasta_externa }
             });
             SeriesCollection2.Add(new ColumnSeries
             {
-                Title = "Cobros de subastas Totales",
+                Title = "Subastas Totales",
                 Values = new ChartValues<double> { sumaTotalSubasta }
             });
             Labels2 = new[] { "Ventas de subastas confirmadas" };
@@ -845,9 +847,9 @@ namespace maipoGrande.Pages
             string filas = string.Empty;
             decimal total = 0;
             SaveFileDialog guardar = new SaveFileDialog();
-            guardar.FileName = "l" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+            guardar.FileName = "L-" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
 
-            OracleCommand cmd = new OracleCommand("select ID_ESTAD, estadisticas.PRECIO_PDV, estadisticas.VALOR_SUBASTA, SUBASTA_ID_SUBASTA, FECHA_ID_FECHA, subasta.ID_SUBASTA ,CAP_TRANSPORTE.USUARIO_ID_USUARIO TRANSPORTISTA, pdv.ID_PDV, pdv.OFERTANTE_ID_OFERTANTE PRODUCTOR, solicitud_compra.ID_SOLICITUD, solicitud_compra.USUARIO_ID_USUARIO CLIENTE from estadisticas inner join subasta on subasta.ID_SUBASTA = estadisticas.SUBASTA_ID_SUBASTA inner join pdv on pdv.ID_PDV = subasta.PDV_ID_PDV inner join solicitud_compra on solicitud_compra.ID_SOLICITUD = pdv.SOLICITUD_COMPRA_ID_SOLICITUD inner join CAP_TRANSPORTE on CAP_TRANSPORTE.ID_TRANSPORTE = subasta.CAP_TRANSPORTE_ID_TRANSPORTE where estadisticas.tipo_pdv = 1 order by FECHA_ID_FECHA", conn);
+            OracleCommand cmd = new OracleCommand("select ID_ESTAD, estadisticas.Tipo_pdv tipo_pdv, estadisticas.PRECIO_PDV, estadisticas.VALOR_SUBASTA, SUBASTA_ID_SUBASTA, FECHA_ID_FECHA, subasta.ID_SUBASTA ,CAP_TRANSPORTE.USUARIO_ID_USUARIO TRANSPORTISTA, pdv.ID_PDV, pdv.OFERTANTE_ID_OFERTANTE PRODUCTOR, solicitud_compra.ID_SOLICITUD, solicitud_compra.USUARIO_ID_USUARIO CLIENTE from estadisticas inner join subasta on subasta.ID_SUBASTA = estadisticas.SUBASTA_ID_SUBASTA inner join pdv on pdv.ID_PDV = subasta.PDV_ID_PDV inner join solicitud_compra on solicitud_compra.ID_SOLICITUD = pdv.SOLICITUD_COMPRA_ID_SOLICITUD inner join CAP_TRANSPORTE on CAP_TRANSPORTE.ID_TRANSPORTE = subasta.CAP_TRANSPORTE_ID_TRANSPORTE where estadisticas.tipo_pdv = 1 order by FECHA_ID_FECHA", conn);
             OracleDataAdapter da = new OracleDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -913,15 +915,24 @@ namespace maipoGrande.Pages
                 {
                     nombreMes = "Diciembre";
                 }
+
                 filas += "<td>" + nombreMes + "</td>";
                 filas += "</tr>";
             }
             paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@FILAS", filas);
-            
+
+            string tipopdv = "";
+            int sumatotal = sumaValorSubasta_local + sumaPrecioPdv_local;
             string IdFactura = "L" + DateTime.Now.ToString("ddMMyyyyHHmmss");
             string FechaEmision = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
+            if (dt.Rows[0]["TIPO_PDV"].ToString() == "1") { tipopdv = "Ventas Locales"; }
+            else { tipopdv = "Ventas Externas"; }
             paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@IdFactura", IdFactura);
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@Tipo", tipopdv);
             paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@FECHA", FechaEmision);
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@TotalPdv", Convert.ToString(sumaPrecioPdv_local));
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@TotalSubasta", Convert.ToString(sumaValorSubasta_local));
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@TOTAL", Convert.ToString(sumatotal));
             if (guardar.ShowDialog() == DialogResult.OK)
             {
                 using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
@@ -930,6 +941,120 @@ namespace maipoGrande.Pages
 
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                     
+                    pdfDoc.Open();
+                    using (StringReader sr = new StringReader(paginaHtmlLocal_texto))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    }
+
+                    pdfDoc.Close();
+                    stream.Close();
+                }
+            }
+        }
+
+        private void facturaExterna_Click(object sender, RoutedEventArgs e)
+        {
+            string paginaHtmlLocal_texto = Properties.Resources.facturaLocal.ToString();
+
+            string nombreMes = "";
+            string filas = string.Empty;
+            decimal total = 0;
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.FileName = "E-" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+
+            OracleCommand cmd = new OracleCommand("select ID_ESTAD, estadisticas.Tipo_pdv tipo_pdv, estadisticas.PRECIO_PDV, estadisticas.VALOR_SUBASTA, SUBASTA_ID_SUBASTA, FECHA_ID_FECHA, subasta.ID_SUBASTA ,CAP_TRANSPORTE.USUARIO_ID_USUARIO TRANSPORTISTA, pdv.ID_PDV, pdv.OFERTANTE_ID_OFERTANTE PRODUCTOR, solicitud_compra.ID_SOLICITUD, solicitud_compra.USUARIO_ID_USUARIO CLIENTE from estadisticas inner join subasta on subasta.ID_SUBASTA = estadisticas.SUBASTA_ID_SUBASTA inner join pdv on pdv.ID_PDV = subasta.PDV_ID_PDV inner join solicitud_compra on solicitud_compra.ID_SOLICITUD = pdv.SOLICITUD_COMPRA_ID_SOLICITUD inner join CAP_TRANSPORTE on CAP_TRANSPORTE.ID_TRANSPORTE = subasta.CAP_TRANSPORTE_ID_TRANSPORTE where estadisticas.tipo_pdv = 0 order by FECHA_ID_FECHA", conn);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
+                filas += "<tr>";
+                filas += "<td>" + row["ID_ESTAD"].ToString() + "</td>";
+                filas += "<td>" + row["PRECIO_PDV"].ToString() + "</td>";
+                filas += "<td>" + row["VALOR_SUBASTA"].ToString() + "</td>";
+                filas += "<td>" + row["ID_SUBASTA"].ToString() + "</td>";
+                filas += "<td>" + row["TRANSPORTISTA"].ToString() + "</td>";
+                filas += "<td>" + row["ID_PDV"].ToString() + "</td>";
+                filas += "<td>" + row["PRODUCTOR"].ToString() + "</td>";
+                filas += "<td>" + row["ID_SOLICITUD"].ToString() + "</td>";
+                filas += "<td>" + row["CLIENTE"].ToString() + "</td>";
+                if (row["FECHA_ID_FECHA"].ToString() == "1")
+                {
+                    nombreMes = "Enero";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "2")
+                {
+                    nombreMes = "Febrero";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "3")
+                {
+                    nombreMes = "Marzo";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "4")
+                {
+                    nombreMes = "Abril";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "5")
+                {
+                    nombreMes = "Mayo";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "6")
+                {
+                    nombreMes = "Junio";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "7")
+                {
+                    nombreMes = "Julio";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "8")
+                {
+                    nombreMes = "Agosto";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "9")
+                {
+                    nombreMes = "Septiembre";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "10")
+                {
+                    nombreMes = "Octubre";
+                }
+                else if (row["FECHA_ID_FECHA"].ToString() == "11")
+                {
+                    nombreMes = "Noviembre";
+                }
+                else
+                {
+                    nombreMes = "Diciembre";
+                }
+
+                filas += "<td>" + nombreMes + "</td>";
+                filas += "</tr>";
+            }
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@FILAS", filas);
+
+            string tipopdv = "";
+            int sumatotal = sumaValorSubasta_externa + sumaPrecioPdv_externa;
+            string IdFactura = "E" + DateTime.Now.ToString("ddMMyyyyHHmmss");
+            string FechaEmision = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
+            if (dt.Rows[0]["TIPO_PDV"].ToString() == "1") { tipopdv = "Ventas Locales"; }
+            else { tipopdv = "Ventas Externas"; }
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@IdFactura", IdFactura);
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@Tipo", tipopdv);
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@FECHA", FechaEmision);
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@TotalPdv", Convert.ToString(sumaPrecioPdv_externa));
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@TotalSubasta", Convert.ToString(sumaValorSubasta_externa));
+            paginaHtmlLocal_texto = paginaHtmlLocal_texto.Replace("@TOTAL", Convert.ToString(sumatotal));
+            if (guardar.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+
                     pdfDoc.Open();
                     using (StringReader sr = new StringReader(paginaHtmlLocal_texto))
                     {
